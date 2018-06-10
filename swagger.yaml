@@ -1,0 +1,592 @@
+swagger: '2.0'
+info:
+  title: DCFB API
+  description: API spec for DCFB API.
+  version: "0.0.1"
+schemes:
+  - https
+basePath: /v1
+securityDefinitions:
+  basicAuth:
+    type: basic
+security:
+- basicAuth: []
+consumes:
+  - application/json;charset=utf-8
+produces:
+  - application/json;charset=utf-8
+paths:
+
+  /items:
+    get:
+      operationId: listItems
+      summary: List items
+      description: List items
+      parameters:
+        - name: categoryIds
+          in: query
+          description: Filter by category ids (comma delimitered)
+          type: string
+        - name: search
+          in: query
+          description: Search  by free-text query
+          required: false
+          type: string
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64
+      tags:
+        - Items
+      responses:
+        200:
+          description: An array of items
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    post:
+      operationId: createItem
+      summary: Create item
+      description: Create item
+      parameters:
+        - name: payload
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/Item'
+      tags:
+        - Items
+      responses:
+        200:
+          description: Created item
+          schema:
+            $ref: '#/definitions/Item'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  '/items/{itemId}':
+    get:
+      operationId: findItem
+      summary: Finds an item
+      description: Find item
+      parameters:
+        - name: itemId
+          required: true
+          in: path
+          description: Item id
+          type: string
+      tags:
+        - Items
+      responses:
+        200:
+          description: An array of items
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    put:
+      operationId: updateItem
+      summary: updates an item
+      description: Update item
+      parameters:
+        - name: itemId
+          required: true
+          in: path
+          description: Item id
+          type: string
+        - name: payload
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/Item'
+      tags:
+        - Items
+      responses:
+        200:
+          description: Updated item
+          schema:
+            $ref: '#/definitions/Item'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    delete:
+      operationId: deleteItem
+      summary: deletes an item
+      description: Delete item
+      parameters:
+        - name: itemId
+          required: true
+          in: path
+          description: Item id
+          type: string
+      tags:
+        - Items
+      responses:
+        204:
+          description: Empty resonse indicating a succesfull removal
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+
+  /purchaseRequests:
+    get:
+      operationId: list purchase requests
+      summary: List purchase requests
+      description: List purchase requests
+      parameters:
+        - name: categoryIds
+          in: query
+          description: Filter by category ids (comma delimitered)
+          type: string
+        - name: search
+          in: query
+          description: Search  by free-text query
+          required: false
+          type: string
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64
+      tags:
+        - PurchaseRequests
+      responses:
+        200:
+          description: An array of purchase requests
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PurchaseRequest'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    post:
+      operationId: createPurchaseRequest
+      summary: Create purchase request
+      description: Create purchase request
+      parameters:
+        - name: payload
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/PurchaseRequest'
+      tags:
+        - PurchaseRequests
+      responses:
+        200:
+          description: Created purchaseRequest
+          schema:
+            $ref: '#/definitions/PurchaseRequest'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  '/purchaseRequests/{purchaseRequestId}':
+    get:
+      operationId: findPurchaseRequest
+      summary: Finds an purchaseRequest
+      description: Find purchaseRequest
+      parameters:
+        - name: purchaseRequestId
+          required: true
+          in: path
+          description: PurchaseRequest id
+          type: string
+      tags:
+        - PurchaseRequests
+      responses:
+        200:
+          description: An array of purchase requests
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PurchaseRequest'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    put:
+      operationId: updatePurchaseRequest
+      summary: updates an purchase request
+      description: Update purchase request
+      parameters:
+        - name: purchaseRequestId
+          required: true
+          in: path
+          description: PurchaseRequest id
+          type: string
+        - name: payload
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/PurchaseRequest'
+      tags:
+        - PurchaseRequests
+      responses:
+        200:
+          description: Updated purchaseRequest
+          schema:
+            $ref: '#/definitions/PurchaseRequest'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    delete:
+      operationId: deletePurchaseRequest
+      summary: deletes an purchase request
+      description: Delete purchase request
+      parameters:
+        - name: purchaseRequestId
+          required: true
+          in: path
+          description: PurchaseRequest id
+          type: string
+      tags:
+        - PurchaseRequests
+      responses:
+        204:
+          description: Empty resonse indicating a succesfull removal
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+
+definitions:
+
+  LocalizedValue: 
+    type: object
+    properties:
+      language:
+        type: string
+      value:
+        type: string
+      type:
+        type: string      
+        
+  Address:
+    type: object
+    properties:
+      streetAddress:
+        description: Street address.
+        type: string
+      postalCode:
+        description: 'Postal code, for example 00010.'
+        type: string
+      postOffice:
+        description: Post office
+        type: string
+      country:
+        description: 'Country code (ISO 3166-1 alpha-2), for example FI.'
+        type: string
+      additionalInformations:
+        description: Localized list of additional information about the address.
+        type: array
+        items:
+          $ref: '#/definitions/LocalizedValue'
+          
+  Coordinate:
+    type: object
+    properties:
+      crs:
+        type: string
+      latitude:
+        description: latitude coordinate.
+        type: string
+      longitude:
+        description: longitude coordinate.
+        type: string
+        
+  Category:
+    type: object
+    properties:
+      id:
+        description: Category id
+        type: string
+        format: uuid
+      parentId:
+        description: Category parent id.
+        type: string
+        format: uuid
+      slug:
+        description: Category slug
+        type: string
+        
+  Price:
+    type: object
+    properties:
+      price:
+        type: string
+        description: price with two decimal places. e.g. 13.00
+      currency:
+        description: Currency code (ISO 4217)
+        type: string
+        
+  Location:
+    type: object
+    required:
+    - name
+    properties:
+      id:
+        description: Location id
+        type: string
+        format: uuid
+      name:
+        type: array
+        description: Name of the location, multilingual
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      coordinate:
+        $ref: '#/definitions/Coordinate'
+      address:
+        $ref: '#/definitions/Address'
+  
+  Image:
+    type: object
+    properties:
+      id:
+        description: Image id
+        type: string
+        format: uuid
+      url:
+        description: Image URL
+        type: string
+      type:
+        description: Image type
+        type: string
+
+  Item:
+    type: object
+    properties:
+      id:
+        description: Item id
+        type: string
+        format: uuid
+      title:
+        type: array
+        description: Title of the item, multilingual
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      description:
+        type: array
+        description: Description of the item, multilingual
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      categoryId:
+        description: Category id.
+        type: string
+        format: uuid
+      slug:
+        description: Item slug
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+      modifiedAt:
+        type: string
+        format: date-time
+      expiresAt:
+        type: string
+        format: date-time
+      images:
+        type: array
+        items: 
+          $ref: '#/definitions/Image'
+      unitPrice:
+        $ref: '#/definitions/Price'
+      unit:
+        type: string
+      amount:
+        type: number
+        format: int64
+
+  PurchaseRequest:
+    type: object
+    properties:
+      id:
+        description: Purchase request id
+        type: string
+        format: uuid
+      title:
+        type: array
+        description: Title of the item, multilingual
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      description:
+        type: array
+        description: Description of the item, multilingual
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      categoryId:
+        description: Category id.
+        type: string
+        format: uuid
+      slug:
+        description: Item slug
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+      modifiedAt:
+        type: string
+        format: date-time
+      expiresAt:
+        type: string
+        format: date-time
+      unit:
+        type: string
+      amount:
+        type: number
+        format: int64
+        
+  InternalServerError:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+  Forbidden:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+  BadRequest:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+  NotImplemented:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+  NotFound:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

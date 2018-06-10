@@ -1,0 +1,19 @@
+# DcfbApiClient.Item
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **String** | Item id | [optional] 
+**title** | [**[LocalizedValue]**](LocalizedValue.md) | Title of the item, multilingual | [optional] 
+**description** | [**[LocalizedValue]**](LocalizedValue.md) | Description of the item, multilingual | [optional] 
+**categoryId** | **String** | Category id. | [optional] 
+**slug** | **String** | Item slug | [optional] 
+**createdAt** | **Date** |  | [optional] 
+**modifiedAt** | **Date** |  | [optional] 
+**expiresAt** | **Date** |  | [optional] 
+**images** | [**[Image]**](Image.md) |  | [optional] 
+**unitPrice** | [**Price**](Price.md) |  | [optional] 
+**unit** | **String** |  | [optional] 
+**amount** | **Number** |  | [optional] 
+
+
