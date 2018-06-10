@@ -29,7 +29,7 @@ paths:
           type: string
         - name: search
           in: query
-          description: Search  by free-text query
+          description: Search by free-text query
           required: false
           type: string
         - name: firstResult
@@ -106,6 +106,7 @@ paths:
           in: path
           description: Item id
           type: string
+          format: uuid
       tags:
         - Items
       responses:
@@ -137,6 +138,7 @@ paths:
           in: path
           description: Item id
           type: string
+          format: uuid
         - name: payload
           in: body
           description: Payload
@@ -172,6 +174,7 @@ paths:
           in: path
           description: Item id
           type: string
+          format: uuid
       tags:
         - Items
       responses:
@@ -279,6 +282,7 @@ paths:
           in: path
           description: PurchaseRequest id
           type: string
+          format: uuid
       tags:
         - PurchaseRequests
       responses:
@@ -310,6 +314,7 @@ paths:
           in: path
           description: PurchaseRequest id
           type: string
+          format: uuid
         - name: payload
           in: body
           description: Payload
@@ -345,6 +350,7 @@ paths:
           in: path
           description: PurchaseRequest id
           type: string
+          format: uuid
       tags:
         - PurchaseRequests
       responses:
@@ -367,9 +373,15 @@ definitions:
 
   LocalizedValue: 
     type: object
+    required:
+      - language
+      - value
+      - type
     properties:
       language:
         type: string
+        minLength: 2
+        maxLength: 2        
       value:
         type: string
       type:
