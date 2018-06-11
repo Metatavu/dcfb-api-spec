@@ -1,9 +1,9 @@
 package fi.metatavu.dcfb.server.rest;
 
 import fi.metatavu.dcfb.server.rest.model.BadRequest;
+import fi.metatavu.dcfb.server.rest.model.Category;
 import fi.metatavu.dcfb.server.rest.model.Forbidden;
 import fi.metatavu.dcfb.server.rest.model.InternalServerError;
-import fi.metatavu.dcfb.server.rest.model.PurchaseRequest;
 import java.util.UUID;
 
 import javax.ws.rs.*;
@@ -17,83 +17,83 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import java.lang.Exception;
 
-@Path("/purchaseRequests")
+@Path("/categories")
 
-@Api(description = "the purchaseRequests API")
+@Api(description = "the categories API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-11T11:16:13.403+03:00")
 
 
-public interface PurchaseRequestsApi  {
+public interface CategoriesApi  {
 
     @POST
     
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "Create purchase request", notes = "Create purchase request", response = PurchaseRequest.class, authorizations = {
+    @ApiOperation(value = "Create category", notes = "Create category", response = Category.class, authorizations = {
         @Authorization(value = "basicAuth")
-    }, tags={ "PurchaseRequests",  })
+    }, tags={ "Categories",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Created purchaseRequest", response = PurchaseRequest.class),
+        @ApiResponse(code = 200, message = "Created category", response = Category.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response createPurchaseRequest(@Valid PurchaseRequest payload) throws Exception;
+    public Response createCategory(@Valid Category payload) throws Exception;
 
     @DELETE
-    @Path("/{purchaseRequestId}")
+    @Path("/{categoryId}")
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "deletes an purchase request", notes = "Delete purchase request", response = Void.class, authorizations = {
+    @ApiOperation(value = "deletes an category", notes = "Delete category", response = Void.class, authorizations = {
         @Authorization(value = "basicAuth")
-    }, tags={ "PurchaseRequests",  })
+    }, tags={ "Categories",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 204, message = "Empty resonse indicating a succesfull removal", response = Void.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response deletePurchaseRequest(@PathParam("purchaseRequestId") @ApiParam("PurchaseRequest id") UUID purchaseRequestId) throws Exception;
+    public Response deleteCategory(@PathParam("categoryId") @ApiParam("Category id") UUID categoryId) throws Exception;
 
     @GET
-    @Path("/{purchaseRequestId}")
+    @Path("/{categoryId}")
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "Finds an purchaseRequest", notes = "Find purchaseRequest", response = PurchaseRequest.class, responseContainer = "List", authorizations = {
+    @ApiOperation(value = "Finds an category", notes = "Find category", response = Category.class, responseContainer = "List", authorizations = {
         @Authorization(value = "basicAuth")
-    }, tags={ "PurchaseRequests",  })
+    }, tags={ "Categories",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "An array of purchase requests", response = PurchaseRequest.class, responseContainer = "List"),
+        @ApiResponse(code = 200, message = "An array of categories", response = Category.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response findPurchaseRequest(@PathParam("purchaseRequestId") @ApiParam("PurchaseRequest id") UUID purchaseRequestId) throws Exception;
+    public Response findCategory(@PathParam("categoryId") @ApiParam("Category id") UUID categoryId) throws Exception;
 
     @GET
     
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "List purchase requests", notes = "List purchase requests", response = PurchaseRequest.class, responseContainer = "List", authorizations = {
+    @ApiOperation(value = "List categories", notes = "List categories", response = Category.class, responseContainer = "List", authorizations = {
         @Authorization(value = "basicAuth")
-    }, tags={ "PurchaseRequests",  })
+    }, tags={ "Categories",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "An array of purchase requests", response = PurchaseRequest.class, responseContainer = "List"),
+        @ApiResponse(code = 200, message = "An array of categories", response = Category.class, responseContainer = "List"),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response listPurchaseRequests(@QueryParam("categoryIds")   @ApiParam("Filter by category ids (comma delimitered)")  String categoryIds,@QueryParam("search")   @ApiParam("Search  by free-text query")  String search,@QueryParam("firstResult")   @ApiParam("First result")  Long firstResult,@QueryParam("maxResults")   @ApiParam("Max results")  Long maxResults) throws Exception;
+    public Response listCategories(@QueryParam("firstResult")   @ApiParam("First result")  Long firstResult,@QueryParam("maxResults")   @ApiParam("Max results")  Long maxResults) throws Exception;
 
     @PUT
-    @Path("/{purchaseRequestId}")
+    @Path("/{categoryId}")
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
-    @ApiOperation(value = "updates an purchase request", notes = "Update purchase request", response = PurchaseRequest.class, authorizations = {
+    @ApiOperation(value = "updates an category", notes = "Update category", response = Category.class, authorizations = {
         @Authorization(value = "basicAuth")
-    }, tags={ "PurchaseRequests" })
+    }, tags={ "Categories" })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Updated purchaseRequest", response = PurchaseRequest.class),
+        @ApiResponse(code = 200, message = "Updated category", response = Category.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response updatePurchaseRequest(@PathParam("purchaseRequestId") @ApiParam("PurchaseRequest id") UUID purchaseRequestId,@Valid PurchaseRequest payload) throws Exception;
+    public Response updateCategory(@PathParam("categoryId") @ApiParam("Category id") UUID categoryId,@Valid Category payload) throws Exception;
 }

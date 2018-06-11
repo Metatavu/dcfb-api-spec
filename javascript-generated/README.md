@@ -102,11 +102,11 @@ var basicAuth = defaultClient.authentications['basicAuth'];
 basicAuth.username = 'YOUR USERNAME'
 basicAuth.password = 'YOUR PASSWORD'
 
-var api = new DcfbApiClient.ItemsApi()
+var api = new DcfbApiClient.CategoriesApi()
 
-var payload = new DcfbApiClient.Item(); // {Item} Payload
+var payload = new DcfbApiClient.Category(); // {Category} Payload
 
-api.createItem(payload).then(function(data) {
+api.createCategory(payload).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -121,6 +121,11 @@ All URIs are relative to *https://localhost/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DcfbApiClient.CategoriesApi* | [**createCategory**](docs/CategoriesApi.md#createCategory) | **POST** /categories | Create category
+*DcfbApiClient.CategoriesApi* | [**deleteCategory**](docs/CategoriesApi.md#deleteCategory) | **DELETE** /categories/{categoryId} | deletes an category
+*DcfbApiClient.CategoriesApi* | [**findCategory**](docs/CategoriesApi.md#findCategory) | **GET** /categories/{categoryId} | Finds an category
+*DcfbApiClient.CategoriesApi* | [**listCategories**](docs/CategoriesApi.md#listCategories) | **GET** /categories | List categories
+*DcfbApiClient.CategoriesApi* | [**updateCategory**](docs/CategoriesApi.md#updateCategory) | **PUT** /categories/{categoryId} | updates an category
 *DcfbApiClient.ItemsApi* | [**createItem**](docs/ItemsApi.md#createItem) | **POST** /items | Create item
 *DcfbApiClient.ItemsApi* | [**deleteItem**](docs/ItemsApi.md#deleteItem) | **DELETE** /items/{itemId} | deletes an item
 *DcfbApiClient.ItemsApi* | [**findItem**](docs/ItemsApi.md#findItem) | **GET** /items/{itemId} | Finds an item

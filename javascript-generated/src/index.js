@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/BadRequest', 'model/Category', 'model/Coordinate', 'model/Forbidden', 'model/Image', 'model/InternalServerError', 'model/Item', 'model/LocalizedValue', 'model/Location', 'model/NotFound', 'model/NotImplemented', 'model/Price', 'model/PurchaseRequest', 'api/ItemsApi', 'api/PurchaseRequestsApi'], factory);
+    define(['ApiClient', 'model/Address', 'model/BadRequest', 'model/Category', 'model/Coordinate', 'model/Forbidden', 'model/Image', 'model/InternalServerError', 'model/Item', 'model/LocalizedValue', 'model/Location', 'model/NotFound', 'model/NotImplemented', 'model/Price', 'model/PurchaseRequest', 'api/CategoriesApi', 'api/ItemsApi', 'api/PurchaseRequestsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Address'), require('./model/BadRequest'), require('./model/Category'), require('./model/Coordinate'), require('./model/Forbidden'), require('./model/Image'), require('./model/InternalServerError'), require('./model/Item'), require('./model/LocalizedValue'), require('./model/Location'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/Price'), require('./model/PurchaseRequest'), require('./api/ItemsApi'), require('./api/PurchaseRequestsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Address'), require('./model/BadRequest'), require('./model/Category'), require('./model/Coordinate'), require('./model/Forbidden'), require('./model/Image'), require('./model/InternalServerError'), require('./model/Item'), require('./model/LocalizedValue'), require('./model/Location'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/Price'), require('./model/PurchaseRequest'), require('./api/CategoriesApi'), require('./api/ItemsApi'), require('./api/PurchaseRequestsApi'));
   }
-}(function(ApiClient, Address, BadRequest, Category, Coordinate, Forbidden, Image, InternalServerError, Item, LocalizedValue, Location, NotFound, NotImplemented, Price, PurchaseRequest, ItemsApi, PurchaseRequestsApi) {
+}(function(ApiClient, Address, BadRequest, Category, Coordinate, Forbidden, Image, InternalServerError, Item, LocalizedValue, Location, NotFound, NotImplemented, Price, PurchaseRequest, CategoriesApi, ItemsApi, PurchaseRequestsApi) {
   'use strict';
 
   /**
@@ -131,6 +131,11 @@
      * @property {module:model/PurchaseRequest}
      */
     PurchaseRequest: PurchaseRequest,
+    /**
+     * The CategoriesApi service constructor.
+     * @property {module:api/CategoriesApi}
+     */
+    CategoriesApi: CategoriesApi,
     /**
      * The ItemsApi service constructor.
      * @property {module:api/ItemsApi}

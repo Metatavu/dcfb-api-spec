@@ -598,6 +598,11 @@ definitions:
         description: Category parent id.
         type: string
         format: uuid
+      title:
+        type: array
+        description: Title of the category, multilingual
+        items:
+          $ref: '#/definitions/LocalizedValue'
       slug:
         description: Category slug
         type: string

@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Address
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-10T18:25:58.288+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T11:16:33.752+03:00")
 public class Address {
   @JsonProperty("streetAddress")
   private String streetAddress = null;

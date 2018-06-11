@@ -1,23 +1,23 @@
-# DcfbApiClient.ItemsApi
+# DcfbApiClient.CategoriesApi
 
 All URIs are relative to *https://localhost/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createItem**](ItemsApi.md#createItem) | **POST** /items | Create item
-[**deleteItem**](ItemsApi.md#deleteItem) | **DELETE** /items/{itemId} | deletes an item
-[**findItem**](ItemsApi.md#findItem) | **GET** /items/{itemId} | Finds an item
-[**listItems**](ItemsApi.md#listItems) | **GET** /items | List items
-[**updateItem**](ItemsApi.md#updateItem) | **PUT** /items/{itemId} | updates an item
+[**createCategory**](CategoriesApi.md#createCategory) | **POST** /categories | Create category
+[**deleteCategory**](CategoriesApi.md#deleteCategory) | **DELETE** /categories/{categoryId} | deletes an category
+[**findCategory**](CategoriesApi.md#findCategory) | **GET** /categories/{categoryId} | Finds an category
+[**listCategories**](CategoriesApi.md#listCategories) | **GET** /categories | List categories
+[**updateCategory**](CategoriesApi.md#updateCategory) | **PUT** /categories/{categoryId} | updates an category
 
 
-<a name="createItem"></a>
-# **createItem**
-> Item createItem(payload)
+<a name="createCategory"></a>
+# **createCategory**
+> Category createCategory(payload)
 
-Create item
+Create category
 
-Create item
+Create category
 
 ### Example
 ```javascript
@@ -29,11 +29,11 @@ var basicAuth = defaultClient.authentications['basicAuth'];
 basicAuth.username = 'YOUR USERNAME';
 basicAuth.password = 'YOUR PASSWORD';
 
-var apiInstance = new DcfbApiClient.ItemsApi();
+var apiInstance = new DcfbApiClient.CategoriesApi();
 
-var payload = new DcfbApiClient.Item(); // Item | Payload
+var payload = new DcfbApiClient.Category(); // Category | Payload
 
-apiInstance.createItem(payload).then(function(data) {
+apiInstance.createCategory(payload).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -45,11 +45,11 @@ apiInstance.createItem(payload).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**Item**](Item.md)| Payload | 
+ **payload** | [**Category**](Category.md)| Payload | 
 
 ### Return type
 
-[**Item**](Item.md)
+[**Category**](Category.md)
 
 ### Authorization
 
@@ -60,13 +60,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/json;charset=utf-8
 
-<a name="deleteItem"></a>
-# **deleteItem**
-> deleteItem(itemId)
+<a name="deleteCategory"></a>
+# **deleteCategory**
+> deleteCategory(categoryId)
 
-deletes an item
+deletes an category
 
-Delete item
+Delete category
 
 ### Example
 ```javascript
@@ -78,11 +78,11 @@ var basicAuth = defaultClient.authentications['basicAuth'];
 basicAuth.username = 'YOUR USERNAME';
 basicAuth.password = 'YOUR PASSWORD';
 
-var apiInstance = new DcfbApiClient.ItemsApi();
+var apiInstance = new DcfbApiClient.CategoriesApi();
 
-var itemId = "itemId_example"; // String | Item id
+var categoryId = "categoryId_example"; // String | Category id
 
-apiInstance.deleteItem(itemId).then(function() {
+apiInstance.deleteCategory(categoryId).then(function() {
   console.log('API called successfully.');
 }, function(error) {
   console.error(error);
@@ -94,7 +94,7 @@ apiInstance.deleteItem(itemId).then(function() {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id | 
+ **categoryId** | **String**| Category id | 
 
 ### Return type
 
@@ -109,13 +109,13 @@ null (empty response body)
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/json;charset=utf-8
 
-<a name="findItem"></a>
-# **findItem**
-> [Item] findItem(itemId)
+<a name="findCategory"></a>
+# **findCategory**
+> [Category] findCategory(categoryId)
 
-Finds an item
+Finds an category
 
-Find item
+Find category
 
 ### Example
 ```javascript
@@ -127,11 +127,11 @@ var basicAuth = defaultClient.authentications['basicAuth'];
 basicAuth.username = 'YOUR USERNAME';
 basicAuth.password = 'YOUR PASSWORD';
 
-var apiInstance = new DcfbApiClient.ItemsApi();
+var apiInstance = new DcfbApiClient.CategoriesApi();
 
-var itemId = "itemId_example"; // String | Item id
+var categoryId = "categoryId_example"; // String | Category id
 
-apiInstance.findItem(itemId).then(function(data) {
+apiInstance.findCategory(categoryId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -143,11 +143,11 @@ apiInstance.findItem(itemId).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id | 
+ **categoryId** | **String**| Category id | 
 
 ### Return type
 
-[**[Item]**](Item.md)
+[**[Category]**](Category.md)
 
 ### Authorization
 
@@ -158,13 +158,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/json;charset=utf-8
 
-<a name="listItems"></a>
-# **listItems**
-> [Item] listItems(opts)
+<a name="listCategories"></a>
+# **listCategories**
+> [Category] listCategories(opts)
 
-List items
+List categories
 
-List items
+List categories
 
 ### Example
 ```javascript
@@ -176,15 +176,13 @@ var basicAuth = defaultClient.authentications['basicAuth'];
 basicAuth.username = 'YOUR USERNAME';
 basicAuth.password = 'YOUR PASSWORD';
 
-var apiInstance = new DcfbApiClient.ItemsApi();
+var apiInstance = new DcfbApiClient.CategoriesApi();
 
 var opts = { 
-  'categoryIds': "categoryIds_example", // String | Filter by category ids (comma delimitered)
-  'search': "search_example", // String | Search by free-text query
   'firstResult': 789, // Number | First result
   'maxResults': 789 // Number | Max results
 };
-apiInstance.listItems(opts).then(function(data) {
+apiInstance.listCategories(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -196,14 +194,12 @@ apiInstance.listItems(opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **categoryIds** | **String**| Filter by category ids (comma delimitered) | [optional] 
- **search** | **String**| Search by free-text query | [optional] 
  **firstResult** | **Number**| First result | [optional] 
  **maxResults** | **Number**| Max results | [optional] 
 
 ### Return type
 
-[**[Item]**](Item.md)
+[**[Category]**](Category.md)
 
 ### Authorization
 
@@ -214,13 +210,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/json;charset=utf-8
 
-<a name="updateItem"></a>
-# **updateItem**
-> Item updateItem(itemId, payload)
+<a name="updateCategory"></a>
+# **updateCategory**
+> Category updateCategory(categoryId, payload)
 
-updates an item
+updates an category
 
-Update item
+Update category
 
 ### Example
 ```javascript
@@ -232,13 +228,13 @@ var basicAuth = defaultClient.authentications['basicAuth'];
 basicAuth.username = 'YOUR USERNAME';
 basicAuth.password = 'YOUR PASSWORD';
 
-var apiInstance = new DcfbApiClient.ItemsApi();
+var apiInstance = new DcfbApiClient.CategoriesApi();
 
-var itemId = "itemId_example"; // String | Item id
+var categoryId = "categoryId_example"; // String | Category id
 
-var payload = new DcfbApiClient.Item(); // Item | Payload
+var payload = new DcfbApiClient.Category(); // Category | Payload
 
-apiInstance.updateItem(itemId, payload).then(function(data) {
+apiInstance.updateCategory(categoryId, payload).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -250,12 +246,12 @@ apiInstance.updateItem(itemId, payload).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id | 
- **payload** | [**Item**](Item.md)| Payload | 
+ **categoryId** | **String**| Category id | 
+ **payload** | [**Category**](Category.md)| Payload | 
 
 ### Return type
 
-[**Item**](Item.md)
+[**Category**](Category.md)
 
 ### Authorization
 

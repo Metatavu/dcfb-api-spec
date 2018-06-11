@@ -43,13 +43,16 @@
    * Constructs a new <code>LocalizedValue</code>.
    * @alias module:model/LocalizedValue
    * @class
+   * @param language {String} 
+   * @param value {String} 
+   * @param type {String} 
    */
-  var exports = function() {
+  var exports = function(language, value, type) {
     var _this = this;
 
-
-
-
+    _this['language'] = language;
+    _this['value'] = value;
+    _this['type'] = type;
   };
 
   /**

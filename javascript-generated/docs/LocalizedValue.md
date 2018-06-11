@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**language** | **String** |  | [optional] 
-**value** | **String** |  | [optional] 
-**type** | **String** |  | [optional] 
+**language** | **String** |  | 
+**value** | **String** |  | 
+**type** | **String** |  | 
 
 

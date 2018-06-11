@@ -22,7 +22,7 @@ import java.lang.Exception;
 @Api(description = "the items API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-10T17:49:52.310+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-11T11:16:13.403+03:00")
 
 
 public interface ItemsApi  {
@@ -81,7 +81,7 @@ public interface ItemsApi  {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response listItems(@QueryParam("categoryIds")   @ApiParam("Filter by category ids (comma delimitered)")  String categoryIds,@QueryParam("search")   @ApiParam("Search  by free-text query")  String search,@QueryParam("firstResult")   @ApiParam("First result")  Long firstResult,@QueryParam("maxResults")   @ApiParam("Max results")  Long maxResults) throws Exception;
+    public Response listItems(@QueryParam("categoryIds")   @ApiParam("Filter by category ids (comma delimitered)")  String categoryIds,@QueryParam("search")   @ApiParam("Search by free-text query")  String search,@QueryParam("firstResult")   @ApiParam("First result")  Long firstResult,@QueryParam("maxResults")   @ApiParam("Max results")  Long maxResults) throws Exception;
 
     @PUT
     @Path("/{itemId}")
