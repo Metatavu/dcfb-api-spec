@@ -394,7 +394,7 @@ paths:
           description: An array of categories
           schema:
             type: array
-            categories:
+            items:
               $ref: '#/definitions/Category'
         400:
           description: Invalid request was sent to the server
@@ -457,7 +457,7 @@ paths:
           description: An array of categories
           schema:
             type: array
-            categories:
+            items:
               $ref: '#/definitions/Category'
         400:
           description: Invalid request was sent to the server
@@ -737,6 +737,7 @@ definitions:
         format: int32
       message:
         type: string
+        
   Forbidden:
     type: object
     properties:
@@ -745,6 +746,7 @@ definitions:
         format: int32
       message:
         type: string
+        
   BadRequest:
     type: object
     properties:
@@ -753,6 +755,7 @@ definitions:
         format: int32
       message:
         type: string
+        
   NotImplemented:
     type: object
     properties:
@@ -761,6 +764,7 @@ definitions:
         format: int32
       message:
         type: string
+        
   NotFound:
     type: object
     properties:
