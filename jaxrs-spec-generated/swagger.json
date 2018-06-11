@@ -129,7 +129,8 @@
           "in" : "path",
           "description" : "Item id",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "format" : "uuid"
         } ],
         "responses" : {
           "200" : {
@@ -171,7 +172,8 @@
           "in" : "path",
           "description" : "Item id",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "format" : "uuid"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -218,7 +220,8 @@
           "in" : "path",
           "description" : "Item id",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "format" : "uuid"
         } ],
         "responses" : {
           "204" : {
@@ -361,7 +364,8 @@
           "in" : "path",
           "description" : "PurchaseRequest id",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "format" : "uuid"
         } ],
         "responses" : {
           "200" : {
@@ -403,7 +407,8 @@
           "in" : "path",
           "description" : "PurchaseRequest id",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "format" : "uuid"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -450,7 +455,8 @@
           "in" : "path",
           "description" : "PurchaseRequest id",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "format" : "uuid"
         } ],
         "responses" : {
           "204" : {
@@ -486,9 +492,12 @@
   "definitions" : {
     "LocalizedValue" : {
       "type" : "object",
+      "required" : [ "language", "type", "value" ],
       "properties" : {
         "language" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 2,
+          "maxLength" : 2
         },
         "value" : {
           "type" : "string"
@@ -672,7 +681,7 @@
           "type" : "string"
         },
         "amount" : {
-          "type" : "number",
+          "type" : "integer",
           "format" : "int64"
         }
       }

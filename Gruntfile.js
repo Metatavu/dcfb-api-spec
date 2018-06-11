@@ -85,6 +85,37 @@ module.exports = function(grunt) {
             cwd: "javascript-generated"
           }
         }
+      },
+
+      "java-generate": {
+        command : "mv java-generated/pom.xml java-generated/pom.xml.before && " +
+          "java -jar swagger-codegen-cli.jar generate " +
+          "-i ./swagger.yaml " +
+          "-l java " +
+          "--api-package fi.metatavu.dcfb.client " +
+          "--model-package fi.metatavu.dcfb.client " +
+          "--group-id fi.metatavu.dcfb " +
+          "--artifact-id dcfb-api-client " +
+          "--artifact-version `cat java-generated/pom.xml.before|grep version -m 1|sed -e \"s/.*<version>//\"|sed -e \"s/<.*//\"` " +
+          "--template-dir java-templates " +
+          "--additional-properties library=feign,dateLibrary=java8,sourceFolder=src/main/java " +
+          "-o java-generated/"
+      },
+      "java-install": {
+        command : "mvn install",
+        options: {
+          execOptions: {
+            cwd: "java-generated"
+          }
+        }
+      },
+      "java-release": {
+        command : "git add src pom.xml && git commit -m 'Generated source' && git push && mvn -B release:clean release:prepare release:perform",
+        options: {
+          execOptions: {
+            cwd: "java-generated"
+          }
+        }
       }
     }
   });
@@ -92,6 +123,8 @@ module.exports = function(grunt) {
   grunt.registerTask("download-dependencies", "if-missing:curl:swagger-codegen");
   grunt.registerTask("jaxrs-gen", [ "download-dependencies", "clean:jaxrs-spec-sources", "shell:jaxrs-spec-generate", "clean:jaxrs-spec-cruft", "shell:jaxrs-spec-install" ]);
   grunt.registerTask("jaxrs-spec", [ "jaxrs-gen", "shell:jaxrs-spec-release" ]);
+  grunt.registerTask("java-gen", [ "download-dependencies", "clean:java-sources", "shell:java-generate", "shell:java-install" ]);
+  grunt.registerTask("java", [ "java-gen", "shell:java-release" ]);
   grunt.registerTask("javascript-gen", [ "shell:javascript-generate" ]);
   grunt.registerTask("javascript", [ "javascript-gen", "shell:javascript-bump-version", "shell:javascript-push", "shell:javascript-publish" ]);
 

@@ -4,6 +4,7 @@ import fi.metatavu.dcfb.server.rest.model.BadRequest;
 import fi.metatavu.dcfb.server.rest.model.Forbidden;
 import fi.metatavu.dcfb.server.rest.model.InternalServerError;
 import fi.metatavu.dcfb.server.rest.model.Item;
+import java.util.UUID;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -21,7 +22,7 @@ import java.lang.Exception;
 @Api(description = "the items API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-10T08:57:45.655+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-10T17:49:52.310+03:00")
 
 
 public interface ItemsApi  {
@@ -52,7 +53,7 @@ public interface ItemsApi  {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response deleteItem(@PathParam("itemId") @ApiParam("Item id") String itemId) throws Exception;
+    public Response deleteItem(@PathParam("itemId") @ApiParam("Item id") UUID itemId) throws Exception;
 
     @GET
     @Path("/{itemId}")
@@ -66,7 +67,7 @@ public interface ItemsApi  {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response findItem(@PathParam("itemId") @ApiParam("Item id") String itemId) throws Exception;
+    public Response findItem(@PathParam("itemId") @ApiParam("Item id") UUID itemId) throws Exception;
 
     @GET
     
@@ -94,5 +95,5 @@ public interface ItemsApi  {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response updateItem(@PathParam("itemId") @ApiParam("Item id") String itemId,@Valid Item payload) throws Exception;
+    public Response updateItem(@PathParam("itemId") @ApiParam("Item id") UUID itemId,@Valid Item payload) throws Exception;
 }
