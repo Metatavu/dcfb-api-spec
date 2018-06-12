@@ -97,10 +97,11 @@ var DcfbApiClient = require('dcfb-api-client');
 
 var defaultClient = DcfbApiClient.ApiClient.instance;
 
-// Configure HTTP basic authorization: basicAuth
-var basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME'
-basicAuth.password = 'YOUR PASSWORD'
+// Configure API key authorization: bearer
+var bearer = defaultClient.authentications['bearer'];
+bearer.apiKey = "YOUR API KEY"
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearer.apiKeyPrefix['Authorization'] = "Token"
 
 var api = new DcfbApiClient.CategoriesApi()
 
@@ -159,7 +160,9 @@ Class | Method | HTTP request | Description
 ## Documentation for Authorization
 
 
-### basicAuth
+### bearer
 
-- **Type**: HTTP basic authentication
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
 

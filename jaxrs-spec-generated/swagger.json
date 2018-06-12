@@ -10,7 +10,7 @@
   "consumes" : [ "application/json;charset=utf-8" ],
   "produces" : [ "application/json;charset=utf-8" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "bearer" : [ ]
   } ],
   "paths" : {
     "/items" : {
@@ -708,8 +708,10 @@
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "bearer" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -718,9 +720,7 @@
       "required" : [ "language", "type", "value" ],
       "properties" : {
         "language" : {
-          "type" : "string",
-          "minLength" : 2,
-          "maxLength" : 2
+          "type" : "string"
         },
         "value" : {
           "type" : "string"
@@ -786,6 +786,13 @@
           "type" : "string",
           "format" : "uuid",
           "description" : "Category parent id."
+        },
+        "title" : {
+          "type" : "array",
+          "description" : "Title of the category, multilingual",
+          "items" : {
+            "$ref" : "#/definitions/LocalizedValue"
+          }
         },
         "slug" : {
           "type" : "string",

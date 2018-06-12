@@ -20,7 +20,7 @@ import feign.slf4j.Slf4jLogger;
 import fi.metatavu.dcfb.auth.*;
 import fi.metatavu.dcfb.auth.OAuth.AccessTokenListener;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T11:16:33.752+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T15:59:47.037+03:00")
 public class ApiClient {
   public interface Api {}
 
@@ -42,8 +42,8 @@ public class ApiClient {
     this();
     for(String authName : authNames) {
       RequestInterceptor auth;
-      if ("basicAuth".equals(authName)) {
-        auth = new HttpBasicAuth();
+      if ("bearer".equals(authName)) {
+        auth = new ApiKeyAuth("header", "Authorization");
       } else {
         throw new RuntimeException("auth name \"" + authName + "\" not found in available auth names");
       }

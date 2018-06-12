@@ -24,7 +24,7 @@ public class LocalizedValue   {
   
   @ApiModelProperty(required = true, value = "")
   @NotNull
- @Size(min=2,max=2)  public String getLanguage() {
+  public String getLanguage() {
     return language;
   }
   public void setLanguage(String language) {

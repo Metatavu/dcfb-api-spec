@@ -17,20 +17,26 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import fi.metatavu.dcfb.client.LocalizedValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
  * Category
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T11:16:33.752+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T15:59:47.037+03:00")
 public class Category {
   @JsonProperty("id")
   private UUID id = null;
 
   @JsonProperty("parentId")
   private UUID parentId = null;
+
+  @JsonProperty("title")
+  private List<LocalizedValue> title = null;
 
   @JsonProperty("slug")
   private String slug = null;
@@ -71,6 +77,32 @@ public class Category {
     this.parentId = parentId;
   }
 
+  public Category title(List<LocalizedValue> title) {
+    this.title = title;
+    return this;
+  }
+
+  public Category addTitleItem(LocalizedValue titleItem) {
+    if (this.title == null) {
+      this.title = new ArrayList<LocalizedValue>();
+    }
+    this.title.add(titleItem);
+    return this;
+  }
+
+   /**
+   * Title of the category, multilingual
+   * @return title
+  **/
+  @ApiModelProperty(value = "Title of the category, multilingual")
+  public List<LocalizedValue> getTitle() {
+    return title;
+  }
+
+  public void setTitle(List<LocalizedValue> title) {
+    this.title = title;
+  }
+
   public Category slug(String slug) {
     this.slug = slug;
     return this;
@@ -101,12 +133,13 @@ public class Category {
     Category category = (Category) o;
     return Objects.equals(this.id, category.id) &&
         Objects.equals(this.parentId, category.parentId) &&
+        Objects.equals(this.title, category.title) &&
         Objects.equals(this.slug, category.slug);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, slug);
+    return Objects.hash(id, parentId, title, slug);
   }
 
 
@@ -117,6 +150,7 @@ public class Category {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("}");
     return sb.toString();

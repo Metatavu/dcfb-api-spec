@@ -22,7 +22,7 @@ import java.lang.Exception;
 @Api(description = "the purchaseRequests API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-11T11:16:13.403+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-11T15:59:27.537+03:00")
 
 
 public interface PurchaseRequestsApi  {
@@ -32,7 +32,7 @@ public interface PurchaseRequestsApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "Create purchase request", notes = "Create purchase request", response = PurchaseRequest.class, authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "PurchaseRequests",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Created purchaseRequest", response = PurchaseRequest.class),
@@ -46,7 +46,7 @@ public interface PurchaseRequestsApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "deletes an purchase request", notes = "Delete purchase request", response = Void.class, authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "PurchaseRequests",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 204, message = "Empty resonse indicating a succesfull removal", response = Void.class),
@@ -60,7 +60,7 @@ public interface PurchaseRequestsApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "Finds an purchaseRequest", notes = "Find purchaseRequest", response = PurchaseRequest.class, responseContainer = "List", authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "PurchaseRequests",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "An array of purchase requests", response = PurchaseRequest.class, responseContainer = "List"),
@@ -74,7 +74,7 @@ public interface PurchaseRequestsApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "List purchase requests", notes = "List purchase requests", response = PurchaseRequest.class, responseContainer = "List", authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "PurchaseRequests",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "An array of purchase requests", response = PurchaseRequest.class, responseContainer = "List"),
@@ -88,7 +88,7 @@ public interface PurchaseRequestsApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "updates an purchase request", notes = "Update purchase request", response = PurchaseRequest.class, authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "PurchaseRequests" })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Updated purchaseRequest", response = PurchaseRequest.class),

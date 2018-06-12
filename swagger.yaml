@@ -7,10 +7,12 @@ schemes:
   - https
 basePath: /v1
 securityDefinitions:
-  basicAuth:
-    type: basic
+  bearer:
+    type: apiKey
+    name: Authorization
+    in: header
 security:
-- basicAuth: []
+  - bearer: []
 consumes:
   - application/json;charset=utf-8
 produces:
@@ -111,11 +113,9 @@ paths:
         - Items
       responses:
         200:
-          description: An array of items
+          description: An item
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Item'
+            $ref: '#/definitions/Item'
         400:
           description: Invalid request was sent to the server
           schema:
@@ -454,11 +454,9 @@ paths:
         - Categories
       responses:
         200:
-          description: An array of categories
+          description: A category
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Category'
+            $ref: '#/definitions/Category'
         400:
           description: Invalid request was sent to the server
           schema:

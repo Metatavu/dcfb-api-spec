@@ -1,5 +1,8 @@
 package fi.metatavu.dcfb.server.rest.model;
 
+import fi.metatavu.dcfb.server.rest.model.LocalizedValue;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -13,6 +16,7 @@ public class Category   {
   
   private @Valid UUID id = null;
   private @Valid UUID parentId = null;
+  private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
   private @Valid String slug = null;
 
   /**
@@ -50,6 +54,23 @@ public class Category   {
   }
 
   /**
+   * Title of the category, multilingual
+   **/
+  public Category title(List<LocalizedValue> title) {
+    this.title = title;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "Title of the category, multilingual")
+  public List<LocalizedValue> getTitle() {
+    return title;
+  }
+  public void setTitle(List<LocalizedValue> title) {
+    this.title = title;
+  }
+
+  /**
    * Category slug
    **/
   public Category slug(String slug) {
@@ -78,12 +99,13 @@ public class Category   {
     Category category = (Category) o;
     return Objects.equals(id, category.id) &&
         Objects.equals(parentId, category.parentId) &&
+        Objects.equals(title, category.title) &&
         Objects.equals(slug, category.slug);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, slug);
+    return Objects.hash(id, parentId, title, slug);
   }
 
   @Override
@@ -93,6 +115,7 @@ public class Category   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("}");
     return sb.toString();

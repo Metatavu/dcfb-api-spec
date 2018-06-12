@@ -22,7 +22,7 @@ import java.lang.Exception;
 @Api(description = "the items API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-11T11:16:13.403+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-11T15:59:27.537+03:00")
 
 
 public interface ItemsApi  {
@@ -32,7 +32,7 @@ public interface ItemsApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "Create item", notes = "Create item", response = Item.class, authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "Items",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Created item", response = Item.class),
@@ -46,7 +46,7 @@ public interface ItemsApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "deletes an item", notes = "Delete item", response = Void.class, authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "Items",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 204, message = "Empty resonse indicating a succesfull removal", response = Void.class),
@@ -60,7 +60,7 @@ public interface ItemsApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "Finds an item", notes = "Find item", response = Item.class, responseContainer = "List", authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "Items",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "An array of items", response = Item.class, responseContainer = "List"),
@@ -74,7 +74,7 @@ public interface ItemsApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "List items", notes = "List items", response = Item.class, responseContainer = "List", authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "Items",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "An array of items", response = Item.class, responseContainer = "List"),
@@ -88,7 +88,7 @@ public interface ItemsApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "updates an item", notes = "Update item", response = Item.class, authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "Items" })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Updated item", response = Item.class),

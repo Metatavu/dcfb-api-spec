@@ -24,10 +24,11 @@ Create category
 var DcfbApiClient = require('dcfb-api-client');
 var defaultClient = DcfbApiClient.ApiClient.instance;
 
-// Configure HTTP basic authorization: basicAuth
-var basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
+// Configure API key authorization: bearer
+var bearer = defaultClient.authentications['bearer'];
+bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearer.apiKeyPrefix = 'Token';
 
 var apiInstance = new DcfbApiClient.CategoriesApi();
 
@@ -53,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -73,10 +74,11 @@ Delete category
 var DcfbApiClient = require('dcfb-api-client');
 var defaultClient = DcfbApiClient.ApiClient.instance;
 
-// Configure HTTP basic authorization: basicAuth
-var basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
+// Configure API key authorization: bearer
+var bearer = defaultClient.authentications['bearer'];
+bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearer.apiKeyPrefix = 'Token';
 
 var apiInstance = new DcfbApiClient.CategoriesApi();
 
@@ -102,7 +104,7 @@ null (empty response body)
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -122,10 +124,11 @@ Find category
 var DcfbApiClient = require('dcfb-api-client');
 var defaultClient = DcfbApiClient.ApiClient.instance;
 
-// Configure HTTP basic authorization: basicAuth
-var basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
+// Configure API key authorization: bearer
+var bearer = defaultClient.authentications['bearer'];
+bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearer.apiKeyPrefix = 'Token';
 
 var apiInstance = new DcfbApiClient.CategoriesApi();
 
@@ -151,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -171,10 +174,11 @@ List categories
 var DcfbApiClient = require('dcfb-api-client');
 var defaultClient = DcfbApiClient.ApiClient.instance;
 
-// Configure HTTP basic authorization: basicAuth
-var basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
+// Configure API key authorization: bearer
+var bearer = defaultClient.authentications['bearer'];
+bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearer.apiKeyPrefix = 'Token';
 
 var apiInstance = new DcfbApiClient.CategoriesApi();
 
@@ -203,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -223,10 +227,11 @@ Update category
 var DcfbApiClient = require('dcfb-api-client');
 var defaultClient = DcfbApiClient.ApiClient.instance;
 
-// Configure HTTP basic authorization: basicAuth
-var basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
+// Configure API key authorization: bearer
+var bearer = defaultClient.authentications['bearer'];
+bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearer.apiKeyPrefix = 'Token';
 
 var apiInstance = new DcfbApiClient.CategoriesApi();
 
@@ -255,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 

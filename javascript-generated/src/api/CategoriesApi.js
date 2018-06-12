@@ -74,7 +74,7 @@
       var formParams = {
       };
 
-      var authNames = ['basicAuth'];
+      var authNames = ['bearer'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = Category;
@@ -127,7 +127,7 @@
       var formParams = {
       };
 
-      var authNames = ['basicAuth'];
+      var authNames = ['bearer'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = null;
@@ -180,7 +180,7 @@
       var formParams = {
       };
 
-      var authNames = ['basicAuth'];
+      var authNames = ['bearer'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = [Category];
@@ -232,7 +232,7 @@
       var formParams = {
       };
 
-      var authNames = ['basicAuth'];
+      var authNames = ['bearer'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = [Category];
@@ -293,7 +293,7 @@
       var formParams = {
       };
 
-      var authNames = ['basicAuth'];
+      var authNames = ['bearer'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
       var returnType = Category;

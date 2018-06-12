@@ -22,7 +22,7 @@ import java.lang.Exception;
 @Api(description = "the categories API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-11T11:16:13.403+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-11T15:59:27.537+03:00")
 
 
 public interface CategoriesApi  {
@@ -32,7 +32,7 @@ public interface CategoriesApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "Create category", notes = "Create category", response = Category.class, authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "Categories",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Created category", response = Category.class),
@@ -46,7 +46,7 @@ public interface CategoriesApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "deletes an category", notes = "Delete category", response = Void.class, authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "Categories",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 204, message = "Empty resonse indicating a succesfull removal", response = Void.class),
@@ -60,7 +60,7 @@ public interface CategoriesApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "Finds an category", notes = "Find category", response = Category.class, responseContainer = "List", authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "Categories",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "An array of categories", response = Category.class, responseContainer = "List"),
@@ -74,7 +74,7 @@ public interface CategoriesApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "List categories", notes = "List categories", response = Category.class, responseContainer = "List", authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "Categories",  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "An array of categories", response = Category.class, responseContainer = "List"),
@@ -88,7 +88,7 @@ public interface CategoriesApi  {
     @Consumes({ "application/json;charset&#x3D;utf-8" })
     @Produces({ "application/json;charset&#x3D;utf-8" })
     @ApiOperation(value = "updates an category", notes = "Update category", response = Category.class, authorizations = {
-        @Authorization(value = "basicAuth")
+        @Authorization(value = "bearer")
     }, tags={ "Categories" })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Updated category", response = Category.class),
