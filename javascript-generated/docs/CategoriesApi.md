@@ -113,7 +113,7 @@ null (empty response body)
 
 <a name="findCategory"></a>
 # **findCategory**
-> [Category] findCategory(categoryId)
+> Category findCategory(categoryId)
 
 Finds an category
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Category]**](Category.md)
+[**Category**](Category.md)
 
 ### Authorization
 

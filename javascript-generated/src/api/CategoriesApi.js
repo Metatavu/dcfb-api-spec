@@ -157,7 +157,7 @@
      * Finds an category
      * Find category
      * @param {String} categoryId Category id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Category>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Category} and HTTP response
      */
     this.findCategoryWithHttpInfo = function(categoryId) {
       var postBody = null;
@@ -183,7 +183,7 @@
       var authNames = ['bearer'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [Category];
+      var returnType = Category;
 
       return this.apiClient.callApi(
         '/categories/{categoryId}', 'GET',
@@ -196,7 +196,7 @@
      * Finds an category
      * Find category
      * @param {String} categoryId Category id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Category>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Category}
      */
     this.findCategory = function(categoryId) {
       return this.findCategoryWithHttpInfo(categoryId)

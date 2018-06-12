@@ -1,6 +1,6 @@
 {
   "name": "dcfb-api-client",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "API_spec_for_DCFB_API_",
   "license": "Unlicense",
   "main": "src/index.js",

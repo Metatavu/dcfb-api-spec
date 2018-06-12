@@ -157,7 +157,7 @@
      * Finds an item
      * Find item
      * @param {String} itemId Item id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Item>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Item} and HTTP response
      */
     this.findItemWithHttpInfo = function(itemId) {
       var postBody = null;
@@ -183,7 +183,7 @@
       var authNames = ['bearer'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [Item];
+      var returnType = Item;
 
       return this.apiClient.callApi(
         '/items/{itemId}', 'GET',
@@ -196,7 +196,7 @@
      * Finds an item
      * Find item
      * @param {String} itemId Item id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Item>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Item}
      */
     this.findItem = function(itemId) {
       return this.findItemWithHttpInfo(itemId)

@@ -113,7 +113,7 @@ null (empty response body)
 
 <a name="findItem"></a>
 # **findItem**
-> [Item] findItem(itemId)
+> Item findItem(itemId)
 
 Finds an item
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Item]**](Item.md)
+[**Item**](Item.md)
 
 ### Authorization
 
