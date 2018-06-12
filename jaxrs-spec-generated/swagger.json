@@ -134,12 +134,9 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "An array of items",
+            "description" : "An item",
             "schema" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/definitions/Item"
-              }
+              "$ref" : "#/definitions/Item"
             }
           },
           "400" : {
@@ -225,7 +222,7 @@
         } ],
         "responses" : {
           "204" : {
-            "description" : "Empty resonse indicating a succesfull removal"
+            "description" : "Empty resonse indicating a successful removal"
           },
           "400" : {
             "description" : "Invalid request was sent to the server",
@@ -460,7 +457,7 @@
         } ],
         "responses" : {
           "204" : {
-            "description" : "Empty resonse indicating a succesfull removal"
+            "description" : "Empty resonse indicating a successful removal"
           },
           "400" : {
             "description" : "Invalid request was sent to the server",
@@ -592,12 +589,9 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "An array of categories",
+            "description" : "A category",
             "schema" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/definitions/Category"
-              }
+              "$ref" : "#/definitions/Category"
             }
           },
           "400" : {
@@ -683,7 +677,7 @@
         } ],
         "responses" : {
           "204" : {
-            "description" : "Empty resonse indicating a succesfull removal"
+            "description" : "Empty resonse indicating a successful removal"
           },
           "400" : {
             "description" : "Invalid request was sent to the server",
@@ -720,7 +714,9 @@
       "required" : [ "language", "type", "value" ],
       "properties" : {
         "language" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 2,
+          "maxLength" : 2
         },
         "value" : {
           "type" : "string"

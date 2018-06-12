@@ -22,7 +22,7 @@ import java.lang.Exception;
 @Api(description = "the purchaseRequests API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-11T15:59:27.537+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-12T20:32:19.062+03:00")
 
 
 public interface PurchaseRequestsApi  {
@@ -49,7 +49,7 @@ public interface PurchaseRequestsApi  {
         @Authorization(value = "bearer")
     }, tags={ "PurchaseRequests",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 204, message = "Empty resonse indicating a succesfull removal", response = Void.class),
+        @ApiResponse(code = 204, message = "Empty resonse indicating a successful removal", response = Void.class),
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
