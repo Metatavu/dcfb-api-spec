@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import feign.*;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T15:59:47.037+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-12T20:47:59.218+03:00")
 public interface ItemsApi extends ApiClient.Api {
 
 
@@ -48,14 +48,14 @@ public interface ItemsApi extends ApiClient.Api {
    * Finds an item
    * Find item
     * @param itemId Item id (required)
-   * @return List&lt;Item&gt;
+   * @return Item
    */
   @RequestLine("GET /items/{itemId}")
   @Headers({
     "Content-Type: application/json",
     "Accept: application/json",
   })
-  List<Item> findItem(@Param("itemId") UUID itemId);
+  Item findItem(@Param("itemId") UUID itemId);
 
   /**
    * List items

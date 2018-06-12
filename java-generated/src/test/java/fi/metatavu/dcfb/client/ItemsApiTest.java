@@ -63,7 +63,7 @@ public class ItemsApiTest {
     @Test
     public void findItemTest() {
         UUID itemId = null;
-        // List<Item> response = api.findItem(itemId);
+        // Item response = api.findItem(itemId);
 
         // TODO: test validations
     }

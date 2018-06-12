@@ -63,7 +63,7 @@ public class CategoriesApiTest {
     @Test
     public void findCategoryTest() {
         UUID categoryId = null;
-        // List<Category> response = api.findCategory(categoryId);
+        // Category response = api.findCategory(categoryId);
 
         // TODO: test validations
     }
