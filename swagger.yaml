@@ -179,7 +179,7 @@ paths:
         - Items
       responses:
         204:
-          description: Empty resonse indicating a succesfull removal
+          description: Empty resonse indicating a successful removal
         400:
           description: Invalid request was sent to the server
           schema:
@@ -355,7 +355,7 @@ paths:
         - PurchaseRequests
       responses:
         204:
-          description: Empty resonse indicating a succesfull removal
+          description: Empty resonse indicating a successful removal
         400:
           description: Invalid request was sent to the server
           schema:
@@ -520,7 +520,7 @@ paths:
         - Categories
       responses:
         204:
-          description: Empty resonse indicating a succesfull removal
+          description: Empty resonse indicating a successful removal
         400:
           description: Invalid request was sent to the server
           schema:
