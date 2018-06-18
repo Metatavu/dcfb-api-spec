@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import feign.*;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-12T20:47:59.218+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:01:07.582+03:00")
 public interface CategoriesApi extends ApiClient.Api {
 
 
@@ -60,16 +60,18 @@ public interface CategoriesApi extends ApiClient.Api {
   /**
    * List categories
    * List categories
+    * @param categoryIds Filter by parent category id (optional)
+    * @param search Search by free-text query (optional)
     * @param firstResult First result (optional)
     * @param maxResults Max results (optional)
    * @return List&lt;Category&gt;
    */
-  @RequestLine("GET /categories?firstResult={firstResult}&maxResults={maxResults}")
+  @RequestLine("GET /categories?categoryIds={categoryIds}&search={search}&firstResult={firstResult}&maxResults={maxResults}")
   @Headers({
     "Content-Type: application/json",
     "Accept: application/json",
   })
-  List<Category> listCategories(@Param("firstResult") Long firstResult, @Param("maxResults") Long maxResults);
+  List<Category> listCategories(@Param("categoryIds") String categoryIds, @Param("search") String search, @Param("firstResult") Long firstResult, @Param("maxResults") Long maxResults);
 
   /**
    * List categories
@@ -82,12 +84,14 @@ public interface CategoriesApi extends ApiClient.Api {
    * @param queryParams Map of query parameters as name-value pairs
    *   <p>The following elements may be specified in the query map:</p>
    *   <ul>
+   *   <li>categoryIds - Filter by parent category id (optional)</li>
+   *   <li>search - Search by free-text query (optional)</li>
    *   <li>firstResult - First result (optional)</li>
    *   <li>maxResults - Max results (optional)</li>
    *   </ul>
    * @return List&lt;Category&gt;
    */
-  @RequestLine("GET /categories?firstResult={firstResult}&maxResults={maxResults}")
+  @RequestLine("GET /categories?categoryIds={categoryIds}&search={search}&firstResult={firstResult}&maxResults={maxResults}")
   @Headers({
   "Content-Type: application/json",
   "Accept: application/json",
@@ -99,6 +103,14 @@ public interface CategoriesApi extends ApiClient.Api {
    * <code>listCategories</code> method in a fluent style.
    */
   public static class ListCategoriesQueryParams extends HashMap<String, Object> {
+    public ListCategoriesQueryParams categoryIds(final String value) {
+      put("categoryIds", EncodingUtils.encode(value));
+      return this;
+    }
+    public ListCategoriesQueryParams search(final String value) {
+      put("search", EncodingUtils.encode(value));
+      return this;
+    }
     public ListCategoriesQueryParams firstResult(final Long value) {
       put("firstResult", EncodingUtils.encode(value));
       return this;

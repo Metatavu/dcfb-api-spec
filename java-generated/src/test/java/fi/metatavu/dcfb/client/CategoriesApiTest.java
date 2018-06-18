@@ -76,9 +76,11 @@ public class CategoriesApiTest {
      */
     @Test
     public void listCategoriesTest() {
+        String categoryIds = null;
+        String search = null;
         Long firstResult = null;
         Long maxResults = null;
-        // List<Category> response = api.listCategories(firstResult, maxResults);
+        // List<Category> response = api.listCategories(categoryIds, search, firstResult, maxResults);
 
         // TODO: test validations
     }
@@ -94,6 +96,8 @@ public class CategoriesApiTest {
     @Test
     public void listCategoriesTestQueryMap() {
         CategoriesApi.ListCategoriesQueryParams queryParams = new CategoriesApi.ListCategoriesQueryParams()
+            .categoryIds(null)
+            .search(null)
             .firstResult(null)
             .maxResults(null);
         // List<Category> response = api.listCategories(queryParams);

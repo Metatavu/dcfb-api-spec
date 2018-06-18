@@ -24,7 +24,7 @@ import java.util.UUID;
 /**
  * Image
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-12T20:47:59.218+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:01:07.582+03:00")
 public class Image {
   @JsonProperty("id")
   private UUID id = null;
@@ -62,7 +62,7 @@ public class Image {
    * Image URL
    * @return url
   **/
-  @ApiModelProperty(value = "Image URL")
+  @ApiModelProperty(required = true, value = "Image URL")
   public String getUrl() {
     return url;
   }
@@ -80,7 +80,7 @@ public class Image {
    * Image type
    * @return type
   **/
-  @ApiModelProperty(value = "Image type")
+  @ApiModelProperty(required = true, value = "Image type")
   public String getType() {
     return type;
   }
