@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import feign.*;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:15:35.995+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T19:38:24.725+03:00")
 public interface CategoriesApi extends ApiClient.Api {
 
 
@@ -71,7 +71,7 @@ public interface CategoriesApi extends ApiClient.Api {
     "Content-Type: application/json",
     "Accept: application/json",
   })
-  List<Category> listCategories(@Param("parentId") String parentId, @Param("search") String search, @Param("firstResult") Long firstResult, @Param("maxResults") Long maxResults);
+  List<Category> listCategories(@Param("parentId") UUID parentId, @Param("search") String search, @Param("firstResult") Long firstResult, @Param("maxResults") Long maxResults);
 
   /**
    * List categories
@@ -103,7 +103,7 @@ public interface CategoriesApi extends ApiClient.Api {
    * <code>listCategories</code> method in a fluent style.
    */
   public static class ListCategoriesQueryParams extends HashMap<String, Object> {
-    public ListCategoriesQueryParams parentId(final String value) {
+    public ListCategoriesQueryParams parentId(final UUID value) {
       put("parentId", EncodingUtils.encode(value));
       return this;
     }

@@ -76,7 +76,7 @@ public class CategoriesApiTest {
      */
     @Test
     public void listCategoriesTest() {
-        String parentId = null;
+        UUID parentId = null;
         String search = null;
         Long firstResult = null;
         Long maxResults = null;
