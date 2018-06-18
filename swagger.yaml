@@ -375,6 +375,15 @@ paths:
       summary: List categories
       description: List categories
       parameters:
+        - name: categoryIds
+          in: query
+          description: Filter by parent category id
+          type: string
+        - name: search
+          in: query
+          description: Search by free-text query
+          required: false
+          type: string
         - name: firstResult
           in: query
           description: First result
@@ -636,6 +645,9 @@ definitions:
   
   Image:
     type: object
+    required:
+      - url
+      - type
     properties:
       id:
         description: Image id
