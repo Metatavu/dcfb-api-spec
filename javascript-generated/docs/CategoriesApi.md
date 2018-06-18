@@ -185,6 +185,7 @@ var apiInstance = new DcfbApiClient.CategoriesApi();
 var opts = { 
   'parentId': "parentId_example", // String | Filter by parent category id
   'search': "search_example", // String | Search by free-text query
+  'sort': ["sort_example"], // [String] | 
   'firstResult': 789, // Number | First result
   'maxResults': 789 // Number | Max results
 };
@@ -202,6 +203,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **parentId** | **String**| Filter by parent category id | [optional] 
  **search** | **String**| Search by free-text query | [optional] 
+ **sort** | [**[String]**](String.md)|  | [optional] 
  **firstResult** | **Number**| First result | [optional] 
  **maxResults** | **Number**| Max results | [optional] 
 
