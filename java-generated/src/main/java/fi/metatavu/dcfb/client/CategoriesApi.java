@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import feign.*;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T19:38:24.725+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T21:02:49.650+03:00")
 public interface CategoriesApi extends ApiClient.Api {
 
 
@@ -62,16 +62,17 @@ public interface CategoriesApi extends ApiClient.Api {
    * List categories
     * @param parentId Filter by parent category id (optional)
     * @param search Search by free-text query (optional)
+    * @param sort  (optional)
     * @param firstResult First result (optional)
     * @param maxResults Max results (optional)
    * @return List&lt;Category&gt;
    */
-  @RequestLine("GET /categories?parentId={parentId}&search={search}&firstResult={firstResult}&maxResults={maxResults}")
+  @RequestLine("GET /categories?parentId={parentId}&search={search}&sort={sort}&firstResult={firstResult}&maxResults={maxResults}")
   @Headers({
     "Content-Type: application/json",
     "Accept: application/json",
   })
-  List<Category> listCategories(@Param("parentId") UUID parentId, @Param("search") String search, @Param("firstResult") Long firstResult, @Param("maxResults") Long maxResults);
+  List<Category> listCategories(@Param("parentId") UUID parentId, @Param("search") String search, @Param("sort") List<String> sort, @Param("firstResult") Long firstResult, @Param("maxResults") Long maxResults);
 
   /**
    * List categories
@@ -86,12 +87,13 @@ public interface CategoriesApi extends ApiClient.Api {
    *   <ul>
    *   <li>parentId - Filter by parent category id (optional)</li>
    *   <li>search - Search by free-text query (optional)</li>
+   *   <li>sort -  (optional)</li>
    *   <li>firstResult - First result (optional)</li>
    *   <li>maxResults - Max results (optional)</li>
    *   </ul>
    * @return List&lt;Category&gt;
    */
-  @RequestLine("GET /categories?parentId={parentId}&search={search}&firstResult={firstResult}&maxResults={maxResults}")
+  @RequestLine("GET /categories?parentId={parentId}&search={search}&sort={sort}&firstResult={firstResult}&maxResults={maxResults}")
   @Headers({
   "Content-Type: application/json",
   "Accept: application/json",
@@ -109,6 +111,10 @@ public interface CategoriesApi extends ApiClient.Api {
     }
     public ListCategoriesQueryParams search(final String value) {
       put("search", EncodingUtils.encode(value));
+      return this;
+    }
+    public ListCategoriesQueryParams sort(final List<String> value) {
+      put("sort", EncodingUtils.encodeCollection(value, "csv"));
       return this;
     }
     public ListCategoriesQueryParams firstResult(final Long value) {

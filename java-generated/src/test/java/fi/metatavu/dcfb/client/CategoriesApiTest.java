@@ -78,9 +78,10 @@ public class CategoriesApiTest {
     public void listCategoriesTest() {
         UUID parentId = null;
         String search = null;
+        List<String> sort = null;
         Long firstResult = null;
         Long maxResults = null;
-        // List<Category> response = api.listCategories(parentId, search, firstResult, maxResults);
+        // List<Category> response = api.listCategories(parentId, search, sort, firstResult, maxResults);
 
         // TODO: test validations
     }
@@ -98,6 +99,7 @@ public class CategoriesApiTest {
         CategoriesApi.ListCategoriesQueryParams queryParams = new CategoriesApi.ListCategoriesQueryParams()
             .parentId(null)
             .search(null)
+            .sort(null)
             .firstResult(null)
             .maxResults(null);
         // List<Category> response = api.listCategories(queryParams);

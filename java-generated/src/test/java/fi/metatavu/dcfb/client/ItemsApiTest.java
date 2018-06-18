@@ -78,9 +78,10 @@ public class ItemsApiTest {
     public void listItemsTest() {
         String categoryIds = null;
         String search = null;
+        List<String> sort = null;
         Long firstResult = null;
         Long maxResults = null;
-        // List<Item> response = api.listItems(categoryIds, search, firstResult, maxResults);
+        // List<Item> response = api.listItems(categoryIds, search, sort, firstResult, maxResults);
 
         // TODO: test validations
     }
@@ -98,6 +99,7 @@ public class ItemsApiTest {
         ItemsApi.ListItemsQueryParams queryParams = new ItemsApi.ListItemsQueryParams()
             .categoryIds(null)
             .search(null)
+            .sort(null)
             .firstResult(null)
             .maxResults(null);
         // List<Item> response = api.listItems(queryParams);
