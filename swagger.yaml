@@ -379,6 +379,7 @@ paths:
           in: query
           description: Filter by parent category id
           type: string
+          format: uuid
         - name: search
           in: query
           description: Search by free-text query
