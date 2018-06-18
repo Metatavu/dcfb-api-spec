@@ -36,20 +36,22 @@
   /**
    * The Image model module.
    * @module model/Image
-   * @version 0.0.12
+   * @version 0.0.13
    */
 
   /**
    * Constructs a new <code>Image</code>.
    * @alias module:model/Image
    * @class
+   * @param url {String} Image URL
+   * @param type {String} Image type
    */
-  var exports = function() {
+  var exports = function(url, type) {
     var _this = this;
 
 
-
-
+    _this['url'] = url;
+    _this['type'] = type;
   };
 
   /**

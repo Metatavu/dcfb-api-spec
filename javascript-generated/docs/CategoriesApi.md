@@ -183,6 +183,8 @@ bearer.apiKey = 'YOUR API KEY';
 var apiInstance = new DcfbApiClient.CategoriesApi();
 
 var opts = { 
+  'categoryIds': "categoryIds_example", // String | Filter by parent category id
+  'search': "search_example", // String | Search by free-text query
   'firstResult': 789, // Number | First result
   'maxResults': 789 // Number | Max results
 };
@@ -198,6 +200,8 @@ apiInstance.listCategories(opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **categoryIds** | **String**| Filter by parent category id | [optional] 
+ **search** | **String**| Search by free-text query | [optional] 
  **firstResult** | **Number**| First result | [optional] 
  **maxResults** | **Number**| Max results | [optional] 
 

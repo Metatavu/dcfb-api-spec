@@ -33,7 +33,7 @@
   /**
    * Categories service.
    * @module api/CategoriesApi
-   * @version 0.0.12
+   * @version 0.0.13
    */
 
   /**
@@ -210,6 +210,8 @@
      * List categories
      * List categories
      * @param {Object} opts Optional parameters
+     * @param {String} opts.categoryIds Filter by parent category id
+     * @param {String} opts.search Search by free-text query
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Category>} and HTTP response
@@ -222,6 +224,8 @@
       var pathParams = {
       };
       var queryParams = {
+        'categoryIds': opts['categoryIds'],
+        'search': opts['search'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults'],
       };
@@ -248,6 +252,8 @@
      * List categories
      * List categories
      * @param {Object} opts Optional parameters
+     * @param {String} opts.categoryIds Filter by parent category id
+     * @param {String} opts.search Search by free-text query
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Category>}
