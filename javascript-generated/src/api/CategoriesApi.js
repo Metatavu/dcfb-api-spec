@@ -33,7 +33,7 @@
   /**
    * Categories service.
    * @module api/CategoriesApi
-   * @version 0.0.13
+   * @version 0.0.14
    */
 
   /**
@@ -210,7 +210,7 @@
      * List categories
      * List categories
      * @param {Object} opts Optional parameters
-     * @param {String} opts.categoryIds Filter by parent category id
+     * @param {String} opts.parentId Filter by parent category id
      * @param {String} opts.search Search by free-text query
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
@@ -224,7 +224,7 @@
       var pathParams = {
       };
       var queryParams = {
-        'categoryIds': opts['categoryIds'],
+        'parentId': opts['parentId'],
         'search': opts['search'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults'],
@@ -252,7 +252,7 @@
      * List categories
      * List categories
      * @param {Object} opts Optional parameters
-     * @param {String} opts.categoryIds Filter by parent category id
+     * @param {String} opts.parentId Filter by parent category id
      * @param {String} opts.search Search by free-text query
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results

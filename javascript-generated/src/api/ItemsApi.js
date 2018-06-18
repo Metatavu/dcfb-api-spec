@@ -33,7 +33,7 @@
   /**
    * Items service.
    * @module api/ItemsApi
-   * @version 0.0.13
+   * @version 0.0.14
    */
 
   /**
