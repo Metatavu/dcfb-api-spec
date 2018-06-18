@@ -29,7 +29,7 @@ import java.util.UUID;
 /**
  * Location
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:01:07.582+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T17:15:35.995+03:00")
 public class Location {
   @JsonProperty("id")
   private UUID id = null;
