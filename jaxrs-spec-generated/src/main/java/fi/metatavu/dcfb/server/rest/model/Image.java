@@ -41,7 +41,8 @@ public class Image   {
   }
 
   
-  @ApiModelProperty(value = "Image URL")
+  @ApiModelProperty(required = true, value = "Image URL")
+  @NotNull
   public String getUrl() {
     return url;
   }
@@ -58,7 +59,8 @@ public class Image   {
   }
 
   
-  @ApiModelProperty(value = "Image type")
+  @ApiModelProperty(required = true, value = "Image type")
+  @NotNull
   public String getType() {
     return type;
   }

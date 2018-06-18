@@ -22,7 +22,7 @@ import java.lang.Exception;
 @Api(description = "the categories API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-12T20:34:28.900+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-18T16:52:27.432+03:00")
 
 
 public interface CategoriesApi  {
@@ -81,7 +81,7 @@ public interface CategoriesApi  {
         @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
-    public Response listCategories(@QueryParam("firstResult")   @ApiParam("First result")  Long firstResult,@QueryParam("maxResults")   @ApiParam("Max results")  Long maxResults) throws Exception;
+    public Response listCategories(@QueryParam("categoryIds")   @ApiParam("Filter by parent category id")  String categoryIds,@QueryParam("search")   @ApiParam("Search by free-text query")  String search,@QueryParam("firstResult")   @ApiParam("First result")  Long firstResult,@QueryParam("maxResults")   @ApiParam("Max results")  Long maxResults) throws Exception;
 
     @PUT
     @Path("/{categoryId}")
