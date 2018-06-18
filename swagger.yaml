@@ -34,6 +34,12 @@ paths:
           description: Search by free-text query
           required: false
           type: string
+        - name: sort
+          in: query
+          type: array
+          collectionFormat: csv
+          items:
+            type: string
         - name: firstResult
           in: query
           description: First result
@@ -385,6 +391,12 @@ paths:
           description: Search by free-text query
           required: false
           type: string
+        - name: sort
+          in: query
+          type: array
+          collectionFormat: csv
+          items:
+            type: string
         - name: firstResult
           in: query
           description: First result
@@ -744,6 +756,26 @@ definitions:
       amount:
         type: number
         format: int64
+
+  ItemListSort:
+    type: string
+    enum:
+      - CREATED_AT_DESC
+      - CREATED_AT_ASC
+      - MODIFIED_AT_DESC
+      - MODIFIED_AT_ASC
+      - SCORE_DESC
+      - SCORE_ASC
+
+  CategoryListSort:
+    type: string
+    enum:
+      - CREATED_AT_DESC
+      - CREATED_AT_ASC
+      - MODIFIED_AT_DESC
+      - MODIFIED_AT_ASC
+      - SCORE_DESC
+      - SCORE_ASC
         
   InternalServerError:
     type: object
