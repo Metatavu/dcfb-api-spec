@@ -626,6 +626,11 @@ definitions:
       slug:
         description: Category slug
         type: string
+      extra:
+        type: array
+        description: Extra parameters
+        items:
+          $ref: '#/definitions/ExtraParam'
         
   Price:
     type: object
@@ -721,6 +726,11 @@ definitions:
       amount:
         type: integer
         format: int64
+      extra:
+        type: array
+        description: Extra parameters
+        items:
+          $ref: '#/definitions/ExtraParam'
 
   PurchaseRequest:
     type: object
@@ -760,6 +770,12 @@ definitions:
       amount:
         type: number
         format: int64
+      extra:
+        type: array
+        description: Extra parameters
+        items:
+          $ref: '#/definitions/ExtraParam'
+        
 
   ItemListSort:
     type: string
@@ -780,6 +796,15 @@ definitions:
       - MODIFIED_AT_ASC
       - SCORE_DESC
       - SCORE_ASC
+      
+  ExtraParam:
+    type: object
+    description: Name-value pair that can be used to add extra parameters to objects (items, categories)
+    properties:
+      name:
+        type: string
+      value:
+        type: string
         
   InternalServerError:
     type: object
