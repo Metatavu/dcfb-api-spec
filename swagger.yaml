@@ -626,7 +626,7 @@ definitions:
       slug:
         description: Category slug
         type: string
-      extra:
+      meta:
         type: array
         description: Meta parameters
         items:

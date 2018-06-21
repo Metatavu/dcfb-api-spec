@@ -4,7 +4,7 @@
   <artifactId>dcfb-api-client</artifactId>
   <packaging>jar</packaging>
   <name>dcfb-api-client</name>
-  <version>0.0.6-SNAPSHOT</version>
+  <version>0.0.7-SNAPSHOT</version>
   <description>Metaform API specifications</description>
   <url>https://github.com/Metatavu/dcfb-api-spec</url>
 
@@ -98,6 +98,7 @@
             <checkModificationExclude>java-generated/src/**</checkModificationExclude>
             <checkModificationExclude>java-generated/pom.xml.before</checkModificationExclude>
             <checkModificationExclude>java-generated/.swagger-codegen/**</checkModificationExclude>
+            <checkModificationExclude>java-generated/.gitignore</checkModificationExclude>
           </checkModificationExcludes>
         </configuration>
       </plugin>
