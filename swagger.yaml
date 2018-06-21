@@ -630,7 +630,7 @@ definitions:
         type: array
         description: Meta parameters
         items:
-          $ref: '#/definitions/MetaParam'
+          $ref: '#/definitions/Meta'
         
   Price:
     type: object
