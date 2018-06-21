@@ -827,9 +827,9 @@
         },
         "extra" : {
           "type" : "array",
-          "description" : "Extra parameters",
+          "description" : "Meta parameters",
           "items" : {
-            "$ref" : "#/definitions/ExtraParam"
+            "$ref" : "#/definitions/Meta"
           }
         }
       }
@@ -950,11 +950,11 @@
           "type" : "integer",
           "format" : "int64"
         },
-        "extra" : {
+        "meta" : {
           "type" : "array",
-          "description" : "Extra parameters",
+          "description" : "Item meta",
           "items" : {
-            "$ref" : "#/definitions/ExtraParam"
+            "$ref" : "#/definitions/Meta"
           }
         }
       }
@@ -1009,11 +1009,11 @@
           "type" : "number",
           "format" : "int64"
         },
-        "extra" : {
+        "meta" : {
           "type" : "array",
-          "description" : "Extra parameters",
+          "description" : "Request meta",
           "items" : {
-            "$ref" : "#/definitions/ExtraParam"
+            "$ref" : "#/definitions/Meta"
           }
         }
       }
@@ -1026,17 +1026,17 @@
       "type" : "string",
       "enum" : [ "CREATED_AT_DESC", "CREATED_AT_ASC", "MODIFIED_AT_DESC", "MODIFIED_AT_ASC", "SCORE_DESC", "SCORE_ASC" ]
     },
-    "ExtraParam" : {
+    "Meta" : {
       "type" : "object",
       "properties" : {
-        "name" : {
+        "key" : {
           "type" : "string"
         },
         "value" : {
           "type" : "string"
         }
       },
-      "description" : "Name-value pair that can be used to add extra parameters to objects (items, categories)"
+      "description" : "Key-value pair that can be used to add meta data to objects (items, categories, etc)"
     },
     "InternalServerError" : {
       "type" : "object",

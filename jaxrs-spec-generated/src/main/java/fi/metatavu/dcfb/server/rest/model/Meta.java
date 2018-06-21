@@ -6,36 +6,36 @@ import javax.validation.Valid;
 
 
 /**
- * Name-value pair that can be used to add extra parameters to objects (items, categories)
+ * Key-value pair that can be used to add meta data to objects (items, categories, etc)
  **/
 import io.swagger.annotations.*;
 import java.util.Objects;
-@ApiModel(description = "Name-value pair that can be used to add extra parameters to objects (items, categories)")
+@ApiModel(description = "Key-value pair that can be used to add meta data to objects (items, categories, etc)")
 
-public class ExtraParam   {
+public class Meta   {
   
-  private @Valid String name = null;
+  private @Valid String key = null;
   private @Valid String value = null;
 
   /**
    **/
-  public ExtraParam name(String name) {
-    this.name = name;
+  public Meta key(String key) {
+    this.key = key;
     return this;
   }
 
   
   @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
+  public String getKey() {
+    return key;
   }
-  public void setName(String name) {
-    this.name = name;
+  public void setKey(String key) {
+    this.key = key;
   }
 
   /**
    **/
-  public ExtraParam value(String value) {
+  public Meta value(String value) {
     this.value = value;
     return this;
   }
@@ -58,22 +58,22 @@ public class ExtraParam   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExtraParam extraParam = (ExtraParam) o;
-    return Objects.equals(name, extraParam.name) &&
-        Objects.equals(value, extraParam.value);
+    Meta meta = (Meta) o;
+    return Objects.equals(key, meta.key) &&
+        Objects.equals(value, meta.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value);
+    return Objects.hash(key, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExtraParam {\n");
+    sb.append("class Meta {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();

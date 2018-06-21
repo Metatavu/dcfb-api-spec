@@ -1,8 +1,8 @@
 package fi.metatavu.dcfb.server.rest.model;
 
-import fi.metatavu.dcfb.server.rest.model.ExtraParam;
 import fi.metatavu.dcfb.server.rest.model.Image;
 import fi.metatavu.dcfb.server.rest.model.LocalizedValue;
+import fi.metatavu.dcfb.server.rest.model.Meta;
 import fi.metatavu.dcfb.server.rest.model.Price;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class Item   {
   private @Valid Price unitPrice = null;
   private @Valid String unit = null;
   private @Valid Long amount = null;
-  private @Valid List<ExtraParam> extra = new ArrayList<ExtraParam>();
+  private @Valid List<Meta> meta = new ArrayList<Meta>();
 
   /**
    * Item id
@@ -233,20 +233,20 @@ public class Item   {
   }
 
   /**
-   * Extra parameters
+   * Item meta
    **/
-  public Item extra(List<ExtraParam> extra) {
-    this.extra = extra;
+  public Item meta(List<Meta> meta) {
+    this.meta = meta;
     return this;
   }
 
   
-  @ApiModelProperty(value = "Extra parameters")
-  public List<ExtraParam> getExtra() {
-    return extra;
+  @ApiModelProperty(value = "Item meta")
+  public List<Meta> getMeta() {
+    return meta;
   }
-  public void setExtra(List<ExtraParam> extra) {
-    this.extra = extra;
+  public void setMeta(List<Meta> meta) {
+    this.meta = meta;
   }
 
 
@@ -271,12 +271,12 @@ public class Item   {
         Objects.equals(unitPrice, item.unitPrice) &&
         Objects.equals(unit, item.unit) &&
         Objects.equals(amount, item.amount) &&
-        Objects.equals(extra, item.extra);
+        Objects.equals(meta, item.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, images, unitPrice, unit, amount, extra);
+    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, images, unitPrice, unit, amount, meta);
   }
 
   @Override
@@ -296,7 +296,7 @@ public class Item   {
     sb.append("    unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
   }

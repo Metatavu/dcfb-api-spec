@@ -1,7 +1,7 @@
 package fi.metatavu.dcfb.server.rest.model;
 
-import fi.metatavu.dcfb.server.rest.model.ExtraParam;
 import fi.metatavu.dcfb.server.rest.model.LocalizedValue;
+import fi.metatavu.dcfb.server.rest.model.Meta;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class PurchaseRequest   {
   private @Valid OffsetDateTime expiresAt = null;
   private @Valid String unit = null;
   private @Valid BigDecimal amount = null;
-  private @Valid List<ExtraParam> extra = new ArrayList<ExtraParam>();
+  private @Valid List<Meta> meta = new ArrayList<Meta>();
 
   /**
    * Purchase request id
@@ -195,20 +195,20 @@ public class PurchaseRequest   {
   }
 
   /**
-   * Extra parameters
+   * Request meta
    **/
-  public PurchaseRequest extra(List<ExtraParam> extra) {
-    this.extra = extra;
+  public PurchaseRequest meta(List<Meta> meta) {
+    this.meta = meta;
     return this;
   }
 
   
-  @ApiModelProperty(value = "Extra parameters")
-  public List<ExtraParam> getExtra() {
-    return extra;
+  @ApiModelProperty(value = "Request meta")
+  public List<Meta> getMeta() {
+    return meta;
   }
-  public void setExtra(List<ExtraParam> extra) {
-    this.extra = extra;
+  public void setMeta(List<Meta> meta) {
+    this.meta = meta;
   }
 
 
@@ -231,12 +231,12 @@ public class PurchaseRequest   {
         Objects.equals(expiresAt, purchaseRequest.expiresAt) &&
         Objects.equals(unit, purchaseRequest.unit) &&
         Objects.equals(amount, purchaseRequest.amount) &&
-        Objects.equals(extra, purchaseRequest.extra);
+        Objects.equals(meta, purchaseRequest.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, unit, amount, extra);
+    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, unit, amount, meta);
   }
 
   @Override
@@ -254,7 +254,7 @@ public class PurchaseRequest   {
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
   }

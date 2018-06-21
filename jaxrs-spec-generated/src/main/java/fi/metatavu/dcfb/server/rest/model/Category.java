@@ -1,7 +1,7 @@
 package fi.metatavu.dcfb.server.rest.model;
 
-import fi.metatavu.dcfb.server.rest.model.ExtraParam;
 import fi.metatavu.dcfb.server.rest.model.LocalizedValue;
+import fi.metatavu.dcfb.server.rest.model.Meta;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -19,7 +19,7 @@ public class Category   {
   private @Valid UUID parentId = null;
   private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
   private @Valid String slug = null;
-  private @Valid List<ExtraParam> extra = new ArrayList<ExtraParam>();
+  private @Valid List<Meta> extra = new ArrayList<Meta>();
 
   /**
    * Category id
@@ -90,19 +90,19 @@ public class Category   {
   }
 
   /**
-   * Extra parameters
+   * Meta parameters
    **/
-  public Category extra(List<ExtraParam> extra) {
+  public Category extra(List<Meta> extra) {
     this.extra = extra;
     return this;
   }
 
   
-  @ApiModelProperty(value = "Extra parameters")
-  public List<ExtraParam> getExtra() {
+  @ApiModelProperty(value = "Meta parameters")
+  public List<Meta> getExtra() {
     return extra;
   }
-  public void setExtra(List<ExtraParam> extra) {
+  public void setExtra(List<Meta> extra) {
     this.extra = extra;
   }
 
