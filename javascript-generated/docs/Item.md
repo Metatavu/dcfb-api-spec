@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 **modifiedAt** | **Date** |  | [optional] 
 **expiresAt** | **Date** |  | [optional] 
 **images** | [**[Image]**](Image.md) |  | [optional] 
-**unitPrice** | [**Price**](Price.md) |  | [optional] 
-**unit** | **String** |  | [optional] 
-**amount** | **Number** |  | [optional] 
+**unitPrice** | [**Price**](Price.md) |  | 
+**unit** | **String** |  | 
+**amount** | **Number** |  | 
+**extra** | [**[ExtraParam]**](ExtraParam.md) | Extra parameters | [optional] 
 
 

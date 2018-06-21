@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Image', 'model/LocalizedValue', 'model/Price'], factory);
+    define(['ApiClient', 'model/ExtraParam', 'model/Image', 'model/LocalizedValue', 'model/Price'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Image'), require('./LocalizedValue'), require('./Price'));
+    module.exports = factory(require('../ApiClient'), require('./ExtraParam'), require('./Image'), require('./LocalizedValue'), require('./Price'));
   } else {
     // Browser globals (root is window)
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.Item = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.Image, root.DcfbApiClient.LocalizedValue, root.DcfbApiClient.Price);
+    root.DcfbApiClient.Item = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.ExtraParam, root.DcfbApiClient.Image, root.DcfbApiClient.LocalizedValue, root.DcfbApiClient.Price);
   }
-}(this, function(ApiClient, Image, LocalizedValue, Price) {
+}(this, function(ApiClient, ExtraParam, Image, LocalizedValue, Price) {
   'use strict';
 
 
@@ -36,15 +36,18 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.16
+   * @version 0.0.17
    */
 
   /**
    * Constructs a new <code>Item</code>.
    * @alias module:model/Item
    * @class
+   * @param unitPrice {module:model/Price} 
+   * @param unit {String} 
+   * @param amount {Number} 
    */
-  var exports = function() {
+  var exports = function(unitPrice, unit, amount) {
     var _this = this;
 
 
@@ -56,8 +59,9 @@
 
 
 
-
-
+    _this['unitPrice'] = unitPrice;
+    _this['unit'] = unit;
+    _this['amount'] = amount;
 
   };
 
@@ -107,6 +111,9 @@
       }
       if (data.hasOwnProperty('amount')) {
         obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
+      }
+      if (data.hasOwnProperty('extra')) {
+        obj['extra'] = ApiClient.convertToType(data['extra'], [ExtraParam]);
       }
     }
     return obj;
@@ -165,6 +172,11 @@
    * @member {Number} amount
    */
   exports.prototype['amount'] = undefined;
+  /**
+   * Extra parameters
+   * @member {Array.<module:model/ExtraParam>} extra
+   */
+  exports.prototype['extra'] = undefined;
 
 
 

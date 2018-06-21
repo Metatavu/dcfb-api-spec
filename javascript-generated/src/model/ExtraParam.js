@@ -25,7 +25,7 @@
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.InternalServerError = factory(root.DcfbApiClient.ApiClient);
+    root.DcfbApiClient.ExtraParam = factory(root.DcfbApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,14 +34,15 @@
 
 
   /**
-   * The InternalServerError model module.
-   * @module model/InternalServerError
+   * The ExtraParam model module.
+   * @module model/ExtraParam
    * @version 0.0.17
    */
 
   /**
-   * Constructs a new <code>InternalServerError</code>.
-   * @alias module:model/InternalServerError
+   * Constructs a new <code>ExtraParam</code>.
+   * Name-value pair that can be used to add extra parameters to objects (items, categories)
+   * @alias module:model/ExtraParam
    * @class
    */
   var exports = function() {
@@ -52,34 +53,34 @@
   };
 
   /**
-   * Constructs a <code>InternalServerError</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ExtraParam</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/InternalServerError} obj Optional instance to populate.
-   * @return {module:model/InternalServerError} The populated <code>InternalServerError</code> instance.
+   * @param {module:model/ExtraParam} obj Optional instance to populate.
+   * @return {module:model/ExtraParam} The populated <code>ExtraParam</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('code')) {
-        obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
-      if (data.hasOwnProperty('message')) {
-        obj['message'] = ApiClient.convertToType(data['message'], 'String');
+      if (data.hasOwnProperty('value')) {
+        obj['value'] = ApiClient.convertToType(data['value'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Number} code
+   * @member {String} name
    */
-  exports.prototype['code'] = undefined;
+  exports.prototype['name'] = undefined;
   /**
-   * @member {String} message
+   * @member {String} value
    */
-  exports.prototype['message'] = undefined;
+  exports.prototype['value'] = undefined;
 
 
 

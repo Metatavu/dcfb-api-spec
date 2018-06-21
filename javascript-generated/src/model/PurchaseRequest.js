@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/LocalizedValue'], factory);
+    define(['ApiClient', 'model/ExtraParam', 'model/LocalizedValue'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'));
+    module.exports = factory(require('../ApiClient'), require('./ExtraParam'), require('./LocalizedValue'));
   } else {
     // Browser globals (root is window)
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.PurchaseRequest = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.LocalizedValue);
+    root.DcfbApiClient.PurchaseRequest = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.ExtraParam, root.DcfbApiClient.LocalizedValue);
   }
-}(this, function(ApiClient, LocalizedValue) {
+}(this, function(ApiClient, ExtraParam, LocalizedValue) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The PurchaseRequest model module.
    * @module model/PurchaseRequest
-   * @version 0.0.16
+   * @version 0.0.17
    */
 
   /**
@@ -46,6 +46,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -100,6 +101,9 @@
       if (data.hasOwnProperty('amount')) {
         obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
       }
+      if (data.hasOwnProperty('extra')) {
+        obj['extra'] = ApiClient.convertToType(data['extra'], [ExtraParam]);
+      }
     }
     return obj;
   }
@@ -149,6 +153,11 @@
    * @member {Number} amount
    */
   exports.prototype['amount'] = undefined;
+  /**
+   * Extra parameters
+   * @member {Array.<module:model/ExtraParam>} extra
+   */
+  exports.prototype['extra'] = undefined;
 
 
 
