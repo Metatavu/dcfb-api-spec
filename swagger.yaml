@@ -675,6 +675,10 @@ definitions:
 
   Item:
     type: object
+    required:
+      - amount
+      - unit
+      - unitPrice
     properties:
       id:
         description: Item id
