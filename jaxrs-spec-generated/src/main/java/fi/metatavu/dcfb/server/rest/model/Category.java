@@ -19,7 +19,7 @@ public class Category   {
   private @Valid UUID parentId = null;
   private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
   private @Valid String slug = null;
-  private @Valid List<Meta> extra = new ArrayList<Meta>();
+  private @Valid List<Meta> meta = new ArrayList<Meta>();
 
   /**
    * Category id
@@ -92,18 +92,18 @@ public class Category   {
   /**
    * Meta parameters
    **/
-  public Category extra(List<Meta> extra) {
-    this.extra = extra;
+  public Category meta(List<Meta> meta) {
+    this.meta = meta;
     return this;
   }
 
   
   @ApiModelProperty(value = "Meta parameters")
-  public List<Meta> getExtra() {
-    return extra;
+  public List<Meta> getMeta() {
+    return meta;
   }
-  public void setExtra(List<Meta> extra) {
-    this.extra = extra;
+  public void setMeta(List<Meta> meta) {
+    this.meta = meta;
   }
 
 
@@ -120,12 +120,12 @@ public class Category   {
         Objects.equals(parentId, category.parentId) &&
         Objects.equals(title, category.title) &&
         Objects.equals(slug, category.slug) &&
-        Objects.equals(extra, category.extra);
+        Objects.equals(meta, category.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, title, slug, extra);
+    return Objects.hash(id, parentId, title, slug, meta);
   }
 
   @Override
@@ -137,7 +137,7 @@ public class Category   {
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
   }

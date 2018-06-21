@@ -22,7 +22,7 @@ import java.lang.Exception;
 @Api(description = "the items API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-21T09:37:21.585+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-06-21T10:45:55.475+03:00")
 
 
 public interface ItemsApi  {

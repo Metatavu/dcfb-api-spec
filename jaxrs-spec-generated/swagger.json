@@ -825,7 +825,7 @@
           "type" : "string",
           "description" : "Category slug"
         },
-        "extra" : {
+        "meta" : {
           "type" : "array",
           "description" : "Meta parameters",
           "items" : {
