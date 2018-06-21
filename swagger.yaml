@@ -628,9 +628,9 @@ definitions:
         type: string
       extra:
         type: array
-        description: Extra parameters
+        description: Meta parameters
         items:
-          $ref: '#/definitions/ExtraParam'
+          $ref: '#/definitions/MetaParam'
         
   Price:
     type: object
@@ -726,11 +726,11 @@ definitions:
       amount:
         type: integer
         format: int64
-      extra:
+      meta:
         type: array
-        description: Extra parameters
+        description: Item meta
         items:
-          $ref: '#/definitions/ExtraParam'
+          $ref: '#/definitions/Meta'
 
   PurchaseRequest:
     type: object
@@ -770,13 +770,12 @@ definitions:
       amount:
         type: number
         format: int64
-      extra:
+      meta:
         type: array
-        description: Extra parameters
+        description: Request meta
         items:
-          $ref: '#/definitions/ExtraParam'
+          $ref: '#/definitions/Meta'
         
-
   ItemListSort:
     type: string
     enum:
@@ -797,11 +796,11 @@ definitions:
       - SCORE_DESC
       - SCORE_ASC
       
-  ExtraParam:
+  Meta:
     type: object
-    description: Name-value pair that can be used to add extra parameters to objects (items, categories)
+    description: Key-value pair that can be used to add meta data to objects (items, categories, etc)
     properties:
-      name:
+      key:
         type: string
       value:
         type: string
