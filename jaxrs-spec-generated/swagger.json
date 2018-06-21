@@ -824,6 +824,13 @@
         "slug" : {
           "type" : "string",
           "description" : "Category slug"
+        },
+        "extra" : {
+          "type" : "array",
+          "description" : "Extra parameters",
+          "items" : {
+            "$ref" : "#/definitions/ExtraParam"
+          }
         }
       }
     },
@@ -885,6 +892,7 @@
     },
     "Item" : {
       "type" : "object",
+      "required" : [ "amount", "unit", "unitPrice" ],
       "properties" : {
         "id" : {
           "type" : "string",
@@ -941,6 +949,13 @@
         "amount" : {
           "type" : "integer",
           "format" : "int64"
+        },
+        "extra" : {
+          "type" : "array",
+          "description" : "Extra parameters",
+          "items" : {
+            "$ref" : "#/definitions/ExtraParam"
+          }
         }
       }
     },
@@ -993,6 +1008,13 @@
         "amount" : {
           "type" : "number",
           "format" : "int64"
+        },
+        "extra" : {
+          "type" : "array",
+          "description" : "Extra parameters",
+          "items" : {
+            "$ref" : "#/definitions/ExtraParam"
+          }
         }
       }
     },
@@ -1003,6 +1025,18 @@
     "CategoryListSort" : {
       "type" : "string",
       "enum" : [ "CREATED_AT_DESC", "CREATED_AT_ASC", "MODIFIED_AT_DESC", "MODIFIED_AT_ASC", "SCORE_DESC", "SCORE_ASC" ]
+    },
+    "ExtraParam" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "value" : {
+          "type" : "string"
+        }
+      },
+      "description" : "Name-value pair that can be used to add extra parameters to objects (items, categories)"
     },
     "InternalServerError" : {
       "type" : "object",

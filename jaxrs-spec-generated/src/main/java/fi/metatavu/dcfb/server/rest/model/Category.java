@@ -1,5 +1,6 @@
 package fi.metatavu.dcfb.server.rest.model;
 
+import fi.metatavu.dcfb.server.rest.model.ExtraParam;
 import fi.metatavu.dcfb.server.rest.model.LocalizedValue;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ public class Category   {
   private @Valid UUID parentId = null;
   private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
   private @Valid String slug = null;
+  private @Valid List<ExtraParam> extra = new ArrayList<ExtraParam>();
 
   /**
    * Category id
@@ -87,6 +89,23 @@ public class Category   {
     this.slug = slug;
   }
 
+  /**
+   * Extra parameters
+   **/
+  public Category extra(List<ExtraParam> extra) {
+    this.extra = extra;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "Extra parameters")
+  public List<ExtraParam> getExtra() {
+    return extra;
+  }
+  public void setExtra(List<ExtraParam> extra) {
+    this.extra = extra;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -100,12 +119,13 @@ public class Category   {
     return Objects.equals(id, category.id) &&
         Objects.equals(parentId, category.parentId) &&
         Objects.equals(title, category.title) &&
-        Objects.equals(slug, category.slug);
+        Objects.equals(slug, category.slug) &&
+        Objects.equals(extra, category.extra);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, title, slug);
+    return Objects.hash(id, parentId, title, slug, extra);
   }
 
   @Override
@@ -117,6 +137,7 @@ public class Category   {
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("}");
     return sb.toString();
   }

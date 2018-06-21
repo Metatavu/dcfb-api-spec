@@ -1,5 +1,6 @@
 package fi.metatavu.dcfb.server.rest.model;
 
+import fi.metatavu.dcfb.server.rest.model.ExtraParam;
 import fi.metatavu.dcfb.server.rest.model.Image;
 import fi.metatavu.dcfb.server.rest.model.LocalizedValue;
 import fi.metatavu.dcfb.server.rest.model.Price;
@@ -29,6 +30,7 @@ public class Item   {
   private @Valid Price unitPrice = null;
   private @Valid String unit = null;
   private @Valid Long amount = null;
+  private @Valid List<ExtraParam> extra = new ArrayList<ExtraParam>();
 
   /**
    * Item id
@@ -187,7 +189,8 @@ public class Item   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
   public Price getUnitPrice() {
     return unitPrice;
   }
@@ -203,7 +206,8 @@ public class Item   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
   public String getUnit() {
     return unit;
   }
@@ -219,12 +223,30 @@ public class Item   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
   public Long getAmount() {
     return amount;
   }
   public void setAmount(Long amount) {
     this.amount = amount;
+  }
+
+  /**
+   * Extra parameters
+   **/
+  public Item extra(List<ExtraParam> extra) {
+    this.extra = extra;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "Extra parameters")
+  public List<ExtraParam> getExtra() {
+    return extra;
+  }
+  public void setExtra(List<ExtraParam> extra) {
+    this.extra = extra;
   }
 
 
@@ -248,12 +270,13 @@ public class Item   {
         Objects.equals(images, item.images) &&
         Objects.equals(unitPrice, item.unitPrice) &&
         Objects.equals(unit, item.unit) &&
-        Objects.equals(amount, item.amount);
+        Objects.equals(amount, item.amount) &&
+        Objects.equals(extra, item.extra);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, images, unitPrice, unit, amount);
+    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, images, unitPrice, unit, amount, extra);
   }
 
   @Override
@@ -273,6 +296,7 @@ public class Item   {
     sb.append("    unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("}");
     return sb.toString();
   }

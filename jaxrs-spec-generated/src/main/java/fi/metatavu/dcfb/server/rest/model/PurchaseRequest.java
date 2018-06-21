@@ -1,5 +1,6 @@
 package fi.metatavu.dcfb.server.rest.model;
 
+import fi.metatavu.dcfb.server.rest.model.ExtraParam;
 import fi.metatavu.dcfb.server.rest.model.LocalizedValue;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -26,6 +27,7 @@ public class PurchaseRequest   {
   private @Valid OffsetDateTime expiresAt = null;
   private @Valid String unit = null;
   private @Valid BigDecimal amount = null;
+  private @Valid List<ExtraParam> extra = new ArrayList<ExtraParam>();
 
   /**
    * Purchase request id
@@ -192,6 +194,23 @@ public class PurchaseRequest   {
     this.amount = amount;
   }
 
+  /**
+   * Extra parameters
+   **/
+  public PurchaseRequest extra(List<ExtraParam> extra) {
+    this.extra = extra;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "Extra parameters")
+  public List<ExtraParam> getExtra() {
+    return extra;
+  }
+  public void setExtra(List<ExtraParam> extra) {
+    this.extra = extra;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -211,12 +230,13 @@ public class PurchaseRequest   {
         Objects.equals(modifiedAt, purchaseRequest.modifiedAt) &&
         Objects.equals(expiresAt, purchaseRequest.expiresAt) &&
         Objects.equals(unit, purchaseRequest.unit) &&
-        Objects.equals(amount, purchaseRequest.amount);
+        Objects.equals(amount, purchaseRequest.amount) &&
+        Objects.equals(extra, purchaseRequest.extra);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, unit, amount);
+    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, unit, amount, extra);
   }
 
   @Override
@@ -234,6 +254,7 @@ public class PurchaseRequest   {
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("}");
     return sb.toString();
   }
