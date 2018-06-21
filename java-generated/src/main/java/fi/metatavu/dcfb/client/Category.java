@@ -28,7 +28,7 @@ import java.util.UUID;
 /**
  * Category
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-21T09:40:22.662+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-21T10:48:45.473+03:00")
 public class Category {
   @JsonProperty("id")
   private UUID id = null;
@@ -42,8 +42,8 @@ public class Category {
   @JsonProperty("slug")
   private String slug = null;
 
-  @JsonProperty("extra")
-  private List<Meta> extra = null;
+  @JsonProperty("meta")
+  private List<Meta> meta = null;
 
   public Category id(UUID id) {
     this.id = id;
@@ -125,30 +125,30 @@ public class Category {
     this.slug = slug;
   }
 
-  public Category extra(List<Meta> extra) {
-    this.extra = extra;
+  public Category meta(List<Meta> meta) {
+    this.meta = meta;
     return this;
   }
 
-  public Category addExtraItem(Meta extraItem) {
-    if (this.extra == null) {
-      this.extra = new ArrayList<Meta>();
+  public Category addMetaItem(Meta metaItem) {
+    if (this.meta == null) {
+      this.meta = new ArrayList<Meta>();
     }
-    this.extra.add(extraItem);
+    this.meta.add(metaItem);
     return this;
   }
 
    /**
    * Meta parameters
-   * @return extra
+   * @return meta
   **/
   @ApiModelProperty(value = "Meta parameters")
-  public List<Meta> getExtra() {
-    return extra;
+  public List<Meta> getMeta() {
+    return meta;
   }
 
-  public void setExtra(List<Meta> extra) {
-    this.extra = extra;
+  public void setMeta(List<Meta> meta) {
+    this.meta = meta;
   }
 
 
@@ -165,12 +165,12 @@ public class Category {
         Objects.equals(this.parentId, category.parentId) &&
         Objects.equals(this.title, category.title) &&
         Objects.equals(this.slug, category.slug) &&
-        Objects.equals(this.extra, category.extra);
+        Objects.equals(this.meta, category.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, title, slug, extra);
+    return Objects.hash(id, parentId, title, slug, meta);
   }
 
 
@@ -183,7 +183,7 @@ public class Category {
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
   }
