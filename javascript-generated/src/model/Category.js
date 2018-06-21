@@ -36,7 +36,7 @@
   /**
    * The Category model module.
    * @module model/Category
-   * @version 0.0.18
+   * @version 0.0.19
    */
 
   /**
@@ -77,8 +77,8 @@
       if (data.hasOwnProperty('slug')) {
         obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
       }
-      if (data.hasOwnProperty('extra')) {
-        obj['extra'] = ApiClient.convertToType(data['extra'], [Meta]);
+      if (data.hasOwnProperty('meta')) {
+        obj['meta'] = ApiClient.convertToType(data['meta'], [Meta]);
       }
     }
     return obj;
@@ -106,9 +106,9 @@
   exports.prototype['slug'] = undefined;
   /**
    * Meta parameters
-   * @member {Array.<module:model/Meta>} extra
+   * @member {Array.<module:model/Meta>} meta
    */
-  exports.prototype['extra'] = undefined;
+  exports.prototype['meta'] = undefined;
 
 
 
