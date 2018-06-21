@@ -17,8 +17,8 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import fi.metatavu.dcfb.client.ExtraParam;
 import fi.metatavu.dcfb.client.LocalizedValue;
+import fi.metatavu.dcfb.client.Meta;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import java.util.UUID;
 /**
  * Category
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-21T08:51:52.602+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-21T09:40:22.662+03:00")
 public class Category {
   @JsonProperty("id")
   private UUID id = null;
@@ -43,7 +43,7 @@ public class Category {
   private String slug = null;
 
   @JsonProperty("extra")
-  private List<ExtraParam> extra = null;
+  private List<Meta> extra = null;
 
   public Category id(UUID id) {
     this.id = id;
@@ -125,29 +125,29 @@ public class Category {
     this.slug = slug;
   }
 
-  public Category extra(List<ExtraParam> extra) {
+  public Category extra(List<Meta> extra) {
     this.extra = extra;
     return this;
   }
 
-  public Category addExtraItem(ExtraParam extraItem) {
+  public Category addExtraItem(Meta extraItem) {
     if (this.extra == null) {
-      this.extra = new ArrayList<ExtraParam>();
+      this.extra = new ArrayList<Meta>();
     }
     this.extra.add(extraItem);
     return this;
   }
 
    /**
-   * Extra parameters
+   * Meta parameters
    * @return extra
   **/
-  @ApiModelProperty(value = "Extra parameters")
-  public List<ExtraParam> getExtra() {
+  @ApiModelProperty(value = "Meta parameters")
+  public List<Meta> getExtra() {
     return extra;
   }
 
-  public void setExtra(List<ExtraParam> extra) {
+  public void setExtra(List<Meta> extra) {
     this.extra = extra;
   }
 

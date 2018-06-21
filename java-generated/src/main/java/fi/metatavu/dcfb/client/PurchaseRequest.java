@@ -17,8 +17,8 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import fi.metatavu.dcfb.client.ExtraParam;
 import fi.metatavu.dcfb.client.LocalizedValue;
+import fi.metatavu.dcfb.client.Meta;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
@@ -30,7 +30,7 @@ import java.util.UUID;
 /**
  * PurchaseRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-21T08:51:52.602+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-21T09:40:22.662+03:00")
 public class PurchaseRequest {
   @JsonProperty("id")
   private UUID id = null;
@@ -62,8 +62,8 @@ public class PurchaseRequest {
   @JsonProperty("amount")
   private BigDecimal amount = null;
 
-  @JsonProperty("extra")
-  private List<ExtraParam> extra = null;
+  @JsonProperty("meta")
+  private List<Meta> meta = null;
 
   public PurchaseRequest id(UUID id) {
     this.id = id;
@@ -261,30 +261,30 @@ public class PurchaseRequest {
     this.amount = amount;
   }
 
-  public PurchaseRequest extra(List<ExtraParam> extra) {
-    this.extra = extra;
+  public PurchaseRequest meta(List<Meta> meta) {
+    this.meta = meta;
     return this;
   }
 
-  public PurchaseRequest addExtraItem(ExtraParam extraItem) {
-    if (this.extra == null) {
-      this.extra = new ArrayList<ExtraParam>();
+  public PurchaseRequest addMetaItem(Meta metaItem) {
+    if (this.meta == null) {
+      this.meta = new ArrayList<Meta>();
     }
-    this.extra.add(extraItem);
+    this.meta.add(metaItem);
     return this;
   }
 
    /**
-   * Extra parameters
-   * @return extra
+   * Request meta
+   * @return meta
   **/
-  @ApiModelProperty(value = "Extra parameters")
-  public List<ExtraParam> getExtra() {
-    return extra;
+  @ApiModelProperty(value = "Request meta")
+  public List<Meta> getMeta() {
+    return meta;
   }
 
-  public void setExtra(List<ExtraParam> extra) {
-    this.extra = extra;
+  public void setMeta(List<Meta> meta) {
+    this.meta = meta;
   }
 
 
@@ -307,12 +307,12 @@ public class PurchaseRequest {
         Objects.equals(this.expiresAt, purchaseRequest.expiresAt) &&
         Objects.equals(this.unit, purchaseRequest.unit) &&
         Objects.equals(this.amount, purchaseRequest.amount) &&
-        Objects.equals(this.extra, purchaseRequest.extra);
+        Objects.equals(this.meta, purchaseRequest.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, unit, amount, extra);
+    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, unit, amount, meta);
   }
 
 
@@ -331,7 +331,7 @@ public class PurchaseRequest {
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
   }
