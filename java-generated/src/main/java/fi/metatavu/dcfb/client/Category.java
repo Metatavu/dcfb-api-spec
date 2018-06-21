@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import fi.metatavu.dcfb.client.ExtraParam;
 import fi.metatavu.dcfb.client.LocalizedValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,7 +28,7 @@ import java.util.UUID;
 /**
  * Category
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T21:02:49.650+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-21T08:36:06.959+03:00")
 public class Category {
   @JsonProperty("id")
   private UUID id = null;
@@ -40,6 +41,9 @@ public class Category {
 
   @JsonProperty("slug")
   private String slug = null;
+
+  @JsonProperty("extra")
+  private List<ExtraParam> extra = null;
 
   public Category id(UUID id) {
     this.id = id;
@@ -121,6 +125,32 @@ public class Category {
     this.slug = slug;
   }
 
+  public Category extra(List<ExtraParam> extra) {
+    this.extra = extra;
+    return this;
+  }
+
+  public Category addExtraItem(ExtraParam extraItem) {
+    if (this.extra == null) {
+      this.extra = new ArrayList<ExtraParam>();
+    }
+    this.extra.add(extraItem);
+    return this;
+  }
+
+   /**
+   * Extra parameters
+   * @return extra
+  **/
+  @ApiModelProperty(value = "Extra parameters")
+  public List<ExtraParam> getExtra() {
+    return extra;
+  }
+
+  public void setExtra(List<ExtraParam> extra) {
+    this.extra = extra;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -134,12 +164,13 @@ public class Category {
     return Objects.equals(this.id, category.id) &&
         Objects.equals(this.parentId, category.parentId) &&
         Objects.equals(this.title, category.title) &&
-        Objects.equals(this.slug, category.slug);
+        Objects.equals(this.slug, category.slug) &&
+        Objects.equals(this.extra, category.extra);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parentId, title, slug);
+    return Objects.hash(id, parentId, title, slug, extra);
   }
 
 
@@ -152,6 +183,7 @@ public class Category {
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("}");
     return sb.toString();
   }

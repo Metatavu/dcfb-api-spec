@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import fi.metatavu.dcfb.client.ExtraParam;
 import fi.metatavu.dcfb.client.Image;
 import fi.metatavu.dcfb.client.LocalizedValue;
 import fi.metatavu.dcfb.client.Price;
@@ -30,7 +31,7 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T21:02:49.650+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-21T08:36:06.959+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
@@ -67,6 +68,9 @@ public class Item {
 
   @JsonProperty("amount")
   private Long amount = null;
+
+  @JsonProperty("extra")
+  private List<ExtraParam> extra = null;
 
   public Item id(UUID id) {
     this.id = id;
@@ -263,7 +267,7 @@ public class Item {
    * Get unitPrice
    * @return unitPrice
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public Price getUnitPrice() {
     return unitPrice;
   }
@@ -281,7 +285,7 @@ public class Item {
    * Get unit
    * @return unit
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getUnit() {
     return unit;
   }
@@ -299,13 +303,39 @@ public class Item {
    * Get amount
    * @return amount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public Long getAmount() {
     return amount;
   }
 
   public void setAmount(Long amount) {
     this.amount = amount;
+  }
+
+  public Item extra(List<ExtraParam> extra) {
+    this.extra = extra;
+    return this;
+  }
+
+  public Item addExtraItem(ExtraParam extraItem) {
+    if (this.extra == null) {
+      this.extra = new ArrayList<ExtraParam>();
+    }
+    this.extra.add(extraItem);
+    return this;
+  }
+
+   /**
+   * Extra parameters
+   * @return extra
+  **/
+  @ApiModelProperty(value = "Extra parameters")
+  public List<ExtraParam> getExtra() {
+    return extra;
+  }
+
+  public void setExtra(List<ExtraParam> extra) {
+    this.extra = extra;
   }
 
 
@@ -329,12 +359,13 @@ public class Item {
         Objects.equals(this.images, item.images) &&
         Objects.equals(this.unitPrice, item.unitPrice) &&
         Objects.equals(this.unit, item.unit) &&
-        Objects.equals(this.amount, item.amount);
+        Objects.equals(this.amount, item.amount) &&
+        Objects.equals(this.extra, item.extra);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, images, unitPrice, unit, amount);
+    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, images, unitPrice, unit, amount, extra);
   }
 
 
@@ -355,6 +386,7 @@ public class Item {
     sb.append("    unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("}");
     return sb.toString();
   }

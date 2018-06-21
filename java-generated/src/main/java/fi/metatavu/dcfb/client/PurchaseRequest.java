@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import fi.metatavu.dcfb.client.ExtraParam;
 import fi.metatavu.dcfb.client.LocalizedValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -29,7 +30,7 @@ import java.util.UUID;
 /**
  * PurchaseRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T21:02:49.650+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-21T08:36:06.959+03:00")
 public class PurchaseRequest {
   @JsonProperty("id")
   private UUID id = null;
@@ -60,6 +61,9 @@ public class PurchaseRequest {
 
   @JsonProperty("amount")
   private BigDecimal amount = null;
+
+  @JsonProperty("extra")
+  private List<ExtraParam> extra = null;
 
   public PurchaseRequest id(UUID id) {
     this.id = id;
@@ -257,6 +261,32 @@ public class PurchaseRequest {
     this.amount = amount;
   }
 
+  public PurchaseRequest extra(List<ExtraParam> extra) {
+    this.extra = extra;
+    return this;
+  }
+
+  public PurchaseRequest addExtraItem(ExtraParam extraItem) {
+    if (this.extra == null) {
+      this.extra = new ArrayList<ExtraParam>();
+    }
+    this.extra.add(extraItem);
+    return this;
+  }
+
+   /**
+   * Extra parameters
+   * @return extra
+  **/
+  @ApiModelProperty(value = "Extra parameters")
+  public List<ExtraParam> getExtra() {
+    return extra;
+  }
+
+  public void setExtra(List<ExtraParam> extra) {
+    this.extra = extra;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -276,12 +306,13 @@ public class PurchaseRequest {
         Objects.equals(this.modifiedAt, purchaseRequest.modifiedAt) &&
         Objects.equals(this.expiresAt, purchaseRequest.expiresAt) &&
         Objects.equals(this.unit, purchaseRequest.unit) &&
-        Objects.equals(this.amount, purchaseRequest.amount);
+        Objects.equals(this.amount, purchaseRequest.amount) &&
+        Objects.equals(this.extra, purchaseRequest.extra);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, unit, amount);
+    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, unit, amount, extra);
   }
 
 
@@ -300,6 +331,7 @@ public class PurchaseRequest {
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("}");
     return sb.toString();
   }
