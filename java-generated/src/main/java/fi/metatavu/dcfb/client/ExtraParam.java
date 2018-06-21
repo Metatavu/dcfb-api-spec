@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Name-value pair that can be used to add extra parameters to objects (items, categories)
  */
 @ApiModel(description = "Name-value pair that can be used to add extra parameters to objects (items, categories)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-21T08:36:06.959+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-21T08:44:15.404+03:00")
 public class ExtraParam {
   @JsonProperty("name")
   private String name = null;
