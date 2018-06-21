@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ExtraParam', 'model/LocalizedValue'], factory);
+    define(['ApiClient', 'model/LocalizedValue', 'model/Meta'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./ExtraParam'), require('./LocalizedValue'));
+    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'), require('./Meta'));
   } else {
     // Browser globals (root is window)
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.Category = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.ExtraParam, root.DcfbApiClient.LocalizedValue);
+    root.DcfbApiClient.Category = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.LocalizedValue, root.DcfbApiClient.Meta);
   }
-}(this, function(ApiClient, ExtraParam, LocalizedValue) {
+}(this, function(ApiClient, LocalizedValue, Meta) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Category model module.
    * @module model/Category
-   * @version 0.0.17
+   * @version 0.0.18
    */
 
   /**
@@ -78,7 +78,7 @@
         obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
       }
       if (data.hasOwnProperty('extra')) {
-        obj['extra'] = ApiClient.convertToType(data['extra'], [ExtraParam]);
+        obj['extra'] = ApiClient.convertToType(data['extra'], [Meta]);
       }
     }
     return obj;
@@ -105,8 +105,8 @@
    */
   exports.prototype['slug'] = undefined;
   /**
-   * Extra parameters
-   * @member {Array.<module:model/ExtraParam>} extra
+   * Meta parameters
+   * @member {Array.<module:model/Meta>} extra
    */
   exports.prototype['extra'] = undefined;
 

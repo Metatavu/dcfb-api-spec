@@ -25,7 +25,7 @@
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.Image = factory(root.DcfbApiClient.ApiClient);
+    root.DcfbApiClient.Meta = factory(root.DcfbApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,65 +34,53 @@
 
 
   /**
-   * The Image model module.
-   * @module model/Image
+   * The Meta model module.
+   * @module model/Meta
    * @version 0.0.18
    */
 
   /**
-   * Constructs a new <code>Image</code>.
-   * @alias module:model/Image
+   * Constructs a new <code>Meta</code>.
+   * Key-value pair that can be used to add meta data to objects (items, categories, etc)
+   * @alias module:model/Meta
    * @class
-   * @param url {String} Image URL
-   * @param type {String} Image type
    */
-  var exports = function(url, type) {
+  var exports = function() {
     var _this = this;
 
 
-    _this['url'] = url;
-    _this['type'] = type;
+
   };
 
   /**
-   * Constructs a <code>Image</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Meta</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Image} obj Optional instance to populate.
-   * @return {module:model/Image} The populated <code>Image</code> instance.
+   * @param {module:model/Meta} obj Optional instance to populate.
+   * @return {module:model/Meta} The populated <code>Meta</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      if (data.hasOwnProperty('key')) {
+        obj['key'] = ApiClient.convertToType(data['key'], 'String');
       }
-      if (data.hasOwnProperty('url')) {
-        obj['url'] = ApiClient.convertToType(data['url'], 'String');
-      }
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      if (data.hasOwnProperty('value')) {
+        obj['value'] = ApiClient.convertToType(data['value'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Image id
-   * @member {String} id
+   * @member {String} key
    */
-  exports.prototype['id'] = undefined;
+  exports.prototype['key'] = undefined;
   /**
-   * Image URL
-   * @member {String} url
+   * @member {String} value
    */
-  exports.prototype['url'] = undefined;
-  /**
-   * Image type
-   * @member {String} type
-   */
-  exports.prototype['type'] = undefined;
+  exports.prototype['value'] = undefined;
 
 
 

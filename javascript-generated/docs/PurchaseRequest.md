@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **expiresAt** | **Date** |  | [optional] 
 **unit** | **String** |  | [optional] 
 **amount** | **Number** |  | [optional] 
-**extra** | [**[ExtraParam]**](ExtraParam.md) | Extra parameters | [optional] 
+**meta** | [**[Meta]**](Meta.md) | Request meta | [optional] 
 
 

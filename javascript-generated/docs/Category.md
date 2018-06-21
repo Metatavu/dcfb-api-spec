@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **parentId** | **String** | Category parent id. | [optional] 
 **title** | [**[LocalizedValue]**](LocalizedValue.md) | Title of the category, multilingual | [optional] 
 **slug** | **String** | Category slug | [optional] 
-**extra** | [**[ExtraParam]**](ExtraParam.md) | Extra parameters | [optional] 
+**extra** | [**[Meta]**](Meta.md) | Meta parameters | [optional] 
 
 

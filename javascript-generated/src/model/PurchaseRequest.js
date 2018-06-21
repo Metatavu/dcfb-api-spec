@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ExtraParam', 'model/LocalizedValue'], factory);
+    define(['ApiClient', 'model/LocalizedValue', 'model/Meta'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./ExtraParam'), require('./LocalizedValue'));
+    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'), require('./Meta'));
   } else {
     // Browser globals (root is window)
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.PurchaseRequest = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.ExtraParam, root.DcfbApiClient.LocalizedValue);
+    root.DcfbApiClient.PurchaseRequest = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.LocalizedValue, root.DcfbApiClient.Meta);
   }
-}(this, function(ApiClient, ExtraParam, LocalizedValue) {
+}(this, function(ApiClient, LocalizedValue, Meta) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The PurchaseRequest model module.
    * @module model/PurchaseRequest
-   * @version 0.0.17
+   * @version 0.0.18
    */
 
   /**
@@ -101,8 +101,8 @@
       if (data.hasOwnProperty('amount')) {
         obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
       }
-      if (data.hasOwnProperty('extra')) {
-        obj['extra'] = ApiClient.convertToType(data['extra'], [ExtraParam]);
+      if (data.hasOwnProperty('meta')) {
+        obj['meta'] = ApiClient.convertToType(data['meta'], [Meta]);
       }
     }
     return obj;
@@ -154,10 +154,10 @@
    */
   exports.prototype['amount'] = undefined;
   /**
-   * Extra parameters
-   * @member {Array.<module:model/ExtraParam>} extra
+   * Request meta
+   * @member {Array.<module:model/Meta>} meta
    */
-  exports.prototype['extra'] = undefined;
+  exports.prototype['meta'] = undefined;
 
 
 

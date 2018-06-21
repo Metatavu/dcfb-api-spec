@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ExtraParam', 'model/Image', 'model/LocalizedValue', 'model/Price'], factory);
+    define(['ApiClient', 'model/Image', 'model/LocalizedValue', 'model/Meta', 'model/Price'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./ExtraParam'), require('./Image'), require('./LocalizedValue'), require('./Price'));
+    module.exports = factory(require('../ApiClient'), require('./Image'), require('./LocalizedValue'), require('./Meta'), require('./Price'));
   } else {
     // Browser globals (root is window)
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.Item = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.ExtraParam, root.DcfbApiClient.Image, root.DcfbApiClient.LocalizedValue, root.DcfbApiClient.Price);
+    root.DcfbApiClient.Item = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.Image, root.DcfbApiClient.LocalizedValue, root.DcfbApiClient.Meta, root.DcfbApiClient.Price);
   }
-}(this, function(ApiClient, ExtraParam, Image, LocalizedValue, Price) {
+}(this, function(ApiClient, Image, LocalizedValue, Meta, Price) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.17
+   * @version 0.0.18
    */
 
   /**
@@ -112,8 +112,8 @@
       if (data.hasOwnProperty('amount')) {
         obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
       }
-      if (data.hasOwnProperty('extra')) {
-        obj['extra'] = ApiClient.convertToType(data['extra'], [ExtraParam]);
+      if (data.hasOwnProperty('meta')) {
+        obj['meta'] = ApiClient.convertToType(data['meta'], [Meta]);
       }
     }
     return obj;
@@ -173,10 +173,10 @@
    */
   exports.prototype['amount'] = undefined;
   /**
-   * Extra parameters
-   * @member {Array.<module:model/ExtraParam>} extra
+   * Item meta
+   * @member {Array.<module:model/Meta>} meta
    */
-  exports.prototype['extra'] = undefined;
+  exports.prototype['meta'] = undefined;
 
 
 

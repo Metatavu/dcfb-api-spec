@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **unitPrice** | [**Price**](Price.md) |  | 
 **unit** | **String** |  | 
 **amount** | **Number** |  | 
-**extra** | [**[ExtraParam]**](ExtraParam.md) | Extra parameters | [optional] 
+**meta** | [**[Meta]**](Meta.md) | Item meta | [optional] 
 
 
