@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/BadRequest', 'model/Category', 'model/CategoryListSort', 'model/Coordinate', 'model/Forbidden', 'model/Image', 'model/InternalServerError', 'model/Item', 'model/ItemListSort', 'model/LocalizedValue', 'model/Location', 'model/Meta', 'model/NotFound', 'model/NotImplemented', 'model/Price', 'model/PurchaseRequest', 'api/CategoriesApi', 'api/ItemsApi', 'api/PurchaseRequestsApi'], factory);
+    define(['ApiClient', 'model/Address', 'model/BadRequest', 'model/Category', 'model/CategoryListSort', 'model/Coordinate', 'model/Forbidden', 'model/Image', 'model/InternalServerError', 'model/Item', 'model/ItemListSort', 'model/LocalizedValue', 'model/Location', 'model/Meta', 'model/NotFound', 'model/NotImplemented', 'model/Price', 'model/PurchaseRequest', 'api/CategoriesApi', 'api/ItemsApi', 'api/LocationsApi', 'api/PurchaseRequestsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Address'), require('./model/BadRequest'), require('./model/Category'), require('./model/CategoryListSort'), require('./model/Coordinate'), require('./model/Forbidden'), require('./model/Image'), require('./model/InternalServerError'), require('./model/Item'), require('./model/ItemListSort'), require('./model/LocalizedValue'), require('./model/Location'), require('./model/Meta'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/Price'), require('./model/PurchaseRequest'), require('./api/CategoriesApi'), require('./api/ItemsApi'), require('./api/PurchaseRequestsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Address'), require('./model/BadRequest'), require('./model/Category'), require('./model/CategoryListSort'), require('./model/Coordinate'), require('./model/Forbidden'), require('./model/Image'), require('./model/InternalServerError'), require('./model/Item'), require('./model/ItemListSort'), require('./model/LocalizedValue'), require('./model/Location'), require('./model/Meta'), require('./model/NotFound'), require('./model/NotImplemented'), require('./model/Price'), require('./model/PurchaseRequest'), require('./api/CategoriesApi'), require('./api/ItemsApi'), require('./api/LocationsApi'), require('./api/PurchaseRequestsApi'));
   }
-}(function(ApiClient, Address, BadRequest, Category, CategoryListSort, Coordinate, Forbidden, Image, InternalServerError, Item, ItemListSort, LocalizedValue, Location, Meta, NotFound, NotImplemented, Price, PurchaseRequest, CategoriesApi, ItemsApi, PurchaseRequestsApi) {
+}(function(ApiClient, Address, BadRequest, Category, CategoryListSort, Coordinate, Forbidden, Image, InternalServerError, Item, ItemListSort, LocalizedValue, Location, Meta, NotFound, NotImplemented, Price, PurchaseRequest, CategoriesApi, ItemsApi, LocationsApi, PurchaseRequestsApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.20
+   * @version 0.0.21
    */
   var exports = {
     /**
@@ -156,6 +156,11 @@
      * @property {module:api/ItemsApi}
      */
     ItemsApi: ItemsApi,
+    /**
+     * The LocationsApi service constructor.
+     * @property {module:api/LocationsApi}
+     */
+    LocationsApi: LocationsApi,
     /**
      * The PurchaseRequestsApi service constructor.
      * @property {module:api/PurchaseRequestsApi}

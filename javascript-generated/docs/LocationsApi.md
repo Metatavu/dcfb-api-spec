@@ -1,23 +1,23 @@
-# DcfbApiClient.ItemsApi
+# DcfbApiClient.LocationsApi
 
 All URIs are relative to *https://localhost/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createItem**](ItemsApi.md#createItem) | **POST** /items | Create item
-[**deleteItem**](ItemsApi.md#deleteItem) | **DELETE** /items/{itemId} | deletes an item
-[**findItem**](ItemsApi.md#findItem) | **GET** /items/{itemId} | Finds an item
-[**listItems**](ItemsApi.md#listItems) | **GET** /items | List items
-[**updateItem**](ItemsApi.md#updateItem) | **PUT** /items/{itemId} | updates an item
+[**createLocation**](LocationsApi.md#createLocation) | **POST** /locations | Create location
+[**deleteLocation**](LocationsApi.md#deleteLocation) | **DELETE** /locations/{locationId} | deletes an location
+[**findLocation**](LocationsApi.md#findLocation) | **GET** /locations/{locationId} | Finds an location
+[**listLocations**](LocationsApi.md#listLocations) | **GET** /locations | List locations
+[**updateLocation**](LocationsApi.md#updateLocation) | **PUT** /locations/{locationId} | updates an location
 
 
-<a name="createItem"></a>
-# **createItem**
-> Item createItem(payload)
+<a name="createLocation"></a>
+# **createLocation**
+> Location createLocation(payload)
 
-Create item
+Create location
 
-Create item
+Create location
 
 ### Example
 ```javascript
@@ -30,11 +30,11 @@ bearer.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearer.apiKeyPrefix = 'Token';
 
-var apiInstance = new DcfbApiClient.ItemsApi();
+var apiInstance = new DcfbApiClient.LocationsApi();
 
-var payload = new DcfbApiClient.Item(); // Item | Payload
+var payload = new DcfbApiClient.Location(); // Location | Payload
 
-apiInstance.createItem(payload).then(function(data) {
+apiInstance.createLocation(payload).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -46,11 +46,11 @@ apiInstance.createItem(payload).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**Item**](Item.md)| Payload | 
+ **payload** | [**Location**](Location.md)| Payload | 
 
 ### Return type
 
-[**Item**](Item.md)
+[**Location**](Location.md)
 
 ### Authorization
 
@@ -61,13 +61,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/json;charset=utf-8
 
-<a name="deleteItem"></a>
-# **deleteItem**
-> deleteItem(itemId)
+<a name="deleteLocation"></a>
+# **deleteLocation**
+> deleteLocation(locationId)
 
-deletes an item
+deletes an location
 
-Delete item
+Delete location
 
 ### Example
 ```javascript
@@ -80,11 +80,11 @@ bearer.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearer.apiKeyPrefix = 'Token';
 
-var apiInstance = new DcfbApiClient.ItemsApi();
+var apiInstance = new DcfbApiClient.LocationsApi();
 
-var itemId = "itemId_example"; // String | Item id
+var locationId = "locationId_example"; // String | Location id
 
-apiInstance.deleteItem(itemId).then(function() {
+apiInstance.deleteLocation(locationId).then(function() {
   console.log('API called successfully.');
 }, function(error) {
   console.error(error);
@@ -96,7 +96,7 @@ apiInstance.deleteItem(itemId).then(function() {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id | 
+ **locationId** | **String**| Location id | 
 
 ### Return type
 
@@ -111,13 +111,13 @@ null (empty response body)
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/json;charset=utf-8
 
-<a name="findItem"></a>
-# **findItem**
-> Item findItem(itemId)
+<a name="findLocation"></a>
+# **findLocation**
+> Location findLocation(locationId)
 
-Finds an item
+Finds an location
 
-Find item
+Find location
 
 ### Example
 ```javascript
@@ -130,11 +130,11 @@ bearer.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearer.apiKeyPrefix = 'Token';
 
-var apiInstance = new DcfbApiClient.ItemsApi();
+var apiInstance = new DcfbApiClient.LocationsApi();
 
-var itemId = "itemId_example"; // String | Item id
+var locationId = "locationId_example"; // String | Location id
 
-apiInstance.findItem(itemId).then(function(data) {
+apiInstance.findLocation(locationId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -146,11 +146,11 @@ apiInstance.findItem(itemId).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id | 
+ **locationId** | **String**| Location id | 
 
 ### Return type
 
-[**Item**](Item.md)
+[**Location**](Location.md)
 
 ### Authorization
 
@@ -161,13 +161,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/json;charset=utf-8
 
-<a name="listItems"></a>
-# **listItems**
-> [Item] listItems(opts)
+<a name="listLocations"></a>
+# **listLocations**
+> [Location] listLocations(opts)
 
-List items
+List locations
 
-List items
+List locations
 
 ### Example
 ```javascript
@@ -180,17 +180,16 @@ bearer.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearer.apiKeyPrefix = 'Token';
 
-var apiInstance = new DcfbApiClient.ItemsApi();
+var apiInstance = new DcfbApiClient.LocationsApi();
 
 var opts = { 
-  'categoryIds': "categoryIds_example", // String | Filter by category ids (comma delimitered)
-  'locationds': "locationds_example", // String | Filter by location ids (comma delimitered)
   'search': "search_example", // String | Search by free-text query
-  'sort': ["sort_example"], // [String] | 
+  'slug': "slug_example", // String | Filter by location slug
+  'sort': ["sort_example"], // [String] | Sort results. See LocationListSort for sort options
   'firstResult': 789, // Number | First result
   'maxResults': 789 // Number | Max results
 };
-apiInstance.listItems(opts).then(function(data) {
+apiInstance.listLocations(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -202,16 +201,15 @@ apiInstance.listItems(opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **categoryIds** | **String**| Filter by category ids (comma delimitered) | [optional] 
- **locationds** | **String**| Filter by location ids (comma delimitered) | [optional] 
  **search** | **String**| Search by free-text query | [optional] 
- **sort** | [**[String]**](String.md)|  | [optional] 
+ **slug** | **String**| Filter by location slug | [optional] 
+ **sort** | [**[String]**](String.md)| Sort results. See LocationListSort for sort options | [optional] 
  **firstResult** | **Number**| First result | [optional] 
  **maxResults** | **Number**| Max results | [optional] 
 
 ### Return type
 
-[**[Item]**](Item.md)
+[**[Location]**](Location.md)
 
 ### Authorization
 
@@ -222,13 +220,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/json;charset=utf-8
 
-<a name="updateItem"></a>
-# **updateItem**
-> Item updateItem(itemId, payload)
+<a name="updateLocation"></a>
+# **updateLocation**
+> Location updateLocation(locationId, payload)
 
-updates an item
+updates an location
 
-Update item
+Update location
 
 ### Example
 ```javascript
@@ -241,13 +239,13 @@ bearer.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //bearer.apiKeyPrefix = 'Token';
 
-var apiInstance = new DcfbApiClient.ItemsApi();
+var apiInstance = new DcfbApiClient.LocationsApi();
 
-var itemId = "itemId_example"; // String | Item id
+var locationId = "locationId_example"; // String | Location id
 
-var payload = new DcfbApiClient.Item(); // Item | Payload
+var payload = new DcfbApiClient.Location(); // Location | Payload
 
-apiInstance.updateItem(itemId, payload).then(function(data) {
+apiInstance.updateLocation(locationId, payload).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -259,12 +257,12 @@ apiInstance.updateItem(itemId, payload).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id | 
- **payload** | [**Item**](Item.md)| Payload | 
+ **locationId** | **String**| Location id | 
+ **payload** | [**Location**](Location.md)| Payload | 
 
 ### Return type
 
-[**Item**](Item.md)
+[**Location**](Location.md)
 
 ### Authorization
 

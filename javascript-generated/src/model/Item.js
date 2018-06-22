@@ -36,7 +36,7 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.20
+   * @version 0.0.21
    */
 
   /**
@@ -49,6 +49,7 @@
    */
   var exports = function(unitPrice, unit, amount) {
     var _this = this;
+
 
 
 
@@ -87,6 +88,9 @@
       }
       if (data.hasOwnProperty('categoryId')) {
         obj['categoryId'] = ApiClient.convertToType(data['categoryId'], 'String');
+      }
+      if (data.hasOwnProperty('locationId')) {
+        obj['locationId'] = ApiClient.convertToType(data['locationId'], 'String');
       }
       if (data.hasOwnProperty('slug')) {
         obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
@@ -139,6 +143,11 @@
    * @member {String} categoryId
    */
   exports.prototype['categoryId'] = undefined;
+  /**
+   * Location id.
+   * @member {String} locationId
+   */
+  exports.prototype['locationId'] = undefined;
   /**
    * Item slug
    * @member {String} slug

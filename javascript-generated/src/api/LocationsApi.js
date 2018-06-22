@@ -16,29 +16,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BadRequest', 'model/Category', 'model/Forbidden', 'model/InternalServerError'], factory);
+    define(['ApiClient', 'model/BadRequest', 'model/Forbidden', 'model/InternalServerError', 'model/Location'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Category'), require('../model/Forbidden'), require('../model/InternalServerError'));
+    module.exports = factory(require('../ApiClient'), require('../model/BadRequest'), require('../model/Forbidden'), require('../model/InternalServerError'), require('../model/Location'));
   } else {
     // Browser globals (root is window)
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.CategoriesApi = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.BadRequest, root.DcfbApiClient.Category, root.DcfbApiClient.Forbidden, root.DcfbApiClient.InternalServerError);
+    root.DcfbApiClient.LocationsApi = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.BadRequest, root.DcfbApiClient.Forbidden, root.DcfbApiClient.InternalServerError, root.DcfbApiClient.Location);
   }
-}(this, function(ApiClient, BadRequest, Category, Forbidden, InternalServerError) {
+}(this, function(ApiClient, BadRequest, Forbidden, InternalServerError, Location) {
   'use strict';
 
   /**
-   * Categories service.
-   * @module api/CategoriesApi
+   * Locations service.
+   * @module api/LocationsApi
    * @version 0.0.21
    */
 
   /**
-   * Constructs a new CategoriesApi. 
-   * @alias module:api/CategoriesApi
+   * Constructs a new LocationsApi. 
+   * @alias module:api/LocationsApi
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -49,17 +49,17 @@
 
 
     /**
-     * Create category
-     * Create category
-     * @param {module:model/Category} payload Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Category} and HTTP response
+     * Create location
+     * Create location
+     * @param {module:model/Location} payload Payload
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Location} and HTTP response
      */
-    this.createCategoryWithHttpInfo = function(payload) {
+    this.createLocationWithHttpInfo = function(payload) {
       var postBody = payload;
 
       // verify the required parameter 'payload' is set
       if (payload === undefined || payload === null) {
-        throw new Error("Missing the required parameter 'payload' when calling createCategory");
+        throw new Error("Missing the required parameter 'payload' when calling createLocation");
       }
 
 
@@ -77,23 +77,23 @@
       var authNames = ['bearer'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = Category;
+      var returnType = Location;
 
       return this.apiClient.callApi(
-        '/categories', 'POST',
+        '/locations', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Create category
-     * Create category
-     * @param {module:model/Category} payload Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Category}
+     * Create location
+     * Create location
+     * @param {module:model/Location} payload Payload
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Location}
      */
-    this.createCategory = function(payload) {
-      return this.createCategoryWithHttpInfo(payload)
+    this.createLocation = function(payload) {
+      return this.createLocationWithHttpInfo(payload)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -101,22 +101,22 @@
 
 
     /**
-     * deletes an category
-     * Delete category
-     * @param {String} categoryId Category id
+     * deletes an location
+     * Delete location
+     * @param {String} locationId Location id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    this.deleteCategoryWithHttpInfo = function(categoryId) {
+    this.deleteLocationWithHttpInfo = function(locationId) {
       var postBody = null;
 
-      // verify the required parameter 'categoryId' is set
-      if (categoryId === undefined || categoryId === null) {
-        throw new Error("Missing the required parameter 'categoryId' when calling deleteCategory");
+      // verify the required parameter 'locationId' is set
+      if (locationId === undefined || locationId === null) {
+        throw new Error("Missing the required parameter 'locationId' when calling deleteLocation");
       }
 
 
       var pathParams = {
-        'categoryId': categoryId
+        'locationId': locationId
       };
       var queryParams = {
       };
@@ -133,20 +133,20 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/categories/{categoryId}', 'DELETE',
+        '/locations/{locationId}', 'DELETE',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * deletes an category
-     * Delete category
-     * @param {String} categoryId Category id
+     * deletes an location
+     * Delete location
+     * @param {String} locationId Location id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    this.deleteCategory = function(categoryId) {
-      return this.deleteCategoryWithHttpInfo(categoryId)
+    this.deleteLocation = function(locationId) {
+      return this.deleteLocationWithHttpInfo(locationId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -154,22 +154,22 @@
 
 
     /**
-     * Finds an category
-     * Find category
-     * @param {String} categoryId Category id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Category} and HTTP response
+     * Finds an location
+     * Find location
+     * @param {String} locationId Location id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Location} and HTTP response
      */
-    this.findCategoryWithHttpInfo = function(categoryId) {
+    this.findLocationWithHttpInfo = function(locationId) {
       var postBody = null;
 
-      // verify the required parameter 'categoryId' is set
-      if (categoryId === undefined || categoryId === null) {
-        throw new Error("Missing the required parameter 'categoryId' when calling findCategory");
+      // verify the required parameter 'locationId' is set
+      if (locationId === undefined || locationId === null) {
+        throw new Error("Missing the required parameter 'locationId' when calling findLocation");
       }
 
 
       var pathParams = {
-        'categoryId': categoryId
+        'locationId': locationId
       };
       var queryParams = {
       };
@@ -183,23 +183,23 @@
       var authNames = ['bearer'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = Category;
+      var returnType = Location;
 
       return this.apiClient.callApi(
-        '/categories/{categoryId}', 'GET',
+        '/locations/{locationId}', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Finds an category
-     * Find category
-     * @param {String} categoryId Category id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Category}
+     * Finds an location
+     * Find location
+     * @param {String} locationId Location id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Location}
      */
-    this.findCategory = function(categoryId) {
-      return this.findCategoryWithHttpInfo(categoryId)
+    this.findLocation = function(locationId) {
+      return this.findLocationWithHttpInfo(locationId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -207,18 +207,17 @@
 
 
     /**
-     * List categories
-     * List categories
+     * List locations
+     * List locations
      * @param {Object} opts Optional parameters
-     * @param {String} opts.parentId Filter by parent category id
      * @param {String} opts.search Search by free-text query
-     * @param {String} opts.slug Filter by category slug
-     * @param {Array.<String>} opts.sort Sort results. See CategoryListSort for sort options
+     * @param {String} opts.slug Filter by location slug
+     * @param {Array.<String>} opts.sort Sort results. See LocationListSort for sort options
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Category>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Location>} and HTTP response
      */
-    this.listCategoriesWithHttpInfo = function(opts) {
+    this.listLocationsWithHttpInfo = function(opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -226,7 +225,6 @@
       var pathParams = {
       };
       var queryParams = {
-        'parentId': opts['parentId'],
         'search': opts['search'],
         'slug': opts['slug'],
         'firstResult': opts['firstResult'],
@@ -246,29 +244,28 @@
       var authNames = ['bearer'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = [Category];
+      var returnType = [Location];
 
       return this.apiClient.callApi(
-        '/categories', 'GET',
+        '/locations', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * List categories
-     * List categories
+     * List locations
+     * List locations
      * @param {Object} opts Optional parameters
-     * @param {String} opts.parentId Filter by parent category id
      * @param {String} opts.search Search by free-text query
-     * @param {String} opts.slug Filter by category slug
-     * @param {Array.<String>} opts.sort Sort results. See CategoryListSort for sort options
+     * @param {String} opts.slug Filter by location slug
+     * @param {Array.<String>} opts.sort Sort results. See LocationListSort for sort options
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Category>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Location>}
      */
-    this.listCategories = function(opts) {
-      return this.listCategoriesWithHttpInfo(opts)
+    this.listLocations = function(opts) {
+      return this.listLocationsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -276,28 +273,28 @@
 
 
     /**
-     * updates an category
-     * Update category
-     * @param {String} categoryId Category id
-     * @param {module:model/Category} payload Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Category} and HTTP response
+     * updates an location
+     * Update location
+     * @param {String} locationId Location id
+     * @param {module:model/Location} payload Payload
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Location} and HTTP response
      */
-    this.updateCategoryWithHttpInfo = function(categoryId, payload) {
+    this.updateLocationWithHttpInfo = function(locationId, payload) {
       var postBody = payload;
 
-      // verify the required parameter 'categoryId' is set
-      if (categoryId === undefined || categoryId === null) {
-        throw new Error("Missing the required parameter 'categoryId' when calling updateCategory");
+      // verify the required parameter 'locationId' is set
+      if (locationId === undefined || locationId === null) {
+        throw new Error("Missing the required parameter 'locationId' when calling updateLocation");
       }
 
       // verify the required parameter 'payload' is set
       if (payload === undefined || payload === null) {
-        throw new Error("Missing the required parameter 'payload' when calling updateCategory");
+        throw new Error("Missing the required parameter 'payload' when calling updateLocation");
       }
 
 
       var pathParams = {
-        'categoryId': categoryId
+        'locationId': locationId
       };
       var queryParams = {
       };
@@ -311,24 +308,24 @@
       var authNames = ['bearer'];
       var contentTypes = ['application/json;charset=utf-8'];
       var accepts = ['application/json;charset=utf-8'];
-      var returnType = Category;
+      var returnType = Location;
 
       return this.apiClient.callApi(
-        '/categories/{categoryId}', 'PUT',
+        '/locations/{locationId}', 'PUT',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * updates an category
-     * Update category
-     * @param {String} categoryId Category id
-     * @param {module:model/Category} payload Payload
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Category}
+     * updates an location
+     * Update location
+     * @param {String} locationId Location id
+     * @param {module:model/Location} payload Payload
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Location}
      */
-    this.updateCategory = function(categoryId, payload) {
-      return this.updateCategoryWithHttpInfo(categoryId, payload)
+    this.updateLocation = function(locationId, payload) {
+      return this.updateLocationWithHttpInfo(locationId, payload)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
