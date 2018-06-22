@@ -25,7 +25,8 @@ public class Meta   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
   public String getKey() {
     return key;
   }
@@ -41,7 +42,8 @@ public class Meta   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
   public String getValue() {
     return value;
   }
