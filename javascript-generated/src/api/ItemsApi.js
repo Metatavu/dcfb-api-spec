@@ -33,7 +33,7 @@
   /**
    * Items service.
    * @module api/ItemsApi
-   * @version 0.0.22
+   * @version 0.0.23
    */
 
   /**
@@ -211,7 +211,7 @@
      * List items
      * @param {Object} opts Optional parameters
      * @param {String} opts.categoryIds Filter by category ids (comma delimitered)
-     * @param {String} opts.locationds Filter by location ids (comma delimitered)
+     * @param {String} opts.locationIds Filter by location ids (comma delimitered)
      * @param {String} opts.search Search by free-text query
      * @param {Array.<String>} opts.sort 
      * @param {Number} opts.firstResult First result
@@ -227,7 +227,7 @@
       };
       var queryParams = {
         'categoryIds': opts['categoryIds'],
-        'locationds': opts['locationds'],
+        'locationIds': opts['locationIds'],
         'search': opts['search'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults'],
@@ -260,7 +260,7 @@
      * List items
      * @param {Object} opts Optional parameters
      * @param {String} opts.categoryIds Filter by category ids (comma delimitered)
-     * @param {String} opts.locationds Filter by location ids (comma delimitered)
+     * @param {String} opts.locationIds Filter by location ids (comma delimitered)
      * @param {String} opts.search Search by free-text query
      * @param {Array.<String>} opts.sort 
      * @param {Number} opts.firstResult First result
