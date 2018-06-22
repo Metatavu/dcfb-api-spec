@@ -26,7 +26,7 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "locationds",
+          "name" : "locationIds",
           "in" : "query",
           "description" : "Filter by location ids (comma delimitered)",
           "required" : false,
