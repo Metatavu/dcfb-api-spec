@@ -29,7 +29,7 @@ paths:
           in: query
           description: Filter by category ids (comma delimitered)
           type: string
-        - name: locationds
+        - name: locationIds
           in: query
           description: Filter by location ids (comma delimitered)
           type: string
