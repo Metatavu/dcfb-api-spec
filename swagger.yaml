@@ -29,6 +29,10 @@ paths:
           in: query
           description: Filter by category ids (comma delimitered)
           type: string
+        - name: locationds
+          in: query
+          description: Filter by location ids (comma delimitered)
+          type: string
         - name: search
           in: query
           description: Search by free-text query
@@ -562,8 +566,189 @@ paths:
           schema:
             $ref: '#/definitions/InternalServerError'
 
-definitions:
+  /locations:
+    get:
+      operationId: listLocations
+      summary: List locations
+      description: List locations
+      parameters:
+        - name: search
+          in: query
+          description: Search by free-text query
+          required: false
+          type: string
+        - name: slug
+          in: query
+          description: Filter by location slug
+          required: false
+          type: string
+        - name: sort
+          description: Sort results. See LocationListSort for sort options
+          in: query
+          type: array
+          collectionFormat: csv
+          items:
+            type: string
+        - name: firstResult
+          in: query
+          description: First result
+          required: false
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: Max results
+          required: false
+          type: integer
+          format: int64
+      tags:
+        - Locations
+      responses:
+        200:
+          description: An array of locations
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Location'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    post:
+      operationId: createLocation
+      summary: Create location
+      description: Create location
+      parameters:
+        - name: payload
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/Location'
+      tags:
+        - Locations
+      responses:
+        200:
+          description: Created location
+          schema:
+            $ref: '#/definitions/Location'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+  '/locations/{locationId}':
+    get:
+      operationId: findLocation
+      summary: Finds an location
+      description: Find location
+      parameters:
+        - name: locationId
+          required: true
+          in: path
+          description: Location id
+          type: string
+          format: uuid
+      tags:
+        - Locations
+      responses:
+        200:
+          description: A location
+          schema:
+            $ref: '#/definitions/Location'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    put:
+      operationId: updateLocation
+      summary: updates an location
+      description: Update location
+      parameters:
+        - name: locationId
+          required: true
+          in: path
+          description: Location id
+          type: string
+          format: uuid
+        - name: payload
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/Location'
+      tags:
+        - Locations
+      responses:
+        200:
+          description: Updated location
+          schema:
+            $ref: '#/definitions/Location'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+    delete:
+      operationId: deleteLocation
+      summary: deletes an location
+      description: Delete location
+      parameters:
+        - name: locationId
+          required: true
+          in: path
+          description: Location id
+          type: string
+          format: uuid
+      tags:
+        - Locations
+      responses:
+        204:
+          description: Empty resonse indicating a successful removal
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
 
+definitions:
   LocalizedValue: 
     type: object
     required:
@@ -707,6 +892,10 @@ definitions:
           $ref: '#/definitions/LocalizedValue'
       categoryId:
         description: Category id.
+        type: string
+        format: uuid
+      locationId:
+        description: Location id.
         type: string
         format: uuid
       slug:
