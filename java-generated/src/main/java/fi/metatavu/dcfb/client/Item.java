@@ -31,7 +31,7 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-22T08:43:55.431+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-22T18:08:44.015+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
@@ -44,6 +44,9 @@ public class Item {
 
   @JsonProperty("categoryId")
   private UUID categoryId = null;
+
+  @JsonProperty("locationId")
+  private UUID locationId = null;
 
   @JsonProperty("slug")
   private String slug = null;
@@ -158,6 +161,24 @@ public class Item {
 
   public void setCategoryId(UUID categoryId) {
     this.categoryId = categoryId;
+  }
+
+  public Item locationId(UUID locationId) {
+    this.locationId = locationId;
+    return this;
+  }
+
+   /**
+   * Location id.
+   * @return locationId
+  **/
+  @ApiModelProperty(value = "Location id.")
+  public UUID getLocationId() {
+    return locationId;
+  }
+
+  public void setLocationId(UUID locationId) {
+    this.locationId = locationId;
   }
 
   public Item slug(String slug) {
@@ -352,6 +373,7 @@ public class Item {
         Objects.equals(this.title, item.title) &&
         Objects.equals(this.description, item.description) &&
         Objects.equals(this.categoryId, item.categoryId) &&
+        Objects.equals(this.locationId, item.locationId) &&
         Objects.equals(this.slug, item.slug) &&
         Objects.equals(this.createdAt, item.createdAt) &&
         Objects.equals(this.modifiedAt, item.modifiedAt) &&
@@ -365,7 +387,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, images, unitPrice, unit, amount, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, slug, createdAt, modifiedAt, expiresAt, images, unitPrice, unit, amount, meta);
   }
 
 
@@ -378,6 +400,7 @@ public class Item {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
+    sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");

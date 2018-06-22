@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import feign.*;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-22T08:43:55.431+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-22T18:08:44.015+03:00")
 public interface ItemsApi extends ApiClient.Api {
 
 
@@ -61,18 +61,19 @@ public interface ItemsApi extends ApiClient.Api {
    * List items
    * List items
     * @param categoryIds Filter by category ids (comma delimitered) (optional)
+    * @param locationds Filter by location ids (comma delimitered) (optional)
     * @param search Search by free-text query (optional)
     * @param sort  (optional)
     * @param firstResult First result (optional)
     * @param maxResults Max results (optional)
    * @return List&lt;Item&gt;
    */
-  @RequestLine("GET /items?categoryIds={categoryIds}&search={search}&sort={sort}&firstResult={firstResult}&maxResults={maxResults}")
+  @RequestLine("GET /items?categoryIds={categoryIds}&locationds={locationds}&search={search}&sort={sort}&firstResult={firstResult}&maxResults={maxResults}")
   @Headers({
     "Content-Type: application/json",
     "Accept: application/json",
   })
-  List<Item> listItems(@Param("categoryIds") String categoryIds, @Param("search") String search, @Param("sort") List<String> sort, @Param("firstResult") Long firstResult, @Param("maxResults") Long maxResults);
+  List<Item> listItems(@Param("categoryIds") String categoryIds, @Param("locationds") String locationds, @Param("search") String search, @Param("sort") List<String> sort, @Param("firstResult") Long firstResult, @Param("maxResults") Long maxResults);
 
   /**
    * List items
@@ -86,6 +87,7 @@ public interface ItemsApi extends ApiClient.Api {
    *   <p>The following elements may be specified in the query map:</p>
    *   <ul>
    *   <li>categoryIds - Filter by category ids (comma delimitered) (optional)</li>
+   *   <li>locationds - Filter by location ids (comma delimitered) (optional)</li>
    *   <li>search - Search by free-text query (optional)</li>
    *   <li>sort -  (optional)</li>
    *   <li>firstResult - First result (optional)</li>
@@ -93,7 +95,7 @@ public interface ItemsApi extends ApiClient.Api {
    *   </ul>
    * @return List&lt;Item&gt;
    */
-  @RequestLine("GET /items?categoryIds={categoryIds}&search={search}&sort={sort}&firstResult={firstResult}&maxResults={maxResults}")
+  @RequestLine("GET /items?categoryIds={categoryIds}&locationds={locationds}&search={search}&sort={sort}&firstResult={firstResult}&maxResults={maxResults}")
   @Headers({
   "Content-Type: application/json",
   "Accept: application/json",
@@ -107,6 +109,10 @@ public interface ItemsApi extends ApiClient.Api {
   public static class ListItemsQueryParams extends HashMap<String, Object> {
     public ListItemsQueryParams categoryIds(final String value) {
       put("categoryIds", EncodingUtils.encode(value));
+      return this;
+    }
+    public ListItemsQueryParams locationds(final String value) {
+      put("locationds", EncodingUtils.encode(value));
       return this;
     }
     public ListItemsQueryParams search(final String value) {
