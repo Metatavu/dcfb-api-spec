@@ -36,7 +36,7 @@
   /**
    * The PurchaseRequest model module.
    * @module model/PurchaseRequest
-   * @version 0.0.19
+   * @version 0.0.20
    */
 
   /**

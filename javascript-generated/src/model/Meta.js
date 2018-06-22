@@ -36,7 +36,7 @@
   /**
    * The Meta model module.
    * @module model/Meta
-   * @version 0.0.19
+   * @version 0.0.20
    */
 
   /**
@@ -44,12 +44,14 @@
    * Key-value pair that can be used to add meta data to objects (items, categories, etc)
    * @alias module:model/Meta
    * @class
+   * @param key {String} 
+   * @param value {String} 
    */
-  var exports = function() {
+  var exports = function(key, value) {
     var _this = this;
 
-
-
+    _this['key'] = key;
+    _this['value'] = value;
   };
 
   /**
