@@ -26,6 +26,12 @@
           "required" : false,
           "type" : "string"
         }, {
+          "name" : "locationds",
+          "in" : "query",
+          "description" : "Filter by location ids (comma delimitered)",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "search",
           "in" : "query",
           "description" : "Search by free-text query",
@@ -737,6 +743,248 @@
           }
         }
       }
+    },
+    "/locations" : {
+      "get" : {
+        "tags" : [ "Locations" ],
+        "summary" : "List locations",
+        "description" : "List locations",
+        "operationId" : "listLocations",
+        "parameters" : [ {
+          "name" : "search",
+          "in" : "query",
+          "description" : "Search by free-text query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "slug",
+          "in" : "query",
+          "description" : "Filter by location slug",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort results. See LocationListSort for sort options",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "csv"
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "description" : "First result",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "description" : "Max results",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of locations",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Location"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Locations" ],
+        "summary" : "Create location",
+        "description" : "Create location",
+        "operationId" : "createLocation",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Location"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Created location",
+            "schema" : {
+              "$ref" : "#/definitions/Location"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
+    },
+    "/locations/{locationId}" : {
+      "get" : {
+        "tags" : [ "Locations" ],
+        "summary" : "Finds an location",
+        "description" : "Find location",
+        "operationId" : "findLocation",
+        "parameters" : [ {
+          "name" : "locationId",
+          "in" : "path",
+          "description" : "Location id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A location",
+            "schema" : {
+              "$ref" : "#/definitions/Location"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Locations" ],
+        "summary" : "updates an location",
+        "description" : "Update location",
+        "operationId" : "updateLocation",
+        "parameters" : [ {
+          "name" : "locationId",
+          "in" : "path",
+          "description" : "Location id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Location"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Updated location",
+            "schema" : {
+              "$ref" : "#/definitions/Location"
+            }
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Locations" ],
+        "summary" : "deletes an location",
+        "description" : "Delete location",
+        "operationId" : "deleteLocation",
+        "parameters" : [ {
+          "name" : "locationId",
+          "in" : "path",
+          "description" : "Location id",
+          "required" : true,
+          "type" : "string",
+          "format" : "uuid"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "Empty resonse indicating a successful removal"
+          },
+          "400" : {
+            "description" : "Invalid request was sent to the server",
+            "schema" : {
+              "$ref" : "#/definitions/BadRequest"
+            }
+          },
+          "403" : {
+            "description" : "Attempted to make a call with unauthorized client",
+            "schema" : {
+              "$ref" : "#/definitions/Forbidden"
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "schema" : {
+              "$ref" : "#/definitions/InternalServerError"
+            }
+          }
+        }
+      }
     }
   },
   "securityDefinitions" : {
@@ -924,6 +1172,11 @@
           "type" : "string",
           "format" : "uuid",
           "description" : "Category id."
+        },
+        "locationId" : {
+          "type" : "string",
+          "format" : "uuid",
+          "description" : "Location id."
         },
         "slug" : {
           "type" : "string",

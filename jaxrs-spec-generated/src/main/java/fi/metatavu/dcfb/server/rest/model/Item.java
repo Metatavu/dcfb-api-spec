@@ -22,6 +22,7 @@ public class Item   {
   private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
   private @Valid List<LocalizedValue> description = new ArrayList<LocalizedValue>();
   private @Valid UUID categoryId = null;
+  private @Valid UUID locationId = null;
   private @Valid String slug = null;
   private @Valid OffsetDateTime createdAt = null;
   private @Valid OffsetDateTime modifiedAt = null;
@@ -98,6 +99,23 @@ public class Item   {
   }
   public void setCategoryId(UUID categoryId) {
     this.categoryId = categoryId;
+  }
+
+  /**
+   * Location id.
+   **/
+  public Item locationId(UUID locationId) {
+    this.locationId = locationId;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "Location id.")
+  public UUID getLocationId() {
+    return locationId;
+  }
+  public void setLocationId(UUID locationId) {
+    this.locationId = locationId;
   }
 
   /**
@@ -263,6 +281,7 @@ public class Item   {
         Objects.equals(title, item.title) &&
         Objects.equals(description, item.description) &&
         Objects.equals(categoryId, item.categoryId) &&
+        Objects.equals(locationId, item.locationId) &&
         Objects.equals(slug, item.slug) &&
         Objects.equals(createdAt, item.createdAt) &&
         Objects.equals(modifiedAt, item.modifiedAt) &&
@@ -276,7 +295,7 @@ public class Item   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, slug, createdAt, modifiedAt, expiresAt, images, unitPrice, unit, amount, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, slug, createdAt, modifiedAt, expiresAt, images, unitPrice, unit, amount, meta);
   }
 
   @Override
@@ -288,6 +307,7 @@ public class Item   {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
+    sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
