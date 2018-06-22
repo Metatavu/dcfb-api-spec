@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Price
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-22T18:44:49.200+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-22T20:05:59.922+03:00")
 public class Price {
   @JsonProperty("price")
   private String price = null;
