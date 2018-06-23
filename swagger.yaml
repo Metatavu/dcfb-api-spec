@@ -875,6 +875,7 @@ definitions:
       - amount
       - unit
       - unitPrice
+      - categoryId
     properties:
       id:
         description: Item id
