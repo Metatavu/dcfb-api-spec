@@ -1147,7 +1147,7 @@
     },
     "Item" : {
       "type" : "object",
-      "required" : [ "amount", "unit", "unitPrice" ],
+      "required" : [ "amount", "categoryId", "unit", "unitPrice" ],
       "properties" : {
         "id" : {
           "type" : "string",

@@ -93,7 +93,8 @@ public class Item   {
   }
 
   
-  @ApiModelProperty(value = "Category id.")
+  @ApiModelProperty(required = true, value = "Category id.")
+  @NotNull
   public UUID getCategoryId() {
     return categoryId;
   }
