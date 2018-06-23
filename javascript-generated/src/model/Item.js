@@ -36,24 +36,25 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.23
+   * @version 0.0.24
    */
 
   /**
    * Constructs a new <code>Item</code>.
    * @alias module:model/Item
    * @class
+   * @param categoryId {String} Category id.
    * @param unitPrice {module:model/Price} 
    * @param unit {String} 
    * @param amount {Number} 
    */
-  var exports = function(unitPrice, unit, amount) {
+  var exports = function(categoryId, unitPrice, unit, amount) {
     var _this = this;
 
 
 
 
-
+    _this['categoryId'] = categoryId;
 
 
 

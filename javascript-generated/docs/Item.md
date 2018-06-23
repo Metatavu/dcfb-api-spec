@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **String** | Item id | [optional] 
 **title** | [**[LocalizedValue]**](LocalizedValue.md) | Title of the item, multilingual | [optional] 
 **description** | [**[LocalizedValue]**](LocalizedValue.md) | Description of the item, multilingual | [optional] 
-**categoryId** | **String** | Category id. | [optional] 
+**categoryId** | **String** | Category id. | 
 **locationId** | **String** | Location id. | [optional] 
 **slug** | **String** | Item slug | [optional] 
 **createdAt** | **Date** |  | [optional] 
