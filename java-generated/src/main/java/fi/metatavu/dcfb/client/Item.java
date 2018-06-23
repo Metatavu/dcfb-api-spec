@@ -31,7 +31,7 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-22T20:05:59.922+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-23T19:30:45.173+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
@@ -154,7 +154,7 @@ public class Item {
    * Category id.
    * @return categoryId
   **/
-  @ApiModelProperty(value = "Category id.")
+  @ApiModelProperty(required = true, value = "Category id.")
   public UUID getCategoryId() {
     return categoryId;
   }
