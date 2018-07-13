@@ -31,7 +31,7 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-23T19:30:45.173+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-13T12:56:36.318+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
@@ -62,6 +62,12 @@ public class Item {
 
   @JsonProperty("images")
   private List<Image> images = null;
+
+  @JsonProperty("visibleToUsers")
+  private List<UUID> visibleToUsers = null;
+
+  @JsonProperty("visibilityLimited")
+  private Boolean visibilityLimited = null;
 
   @JsonProperty("unitPrice")
   private Price unitPrice = null;
@@ -279,6 +285,50 @@ public class Item {
     this.images = images;
   }
 
+  public Item visibleToUsers(List<UUID> visibleToUsers) {
+    this.visibleToUsers = visibleToUsers;
+    return this;
+  }
+
+  public Item addVisibleToUsersItem(UUID visibleToUsersItem) {
+    if (this.visibleToUsers == null) {
+      this.visibleToUsers = new ArrayList<UUID>();
+    }
+    this.visibleToUsers.add(visibleToUsersItem);
+    return this;
+  }
+
+   /**
+   * Get visibleToUsers
+   * @return visibleToUsers
+  **/
+  @ApiModelProperty(value = "")
+  public List<UUID> getVisibleToUsers() {
+    return visibleToUsers;
+  }
+
+  public void setVisibleToUsers(List<UUID> visibleToUsers) {
+    this.visibleToUsers = visibleToUsers;
+  }
+
+  public Item visibilityLimited(Boolean visibilityLimited) {
+    this.visibilityLimited = visibilityLimited;
+    return this;
+  }
+
+   /**
+   * Get visibilityLimited
+   * @return visibilityLimited
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isVisibilityLimited() {
+    return visibilityLimited;
+  }
+
+  public void setVisibilityLimited(Boolean visibilityLimited) {
+    this.visibilityLimited = visibilityLimited;
+  }
+
   public Item unitPrice(Price unitPrice) {
     this.unitPrice = unitPrice;
     return this;
@@ -379,6 +429,8 @@ public class Item {
         Objects.equals(this.modifiedAt, item.modifiedAt) &&
         Objects.equals(this.expiresAt, item.expiresAt) &&
         Objects.equals(this.images, item.images) &&
+        Objects.equals(this.visibleToUsers, item.visibleToUsers) &&
+        Objects.equals(this.visibilityLimited, item.visibilityLimited) &&
         Objects.equals(this.unitPrice, item.unitPrice) &&
         Objects.equals(this.unit, item.unit) &&
         Objects.equals(this.amount, item.amount) &&
@@ -387,7 +439,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, slug, createdAt, modifiedAt, expiresAt, images, unitPrice, unit, amount, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, slug, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, meta);
   }
 
 
@@ -406,6 +458,8 @@ public class Item {
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
+    sb.append("    visibleToUsers: ").append(toIndentedString(visibleToUsers)).append("\n");
+    sb.append("    visibilityLimited: ").append(toIndentedString(visibilityLimited)).append("\n");
     sb.append("    unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
