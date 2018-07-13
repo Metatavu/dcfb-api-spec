@@ -36,7 +36,7 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.25
+   * @version 0.0.26
    */
 
   /**

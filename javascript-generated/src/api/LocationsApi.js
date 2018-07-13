@@ -33,7 +33,7 @@
   /**
    * Locations service.
    * @module api/LocationsApi
-   * @version 0.0.25
+   * @version 0.0.26
    */
 
   /**
