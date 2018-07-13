@@ -28,6 +28,8 @@ public class Item   {
   private @Valid OffsetDateTime modifiedAt = null;
   private @Valid OffsetDateTime expiresAt = null;
   private @Valid List<Image> images = new ArrayList<Image>();
+  private @Valid List<UUID> visibleToUsers = new ArrayList<UUID>();
+  private @Valid Boolean visibilityLimited = null;
   private @Valid Price unitPrice = null;
   private @Valid String unit = null;
   private @Valid Long amount = null;
@@ -202,6 +204,38 @@ public class Item   {
 
   /**
    **/
+  public Item visibleToUsers(List<UUID> visibleToUsers) {
+    this.visibleToUsers = visibleToUsers;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public List<UUID> getVisibleToUsers() {
+    return visibleToUsers;
+  }
+  public void setVisibleToUsers(List<UUID> visibleToUsers) {
+    this.visibleToUsers = visibleToUsers;
+  }
+
+  /**
+   **/
+  public Item visibilityLimited(Boolean visibilityLimited) {
+    this.visibilityLimited = visibilityLimited;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public Boolean isVisibilityLimited() {
+    return visibilityLimited;
+  }
+  public void setVisibilityLimited(Boolean visibilityLimited) {
+    this.visibilityLimited = visibilityLimited;
+  }
+
+  /**
+   **/
   public Item unitPrice(Price unitPrice) {
     this.unitPrice = unitPrice;
     return this;
@@ -288,6 +322,8 @@ public class Item   {
         Objects.equals(modifiedAt, item.modifiedAt) &&
         Objects.equals(expiresAt, item.expiresAt) &&
         Objects.equals(images, item.images) &&
+        Objects.equals(visibleToUsers, item.visibleToUsers) &&
+        Objects.equals(visibilityLimited, item.visibilityLimited) &&
         Objects.equals(unitPrice, item.unitPrice) &&
         Objects.equals(unit, item.unit) &&
         Objects.equals(amount, item.amount) &&
@@ -296,7 +332,7 @@ public class Item   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, slug, createdAt, modifiedAt, expiresAt, images, unitPrice, unit, amount, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, slug, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, meta);
   }
 
   @Override
@@ -314,6 +350,8 @@ public class Item   {
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
+    sb.append("    visibleToUsers: ").append(toIndentedString(visibleToUsers)).append("\n");
+    sb.append("    visibilityLimited: ").append(toIndentedString(visibilityLimited)).append("\n");
     sb.append("    unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
