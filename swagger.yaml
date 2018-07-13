@@ -915,6 +915,13 @@ definitions:
         type: array
         items: 
           $ref: '#/definitions/Image'
+      visibleToUsers:
+        type: array
+        items: 
+          type: string
+          format: uuid
+      visibilityLimited:
+        type: boolean
       unitPrice:
         $ref: '#/definitions/Price'
       unit:
