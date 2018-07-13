@@ -36,7 +36,7 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.24
+   * @version 0.0.25
    */
 
   /**
@@ -55,6 +55,8 @@
 
 
     _this['categoryId'] = categoryId;
+
+
 
 
 
@@ -107,6 +109,12 @@
       }
       if (data.hasOwnProperty('images')) {
         obj['images'] = ApiClient.convertToType(data['images'], [Image]);
+      }
+      if (data.hasOwnProperty('visibleToUsers')) {
+        obj['visibleToUsers'] = ApiClient.convertToType(data['visibleToUsers'], ['String']);
+      }
+      if (data.hasOwnProperty('visibilityLimited')) {
+        obj['visibilityLimited'] = ApiClient.convertToType(data['visibilityLimited'], 'Boolean');
       }
       if (data.hasOwnProperty('unitPrice')) {
         obj['unitPrice'] = Price.constructFromObject(data['unitPrice']);
@@ -170,6 +178,14 @@
    * @member {Array.<module:model/Image>} images
    */
   exports.prototype['images'] = undefined;
+  /**
+   * @member {Array.<String>} visibleToUsers
+   */
+  exports.prototype['visibleToUsers'] = undefined;
+  /**
+   * @member {Boolean} visibilityLimited
+   */
+  exports.prototype['visibilityLimited'] = undefined;
   /**
    * @member {module:model/Price} unitPrice
    */

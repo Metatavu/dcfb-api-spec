@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **modifiedAt** | **Date** |  | [optional] 
 **expiresAt** | **Date** |  | [optional] 
 **images** | [**[Image]**](Image.md) |  | [optional] 
+**visibleToUsers** | **[String]** |  | [optional] 
+**visibilityLimited** | **Boolean** |  | [optional] 
 **unitPrice** | [**Price**](Price.md) |  | 
 **unit** | **String** |  | 
 **amount** | **Number** |  | 
