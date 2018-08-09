@@ -24,6 +24,7 @@ public class Item   {
   private @Valid UUID categoryId = null;
   private @Valid UUID locationId = null;
   private @Valid String slug = null;
+  private @Valid UUID userId = null;
   private @Valid OffsetDateTime createdAt = null;
   private @Valid OffsetDateTime modifiedAt = null;
   private @Valid OffsetDateTime expiresAt = null;
@@ -136,6 +137,23 @@ public class Item   {
   }
   public void setSlug(String slug) {
     this.slug = slug;
+  }
+
+  /**
+   * Sellers user id
+   **/
+  public Item userId(UUID userId) {
+    this.userId = userId;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "Sellers user id")
+  public UUID getUserId() {
+    return userId;
+  }
+  public void setUserId(UUID userId) {
+    this.userId = userId;
   }
 
   /**
@@ -318,6 +336,7 @@ public class Item   {
         Objects.equals(categoryId, item.categoryId) &&
         Objects.equals(locationId, item.locationId) &&
         Objects.equals(slug, item.slug) &&
+        Objects.equals(userId, item.userId) &&
         Objects.equals(createdAt, item.createdAt) &&
         Objects.equals(modifiedAt, item.modifiedAt) &&
         Objects.equals(expiresAt, item.expiresAt) &&
@@ -332,7 +351,7 @@ public class Item   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, slug, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, slug, userId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, meta);
   }
 
   @Override
@@ -346,6 +365,7 @@ public class Item   {
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
