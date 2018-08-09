@@ -31,7 +31,7 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-18T11:23:30.826+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-09T09:29:27.492+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
@@ -50,6 +50,9 @@ public class Item {
 
   @JsonProperty("slug")
   private String slug = null;
+
+  @JsonProperty("userId")
+  private UUID userId = null;
 
   @JsonProperty("createdAt")
   private OffsetDateTime createdAt = null;
@@ -203,6 +206,24 @@ public class Item {
 
   public void setSlug(String slug) {
     this.slug = slug;
+  }
+
+  public Item userId(UUID userId) {
+    this.userId = userId;
+    return this;
+  }
+
+   /**
+   * Sellers user id
+   * @return userId
+  **/
+  @ApiModelProperty(value = "Sellers user id")
+  public UUID getUserId() {
+    return userId;
+  }
+
+  public void setUserId(UUID userId) {
+    this.userId = userId;
   }
 
   public Item createdAt(OffsetDateTime createdAt) {
@@ -425,6 +446,7 @@ public class Item {
         Objects.equals(this.categoryId, item.categoryId) &&
         Objects.equals(this.locationId, item.locationId) &&
         Objects.equals(this.slug, item.slug) &&
+        Objects.equals(this.userId, item.userId) &&
         Objects.equals(this.createdAt, item.createdAt) &&
         Objects.equals(this.modifiedAt, item.modifiedAt) &&
         Objects.equals(this.expiresAt, item.expiresAt) &&
@@ -439,7 +461,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, slug, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, slug, userId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, meta);
   }
 
 
@@ -454,6 +476,7 @@ public class Item {
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
