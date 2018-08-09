@@ -185,6 +185,7 @@ var apiInstance = new DcfbApiClient.ItemsApi();
 var opts = { 
   'categoryIds': "categoryIds_example", // String | Filter by category ids (comma delimitered)
   'locationIds': "locationIds_example", // String | Filter by location ids (comma delimitered)
+  'userIds': "userIds_example", // String | Filter by user ids (comma delimitered)
   'search': "search_example", // String | Search by free-text query
   'sort': ["sort_example"], // [String] | 
   'firstResult': 789, // Number | First result
@@ -204,6 +205,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **categoryIds** | **String**| Filter by category ids (comma delimitered) | [optional] 
  **locationIds** | **String**| Filter by location ids (comma delimitered) | [optional] 
+ **userIds** | **String**| Filter by user ids (comma delimitered) | [optional] 
  **search** | **String**| Search by free-text query | [optional] 
  **sort** | [**[String]**](String.md)|  | [optional] 
  **firstResult** | **Number**| First result | [optional] 

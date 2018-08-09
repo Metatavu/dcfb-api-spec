@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **categoryId** | **String** | Category id. | 
 **locationId** | **String** | Location id. | [optional] 
 **slug** | **String** | Item slug | [optional] 
+**userId** | **String** | Sellers user id | [optional] 
 **createdAt** | **Date** |  | [optional] 
 **modifiedAt** | **Date** |  | [optional] 
 **expiresAt** | **Date** |  | [optional] 

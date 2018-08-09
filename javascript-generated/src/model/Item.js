@@ -36,7 +36,7 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.26
+   * @version 0.0.27
    */
 
   /**
@@ -55,6 +55,7 @@
 
 
     _this['categoryId'] = categoryId;
+
 
 
 
@@ -97,6 +98,9 @@
       }
       if (data.hasOwnProperty('slug')) {
         obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
+      }
+      if (data.hasOwnProperty('userId')) {
+        obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
       }
       if (data.hasOwnProperty('createdAt')) {
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
@@ -162,6 +166,11 @@
    * @member {String} slug
    */
   exports.prototype['slug'] = undefined;
+  /**
+   * Sellers user id
+   * @member {String} userId
+   */
+  exports.prototype['userId'] = undefined;
   /**
    * @member {Date} createdAt
    */
