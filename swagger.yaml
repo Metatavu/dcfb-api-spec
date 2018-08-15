@@ -33,6 +33,10 @@ paths:
           in: query
           description: Filter by location ids (comma delimitered)
           type: string
+        - name: userIds
+          in: query
+          description: Filter by user ids (comma delimitered)
+          type: string
         - name: search
           in: query
           description: Search by free-text query
@@ -902,6 +906,10 @@ definitions:
       slug:
         description: Item slug
         type: string
+      userId:
+        description: Sellers user id
+        type: string
+        format: uuid
       createdAt:
         type: string
         format: date-time
