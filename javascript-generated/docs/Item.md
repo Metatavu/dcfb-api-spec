@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **categoryId** | **String** | Category id. | 
 **locationId** | **String** | Location id. | [optional] 
 **slug** | **String** | Item slug | [optional] 
-**userId** | **String** | Sellers user id | [optional] 
+**sellerId** | **String** | Sellers user id | [optional] 
 **createdAt** | **Date** |  | [optional] 
 **modifiedAt** | **Date** |  | [optional] 
 **expiresAt** | **Date** |  | [optional] 
@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **unitPrice** | [**Price**](Price.md) |  | 
 **unit** | **String** |  | 
 **amount** | **Number** |  | 
+**soldAmount** | **Number** |  | [optional] 
 **meta** | [**[Meta]**](Meta.md) | Item meta | [optional] 
 
 

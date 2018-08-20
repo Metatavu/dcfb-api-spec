@@ -36,7 +36,7 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.28
+   * @version 0.0.29
    */
 
   /**
@@ -67,6 +67,7 @@
     _this['unitPrice'] = unitPrice;
     _this['unit'] = unit;
     _this['amount'] = amount;
+
 
   };
 
@@ -99,8 +100,8 @@
       if (data.hasOwnProperty('slug')) {
         obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
       }
-      if (data.hasOwnProperty('userId')) {
-        obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
+      if (data.hasOwnProperty('sellerId')) {
+        obj['sellerId'] = ApiClient.convertToType(data['sellerId'], 'String');
       }
       if (data.hasOwnProperty('createdAt')) {
         obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
@@ -128,6 +129,9 @@
       }
       if (data.hasOwnProperty('amount')) {
         obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
+      }
+      if (data.hasOwnProperty('soldAmount')) {
+        obj['soldAmount'] = ApiClient.convertToType(data['soldAmount'], 'Number');
       }
       if (data.hasOwnProperty('meta')) {
         obj['meta'] = ApiClient.convertToType(data['meta'], [Meta]);
@@ -168,9 +172,9 @@
   exports.prototype['slug'] = undefined;
   /**
    * Sellers user id
-   * @member {String} userId
+   * @member {String} sellerId
    */
-  exports.prototype['userId'] = undefined;
+  exports.prototype['sellerId'] = undefined;
   /**
    * @member {Date} createdAt
    */
@@ -207,6 +211,10 @@
    * @member {Number} amount
    */
   exports.prototype['amount'] = undefined;
+  /**
+   * @member {Number} soldAmount
+   */
+  exports.prototype['soldAmount'] = undefined;
   /**
    * Item meta
    * @member {Array.<module:model/Meta>} meta
