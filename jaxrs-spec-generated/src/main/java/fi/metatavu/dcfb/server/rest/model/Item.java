@@ -24,7 +24,7 @@ public class Item   {
   private @Valid UUID categoryId = null;
   private @Valid UUID locationId = null;
   private @Valid String slug = null;
-  private @Valid UUID userId = null;
+  private @Valid UUID sellerId = null;
   private @Valid OffsetDateTime createdAt = null;
   private @Valid OffsetDateTime modifiedAt = null;
   private @Valid OffsetDateTime expiresAt = null;
@@ -34,6 +34,7 @@ public class Item   {
   private @Valid Price unitPrice = null;
   private @Valid String unit = null;
   private @Valid Long amount = null;
+  private @Valid Long soldAmount = null;
   private @Valid List<Meta> meta = new ArrayList<Meta>();
 
   /**
@@ -142,18 +143,18 @@ public class Item   {
   /**
    * Sellers user id
    **/
-  public Item userId(UUID userId) {
-    this.userId = userId;
+  public Item sellerId(UUID sellerId) {
+    this.sellerId = sellerId;
     return this;
   }
 
   
   @ApiModelProperty(value = "Sellers user id")
-  public UUID getUserId() {
-    return userId;
+  public UUID getSellerId() {
+    return sellerId;
   }
-  public void setUserId(UUID userId) {
-    this.userId = userId;
+  public void setSellerId(UUID sellerId) {
+    this.sellerId = sellerId;
   }
 
   /**
@@ -304,6 +305,22 @@ public class Item   {
   }
 
   /**
+   **/
+  public Item soldAmount(Long soldAmount) {
+    this.soldAmount = soldAmount;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public Long getSoldAmount() {
+    return soldAmount;
+  }
+  public void setSoldAmount(Long soldAmount) {
+    this.soldAmount = soldAmount;
+  }
+
+  /**
    * Item meta
    **/
   public Item meta(List<Meta> meta) {
@@ -336,7 +353,7 @@ public class Item   {
         Objects.equals(categoryId, item.categoryId) &&
         Objects.equals(locationId, item.locationId) &&
         Objects.equals(slug, item.slug) &&
-        Objects.equals(userId, item.userId) &&
+        Objects.equals(sellerId, item.sellerId) &&
         Objects.equals(createdAt, item.createdAt) &&
         Objects.equals(modifiedAt, item.modifiedAt) &&
         Objects.equals(expiresAt, item.expiresAt) &&
@@ -346,12 +363,13 @@ public class Item   {
         Objects.equals(unitPrice, item.unitPrice) &&
         Objects.equals(unit, item.unit) &&
         Objects.equals(amount, item.amount) &&
+        Objects.equals(soldAmount, item.soldAmount) &&
         Objects.equals(meta, item.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, slug, userId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, soldAmount, meta);
   }
 
   @Override
@@ -365,7 +383,7 @@ public class Item   {
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    sellerId: ").append(toIndentedString(sellerId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
@@ -375,6 +393,7 @@ public class Item   {
     sb.append("    unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    soldAmount: ").append(toIndentedString(soldAmount)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();

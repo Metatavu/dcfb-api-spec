@@ -1188,7 +1188,7 @@
           "type" : "string",
           "description" : "Item slug"
         },
-        "userId" : {
+        "sellerId" : {
           "type" : "string",
           "format" : "uuid",
           "description" : "Sellers user id"
@@ -1228,6 +1228,10 @@
           "type" : "string"
         },
         "amount" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "soldAmount" : {
           "type" : "integer",
           "format" : "int64"
         },
