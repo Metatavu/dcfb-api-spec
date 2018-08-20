@@ -906,7 +906,7 @@ definitions:
       slug:
         description: Item slug
         type: string
-      userId:
+      sellerId:
         description: Sellers user id
         type: string
         format: uuid
@@ -935,6 +935,9 @@ definitions:
       unit:
         type: string
       amount:
+        type: integer
+        format: int64
+      soldAmount:
         type: integer
         format: int64
       meta:
