@@ -31,7 +31,7 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-15T11:06:36.209+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-20T12:41:43.390+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
@@ -51,8 +51,8 @@ public class Item {
   @JsonProperty("slug")
   private String slug = null;
 
-  @JsonProperty("userId")
-  private UUID userId = null;
+  @JsonProperty("sellerId")
+  private UUID sellerId = null;
 
   @JsonProperty("createdAt")
   private OffsetDateTime createdAt = null;
@@ -80,6 +80,9 @@ public class Item {
 
   @JsonProperty("amount")
   private Long amount = null;
+
+  @JsonProperty("soldAmount")
+  private Long soldAmount = null;
 
   @JsonProperty("meta")
   private List<Meta> meta = null;
@@ -208,22 +211,22 @@ public class Item {
     this.slug = slug;
   }
 
-  public Item userId(UUID userId) {
-    this.userId = userId;
+  public Item sellerId(UUID sellerId) {
+    this.sellerId = sellerId;
     return this;
   }
 
    /**
    * Sellers user id
-   * @return userId
+   * @return sellerId
   **/
   @ApiModelProperty(value = "Sellers user id")
-  public UUID getUserId() {
-    return userId;
+  public UUID getSellerId() {
+    return sellerId;
   }
 
-  public void setUserId(UUID userId) {
-    this.userId = userId;
+  public void setSellerId(UUID sellerId) {
+    this.sellerId = sellerId;
   }
 
   public Item createdAt(OffsetDateTime createdAt) {
@@ -404,6 +407,24 @@ public class Item {
     this.amount = amount;
   }
 
+  public Item soldAmount(Long soldAmount) {
+    this.soldAmount = soldAmount;
+    return this;
+  }
+
+   /**
+   * Get soldAmount
+   * @return soldAmount
+  **/
+  @ApiModelProperty(value = "")
+  public Long getSoldAmount() {
+    return soldAmount;
+  }
+
+  public void setSoldAmount(Long soldAmount) {
+    this.soldAmount = soldAmount;
+  }
+
   public Item meta(List<Meta> meta) {
     this.meta = meta;
     return this;
@@ -446,7 +467,7 @@ public class Item {
         Objects.equals(this.categoryId, item.categoryId) &&
         Objects.equals(this.locationId, item.locationId) &&
         Objects.equals(this.slug, item.slug) &&
-        Objects.equals(this.userId, item.userId) &&
+        Objects.equals(this.sellerId, item.sellerId) &&
         Objects.equals(this.createdAt, item.createdAt) &&
         Objects.equals(this.modifiedAt, item.modifiedAt) &&
         Objects.equals(this.expiresAt, item.expiresAt) &&
@@ -456,12 +477,13 @@ public class Item {
         Objects.equals(this.unitPrice, item.unitPrice) &&
         Objects.equals(this.unit, item.unit) &&
         Objects.equals(this.amount, item.amount) &&
+        Objects.equals(this.soldAmount, item.soldAmount) &&
         Objects.equals(this.meta, item.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, slug, userId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, soldAmount, meta);
   }
 
 
@@ -476,7 +498,7 @@ public class Item {
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    sellerId: ").append(toIndentedString(sellerId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
@@ -486,6 +508,7 @@ public class Item {
     sb.append("    unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    soldAmount: ").append(toIndentedString(soldAmount)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
