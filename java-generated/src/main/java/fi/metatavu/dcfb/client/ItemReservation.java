@@ -19,53 +19,53 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.UUID;
 
 /**
- * Key-value pair that can be used to add meta data to objects (items, categories, etc)
+ * ItemReservation
  */
-@ApiModel(description = "Key-value pair that can be used to add meta data to objects (items, categories, etc)")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-22T10:23:17.534+03:00")
-public class Meta {
-  @JsonProperty("key")
-  private String key = null;
+public class ItemReservation {
+  @JsonProperty("id")
+  private UUID id = null;
 
-  @JsonProperty("value")
-  private String value = null;
+  @JsonProperty("amount")
+  private Long amount = null;
 
-  public Meta key(String key) {
-    this.key = key;
+  public ItemReservation id(UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Item id
+   * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getKey() {
-    return key;
+  @ApiModelProperty(value = "Item id")
+  public UUID getId() {
+    return id;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setId(UUID id) {
+    this.id = id;
   }
 
-  public Meta value(String value) {
-    this.value = value;
+  public ItemReservation amount(Long amount) {
+    this.amount = amount;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get amount
+   * @return amount
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getValue() {
-    return value;
+  @ApiModelProperty(value = "")
+  public Long getAmount() {
+    return amount;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setAmount(Long amount) {
+    this.amount = amount;
   }
 
 
@@ -77,24 +77,24 @@ public class Meta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Meta meta = (Meta) o;
-    return Objects.equals(this.key, meta.key) &&
-        Objects.equals(this.value, meta.value);
+    ItemReservation itemReservation = (ItemReservation) o;
+    return Objects.equals(this.id, itemReservation.id) &&
+        Objects.equals(this.amount, itemReservation.amount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(id, amount);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Meta {\n");
+    sb.append("class ItemReservation {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

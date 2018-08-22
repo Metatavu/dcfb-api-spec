@@ -5,6 +5,7 @@ import fi.metatavu.dcfb.client.BadRequest;
 import fi.metatavu.dcfb.client.Forbidden;
 import fi.metatavu.dcfb.client.InternalServerError;
 import fi.metatavu.dcfb.client.Item;
+import fi.metatavu.dcfb.client.ItemReservation;
 import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,6 +37,21 @@ public class ItemsApiTest {
     public void createItemTest() {
         Item payload = null;
         // Item response = api.createItem(payload);
+
+        // TODO: test validations
+    }
+
+    
+    /**
+     * Create item
+     *
+     * Create item
+     */
+    @Test
+    public void createItemReservationTest() {
+        UUID itemId = null;
+        ItemReservation payload = null;
+        // ItemReservation response = api.createItemReservation(itemId, payload);
 
         // TODO: test validations
     }

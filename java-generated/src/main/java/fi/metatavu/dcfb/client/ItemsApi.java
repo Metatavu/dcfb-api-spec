@@ -7,6 +7,7 @@ import fi.metatavu.dcfb.client.BadRequest;
 import fi.metatavu.dcfb.client.Forbidden;
 import fi.metatavu.dcfb.client.InternalServerError;
 import fi.metatavu.dcfb.client.Item;
+import fi.metatavu.dcfb.client.ItemReservation;
 import java.util.UUID;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import feign.*;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-22T10:06:06.006+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-22T10:23:17.534+03:00")
 public interface ItemsApi extends ApiClient.Api {
 
 
@@ -31,6 +32,20 @@ public interface ItemsApi extends ApiClient.Api {
     "Accept: application/json",
   })
   Item createItem(Item payload);
+
+  /**
+   * Create item
+   * Create item
+    * @param itemId Item id (required)
+    * @param payload Payload (required)
+   * @return ItemReservation
+   */
+  @RequestLine("POST /items/{itemId}/reservations")
+  @Headers({
+    "Content-Type: application/json",
+    "Accept: application/json",
+  })
+  ItemReservation createItemReservation(@Param("itemId") UUID itemId, ItemReservation payload);
 
   /**
    * deletes an item
