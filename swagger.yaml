@@ -206,6 +206,47 @@ paths:
           description: Internal server error
           schema:
             $ref: '#/definitions/InternalServerError'
+            
+  '/items/{itemId}/reservations':
+    post:
+      operationId: createItemReservation
+      summary: Create item
+      description: Create item
+      parameters:
+        - name: itemId
+          required: true
+          in: path
+          description: Item id
+          type: string
+          format: uuid
+        - name: payload
+          in: body
+          description: Payload
+          required: true
+          schema:
+            $ref: '#/definitions/ItemReservation'
+      tags:
+        - Items
+      responses:
+        200:
+          description: Created item reservation
+          schema:
+            $ref: '#/definitions/ItemReservation'
+        400:
+          description: Invalid request was sent to the server
+          schema:
+            $ref: '#/definitions/BadRequest'
+        403:
+          description: Attempted to make a call with unauthorized client
+          schema:
+            $ref: '#/definitions/Forbidden'
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/InternalServerError'
+            
+            
+            
 
   /purchaseRequests:
     get:
@@ -937,6 +978,9 @@ definitions:
       amount:
         type: integer
         format: int64
+      reservedAmount:
+        type: integer
+        format: int64
       soldAmount:
         type: integer
         format: int64
@@ -945,6 +989,17 @@ definitions:
         description: Item meta
         items:
           $ref: '#/definitions/Meta'
+
+  ItemReservation:
+    type: object
+    properties:
+      id:
+        description: Item id
+        type: string
+        format: uuid
+      amount:
+        type: integer
+        format: int64
 
   PurchaseRequest:
     type: object
