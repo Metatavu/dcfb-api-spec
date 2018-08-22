@@ -36,7 +36,7 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.29
+   * @version 0.0.30
    */
 
   /**
@@ -67,6 +67,7 @@
     _this['unitPrice'] = unitPrice;
     _this['unit'] = unit;
     _this['amount'] = amount;
+
 
 
   };
@@ -129,6 +130,9 @@
       }
       if (data.hasOwnProperty('amount')) {
         obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
+      }
+      if (data.hasOwnProperty('reservedAmount')) {
+        obj['reservedAmount'] = ApiClient.convertToType(data['reservedAmount'], 'Number');
       }
       if (data.hasOwnProperty('soldAmount')) {
         obj['soldAmount'] = ApiClient.convertToType(data['soldAmount'], 'Number');
@@ -211,6 +215,10 @@
    * @member {Number} amount
    */
   exports.prototype['amount'] = undefined;
+  /**
+   * @member {Number} reservedAmount
+   */
+  exports.prototype['reservedAmount'] = undefined;
   /**
    * @member {Number} soldAmount
    */

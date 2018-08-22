@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **unitPrice** | [**Price**](Price.md) |  | 
 **unit** | **String** |  | 
 **amount** | **Number** |  | 
+**reservedAmount** | **Number** |  | [optional] 
 **soldAmount** | **Number** |  | [optional] 
 **meta** | [**[Meta]**](Meta.md) | Item meta | [optional] 
 
