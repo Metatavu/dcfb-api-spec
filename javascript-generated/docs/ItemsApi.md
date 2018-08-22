@@ -5,6 +5,7 @@ All URIs are relative to *https://localhost/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createItem**](ItemsApi.md#createItem) | **POST** /items | Create item
+[**createItemReservation**](ItemsApi.md#createItemReservation) | **POST** /items/{itemId}/reservations | Create item
 [**deleteItem**](ItemsApi.md#deleteItem) | **DELETE** /items/{itemId} | deletes an item
 [**findItem**](ItemsApi.md#findItem) | **GET** /items/{itemId} | Finds an item
 [**listItems**](ItemsApi.md#listItems) | **GET** /items | List items
@@ -51,6 +52,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Item**](Item.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+<a name="createItemReservation"></a>
+# **createItemReservation**
+> ItemReservation createItemReservation(itemId, payload)
+
+Create item
+
+Create item
+
+### Example
+```javascript
+var DcfbApiClient = require('dcfb-api-client');
+var defaultClient = DcfbApiClient.ApiClient.instance;
+
+// Configure API key authorization: bearer
+var bearer = defaultClient.authentications['bearer'];
+bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//bearer.apiKeyPrefix = 'Token';
+
+var apiInstance = new DcfbApiClient.ItemsApi();
+
+var itemId = "itemId_example"; // String | Item id
+
+var payload = new DcfbApiClient.ItemReservation(); // ItemReservation | Payload
+
+apiInstance.createItemReservation(itemId, payload).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **String**| Item id | 
+ **payload** | [**ItemReservation**](ItemReservation.md)| Payload | 
+
+### Return type
+
+[**ItemReservation**](ItemReservation.md)
 
 ### Authorization
 

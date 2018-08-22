@@ -25,7 +25,7 @@
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.Forbidden = factory(root.DcfbApiClient.ApiClient);
+    root.DcfbApiClient.ItemReservation = factory(root.DcfbApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,14 +34,14 @@
 
 
   /**
-   * The Forbidden model module.
-   * @module model/Forbidden
+   * The ItemReservation model module.
+   * @module model/ItemReservation
    * @version 0.0.31
    */
 
   /**
-   * Constructs a new <code>Forbidden</code>.
-   * @alias module:model/Forbidden
+   * Constructs a new <code>ItemReservation</code>.
+   * @alias module:model/ItemReservation
    * @class
    */
   var exports = function() {
@@ -52,34 +52,35 @@
   };
 
   /**
-   * Constructs a <code>Forbidden</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ItemReservation</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Forbidden} obj Optional instance to populate.
-   * @return {module:model/Forbidden} The populated <code>Forbidden</code> instance.
+   * @param {module:model/ItemReservation} obj Optional instance to populate.
+   * @return {module:model/ItemReservation} The populated <code>ItemReservation</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('code')) {
-        obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('message')) {
-        obj['message'] = ApiClient.convertToType(data['message'], 'String');
+      if (data.hasOwnProperty('amount')) {
+        obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Number} code
+   * Item id
+   * @member {String} id
    */
-  exports.prototype['code'] = undefined;
+  exports.prototype['id'] = undefined;
   /**
-   * @member {String} message
+   * @member {Number} amount
    */
-  exports.prototype['message'] = undefined;
+  exports.prototype['amount'] = undefined;
 
 
 
