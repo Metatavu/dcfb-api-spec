@@ -22,7 +22,7 @@ import java.lang.Exception;
 @Api(description = "the locations API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-08-22T10:01:45.192+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-08-22T10:20:19.207+03:00")
 
 
 public interface LocationsApi  {
