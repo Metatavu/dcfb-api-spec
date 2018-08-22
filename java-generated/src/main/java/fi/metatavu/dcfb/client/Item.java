@@ -31,7 +31,7 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-20T12:41:43.390+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-22T10:06:06.006+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
@@ -80,6 +80,9 @@ public class Item {
 
   @JsonProperty("amount")
   private Long amount = null;
+
+  @JsonProperty("reservedAmount")
+  private Long reservedAmount = null;
 
   @JsonProperty("soldAmount")
   private Long soldAmount = null;
@@ -407,6 +410,24 @@ public class Item {
     this.amount = amount;
   }
 
+  public Item reservedAmount(Long reservedAmount) {
+    this.reservedAmount = reservedAmount;
+    return this;
+  }
+
+   /**
+   * Get reservedAmount
+   * @return reservedAmount
+  **/
+  @ApiModelProperty(value = "")
+  public Long getReservedAmount() {
+    return reservedAmount;
+  }
+
+  public void setReservedAmount(Long reservedAmount) {
+    this.reservedAmount = reservedAmount;
+  }
+
   public Item soldAmount(Long soldAmount) {
     this.soldAmount = soldAmount;
     return this;
@@ -477,13 +498,14 @@ public class Item {
         Objects.equals(this.unitPrice, item.unitPrice) &&
         Objects.equals(this.unit, item.unit) &&
         Objects.equals(this.amount, item.amount) &&
+        Objects.equals(this.reservedAmount, item.reservedAmount) &&
         Objects.equals(this.soldAmount, item.soldAmount) &&
         Objects.equals(this.meta, item.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, soldAmount, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, meta);
   }
 
 
@@ -508,6 +530,7 @@ public class Item {
     sb.append("    unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    reservedAmount: ").append(toIndentedString(reservedAmount)).append("\n");
     sb.append("    soldAmount: ").append(toIndentedString(soldAmount)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
