@@ -34,6 +34,7 @@ public class Item   {
   private @Valid Price unitPrice = null;
   private @Valid String unit = null;
   private @Valid Long amount = null;
+  private @Valid Long reservedAmount = null;
   private @Valid Long soldAmount = null;
   private @Valid List<Meta> meta = new ArrayList<Meta>();
 
@@ -306,6 +307,22 @@ public class Item   {
 
   /**
    **/
+  public Item reservedAmount(Long reservedAmount) {
+    this.reservedAmount = reservedAmount;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public Long getReservedAmount() {
+    return reservedAmount;
+  }
+  public void setReservedAmount(Long reservedAmount) {
+    this.reservedAmount = reservedAmount;
+  }
+
+  /**
+   **/
   public Item soldAmount(Long soldAmount) {
     this.soldAmount = soldAmount;
     return this;
@@ -363,13 +380,14 @@ public class Item   {
         Objects.equals(unitPrice, item.unitPrice) &&
         Objects.equals(unit, item.unit) &&
         Objects.equals(amount, item.amount) &&
+        Objects.equals(reservedAmount, item.reservedAmount) &&
         Objects.equals(soldAmount, item.soldAmount) &&
         Objects.equals(meta, item.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, soldAmount, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, meta);
   }
 
   @Override
@@ -393,6 +411,7 @@ public class Item   {
     sb.append("    unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    reservedAmount: ").append(toIndentedString(reservedAmount)).append("\n");
     sb.append("    soldAmount: ").append(toIndentedString(soldAmount)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");

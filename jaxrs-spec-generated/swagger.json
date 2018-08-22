@@ -1231,6 +1231,10 @@
           "type" : "integer",
           "format" : "int64"
         },
+        "reservedAmount" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
         "soldAmount" : {
           "type" : "integer",
           "format" : "int64"
