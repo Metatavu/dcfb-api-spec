@@ -33,7 +33,7 @@
   /**
    * Items service.
    * @module api/ItemsApi
-   * @version 0.0.31
+   * @version 0.0.32
    */
 
   /**
@@ -274,6 +274,8 @@
      * @param {String} opts.locationIds Filter by location ids (comma delimitered)
      * @param {String} opts.userIds Filter by user ids (comma delimitered)
      * @param {String} opts.search Search by free-text query
+     * @param {Number} opts.nearLat Prefer results near geo-point
+     * @param {Number} opts.nearLon Prefer results near geo-point
      * @param {Array.<String>} opts.sort 
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
@@ -291,6 +293,8 @@
         'locationIds': opts['locationIds'],
         'userIds': opts['userIds'],
         'search': opts['search'],
+        'nearLat': opts['nearLat'],
+        'nearLon': opts['nearLon'],
         'firstResult': opts['firstResult'],
         'maxResults': opts['maxResults'],
       };
@@ -325,6 +329,8 @@
      * @param {String} opts.locationIds Filter by location ids (comma delimitered)
      * @param {String} opts.userIds Filter by user ids (comma delimitered)
      * @param {String} opts.search Search by free-text query
+     * @param {Number} opts.nearLat Prefer results near geo-point
+     * @param {Number} opts.nearLon Prefer results near geo-point
      * @param {Array.<String>} opts.sort 
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results

@@ -241,6 +241,8 @@ var opts = {
   'locationIds': "locationIds_example", // String | Filter by location ids (comma delimitered)
   'userIds': "userIds_example", // String | Filter by user ids (comma delimitered)
   'search': "search_example", // String | Search by free-text query
+  'nearLat': 1.2, // Number | Prefer results near geo-point
+  'nearLon': 1.2, // Number | Prefer results near geo-point
   'sort': ["sort_example"], // [String] | 
   'firstResult': 789, // Number | First result
   'maxResults': 789 // Number | Max results
@@ -261,6 +263,8 @@ Name | Type | Description  | Notes
  **locationIds** | **String**| Filter by location ids (comma delimitered) | [optional] 
  **userIds** | **String**| Filter by user ids (comma delimitered) | [optional] 
  **search** | **String**| Search by free-text query | [optional] 
+ **nearLat** | **Number**| Prefer results near geo-point | [optional] 
+ **nearLon** | **Number**| Prefer results near geo-point | [optional] 
  **sort** | [**[String]**](String.md)|  | [optional] 
  **firstResult** | **Number**| First result | [optional] 
  **maxResults** | **Number**| Max results | [optional] 
