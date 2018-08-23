@@ -42,6 +42,18 @@ paths:
           description: Search by free-text query
           required: false
           type: string
+        - name: nearLat
+          in: query
+          description: Prefer results near geo-point
+          required: false
+          type: number
+          format: double
+        - name: nearLon
+          in: query
+          description: Prefer results near geo-point
+          required: false
+          type: number
+          format: double
         - name: sort
           in: query
           type: array
