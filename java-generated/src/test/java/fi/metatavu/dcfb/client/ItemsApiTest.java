@@ -96,10 +96,12 @@ public class ItemsApiTest {
         String locationIds = null;
         String userIds = null;
         String search = null;
+        Double nearLat = null;
+        Double nearLon = null;
         List<String> sort = null;
         Long firstResult = null;
         Long maxResults = null;
-        // List<Item> response = api.listItems(categoryIds, locationIds, userIds, search, sort, firstResult, maxResults);
+        // List<Item> response = api.listItems(categoryIds, locationIds, userIds, search, nearLat, nearLon, sort, firstResult, maxResults);
 
         // TODO: test validations
     }
@@ -119,6 +121,8 @@ public class ItemsApiTest {
             .locationIds(null)
             .userIds(null)
             .search(null)
+            .nearLat(null)
+            .nearLon(null)
             .sort(null)
             .firstResult(null)
             .maxResults(null);

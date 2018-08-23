@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import feign.*;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-22T10:23:17.534+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-23T16:44:54.323+03:00")
 public interface ItemsApi extends ApiClient.Api {
 
 
@@ -79,17 +79,19 @@ public interface ItemsApi extends ApiClient.Api {
     * @param locationIds Filter by location ids (comma delimitered) (optional)
     * @param userIds Filter by user ids (comma delimitered) (optional)
     * @param search Search by free-text query (optional)
+    * @param nearLat Prefer results near geo-point (optional)
+    * @param nearLon Prefer results near geo-point (optional)
     * @param sort  (optional)
     * @param firstResult First result (optional)
     * @param maxResults Max results (optional)
    * @return List&lt;Item&gt;
    */
-  @RequestLine("GET /items?categoryIds={categoryIds}&locationIds={locationIds}&userIds={userIds}&search={search}&sort={sort}&firstResult={firstResult}&maxResults={maxResults}")
+  @RequestLine("GET /items?categoryIds={categoryIds}&locationIds={locationIds}&userIds={userIds}&search={search}&nearLat={nearLat}&nearLon={nearLon}&sort={sort}&firstResult={firstResult}&maxResults={maxResults}")
   @Headers({
     "Content-Type: application/json",
     "Accept: application/json",
   })
-  List<Item> listItems(@Param("categoryIds") String categoryIds, @Param("locationIds") String locationIds, @Param("userIds") String userIds, @Param("search") String search, @Param("sort") List<String> sort, @Param("firstResult") Long firstResult, @Param("maxResults") Long maxResults);
+  List<Item> listItems(@Param("categoryIds") String categoryIds, @Param("locationIds") String locationIds, @Param("userIds") String userIds, @Param("search") String search, @Param("nearLat") Double nearLat, @Param("nearLon") Double nearLon, @Param("sort") List<String> sort, @Param("firstResult") Long firstResult, @Param("maxResults") Long maxResults);
 
   /**
    * List items
@@ -106,13 +108,15 @@ public interface ItemsApi extends ApiClient.Api {
    *   <li>locationIds - Filter by location ids (comma delimitered) (optional)</li>
    *   <li>userIds - Filter by user ids (comma delimitered) (optional)</li>
    *   <li>search - Search by free-text query (optional)</li>
+   *   <li>nearLat - Prefer results near geo-point (optional)</li>
+   *   <li>nearLon - Prefer results near geo-point (optional)</li>
    *   <li>sort -  (optional)</li>
    *   <li>firstResult - First result (optional)</li>
    *   <li>maxResults - Max results (optional)</li>
    *   </ul>
    * @return List&lt;Item&gt;
    */
-  @RequestLine("GET /items?categoryIds={categoryIds}&locationIds={locationIds}&userIds={userIds}&search={search}&sort={sort}&firstResult={firstResult}&maxResults={maxResults}")
+  @RequestLine("GET /items?categoryIds={categoryIds}&locationIds={locationIds}&userIds={userIds}&search={search}&nearLat={nearLat}&nearLon={nearLon}&sort={sort}&firstResult={firstResult}&maxResults={maxResults}")
   @Headers({
   "Content-Type: application/json",
   "Accept: application/json",
@@ -138,6 +142,14 @@ public interface ItemsApi extends ApiClient.Api {
     }
     public ListItemsQueryParams search(final String value) {
       put("search", EncodingUtils.encode(value));
+      return this;
+    }
+    public ListItemsQueryParams nearLat(final Double value) {
+      put("nearLat", EncodingUtils.encode(value));
+      return this;
+    }
+    public ListItemsQueryParams nearLon(final Double value) {
+      put("nearLon", EncodingUtils.encode(value));
       return this;
     }
     public ListItemsQueryParams sort(final List<String> value) {
