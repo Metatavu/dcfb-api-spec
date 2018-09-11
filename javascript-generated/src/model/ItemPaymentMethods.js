@@ -36,19 +36,21 @@
   /**
    * The ItemPaymentMethods model module.
    * @module model/ItemPaymentMethods
-   * @version 0.0.33
+   * @version 0.0.34
    */
 
   /**
    * Constructs a new <code>ItemPaymentMethods</code>.
    * @alias module:model/ItemPaymentMethods
    * @class
+   * @param allowCreditCard {Boolean} 
+   * @param allowContactSeller {Boolean} 
    */
-  var exports = function() {
+  var exports = function(allowCreditCard, allowContactSeller) {
     var _this = this;
 
-
-
+    _this['allowCreditCard'] = allowCreditCard;
+    _this['allowContactSeller'] = allowContactSeller;
   };
 
   /**
