@@ -36,7 +36,7 @@
   /**
    * The Price model module.
    * @module model/Price
-   * @version 0.0.32
+   * @version 0.0.33
    */
 
   /**

@@ -25,7 +25,7 @@
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.Coordinate = factory(root.DcfbApiClient.ApiClient);
+    root.DcfbApiClient.ItemPaymentMethods = factory(root.DcfbApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,14 +34,14 @@
 
 
   /**
-   * The Coordinate model module.
-   * @module model/Coordinate
+   * The ItemPaymentMethods model module.
+   * @module model/ItemPaymentMethods
    * @version 0.0.33
    */
 
   /**
-   * Constructs a new <code>Coordinate</code>.
-   * @alias module:model/Coordinate
+   * Constructs a new <code>ItemPaymentMethods</code>.
+   * @alias module:model/ItemPaymentMethods
    * @class
    */
   var exports = function() {
@@ -49,47 +49,37 @@
 
 
 
-
   };
 
   /**
-   * Constructs a <code>Coordinate</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ItemPaymentMethods</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Coordinate} obj Optional instance to populate.
-   * @return {module:model/Coordinate} The populated <code>Coordinate</code> instance.
+   * @param {module:model/ItemPaymentMethods} obj Optional instance to populate.
+   * @return {module:model/ItemPaymentMethods} The populated <code>ItemPaymentMethods</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('crs')) {
-        obj['crs'] = ApiClient.convertToType(data['crs'], 'String');
+      if (data.hasOwnProperty('allowCreditCard')) {
+        obj['allowCreditCard'] = ApiClient.convertToType(data['allowCreditCard'], 'Boolean');
       }
-      if (data.hasOwnProperty('latitude')) {
-        obj['latitude'] = ApiClient.convertToType(data['latitude'], 'String');
-      }
-      if (data.hasOwnProperty('longitude')) {
-        obj['longitude'] = ApiClient.convertToType(data['longitude'], 'String');
+      if (data.hasOwnProperty('allowContactSeller')) {
+        obj['allowContactSeller'] = ApiClient.convertToType(data['allowContactSeller'], 'Boolean');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} crs
+   * @member {Boolean} allowCreditCard
    */
-  exports.prototype['crs'] = undefined;
+  exports.prototype['allowCreditCard'] = undefined;
   /**
-   * latitude coordinate.
-   * @member {String} latitude
+   * @member {Boolean} allowContactSeller
    */
-  exports.prototype['latitude'] = undefined;
-  /**
-   * longitude coordinate.
-   * @member {String} longitude
-   */
-  exports.prototype['longitude'] = undefined;
+  exports.prototype['allowContactSeller'] = undefined;
 
 
 

@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **amount** | **Number** |  | 
 **reservedAmount** | **Number** |  | [optional] 
 **soldAmount** | **Number** |  | [optional] 
+**paymentMethods** | [**ItemPaymentMethods**](ItemPaymentMethods.md) |  | [optional] 
 **meta** | [**[Meta]**](Meta.md) | Item meta | [optional] 
 
 

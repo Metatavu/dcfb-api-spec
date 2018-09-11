@@ -36,7 +36,7 @@
   /**
    * The Category model module.
    * @module model/Category
-   * @version 0.0.32
+   * @version 0.0.33
    */
 
   /**

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Image', 'model/LocalizedValue', 'model/Meta', 'model/Price'], factory);
+    define(['ApiClient', 'model/Image', 'model/ItemPaymentMethods', 'model/LocalizedValue', 'model/Meta', 'model/Price'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Image'), require('./LocalizedValue'), require('./Meta'), require('./Price'));
+    module.exports = factory(require('../ApiClient'), require('./Image'), require('./ItemPaymentMethods'), require('./LocalizedValue'), require('./Meta'), require('./Price'));
   } else {
     // Browser globals (root is window)
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.Item = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.Image, root.DcfbApiClient.LocalizedValue, root.DcfbApiClient.Meta, root.DcfbApiClient.Price);
+    root.DcfbApiClient.Item = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.Image, root.DcfbApiClient.ItemPaymentMethods, root.DcfbApiClient.LocalizedValue, root.DcfbApiClient.Meta, root.DcfbApiClient.Price);
   }
-}(this, function(ApiClient, Image, LocalizedValue, Meta, Price) {
+}(this, function(ApiClient, Image, ItemPaymentMethods, LocalizedValue, Meta, Price) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.32
+   * @version 0.0.33
    */
 
   /**
@@ -67,6 +67,7 @@
     _this['unitPrice'] = unitPrice;
     _this['unit'] = unit;
     _this['amount'] = amount;
+
 
 
 
@@ -136,6 +137,9 @@
       }
       if (data.hasOwnProperty('soldAmount')) {
         obj['soldAmount'] = ApiClient.convertToType(data['soldAmount'], 'Number');
+      }
+      if (data.hasOwnProperty('paymentMethods')) {
+        obj['paymentMethods'] = ItemPaymentMethods.constructFromObject(data['paymentMethods']);
       }
       if (data.hasOwnProperty('meta')) {
         obj['meta'] = ApiClient.convertToType(data['meta'], [Meta]);
@@ -223,6 +227,10 @@
    * @member {Number} soldAmount
    */
   exports.prototype['soldAmount'] = undefined;
+  /**
+   * @member {module:model/ItemPaymentMethods} paymentMethods
+   */
+  exports.prototype['paymentMethods'] = undefined;
   /**
    * Item meta
    * @member {Array.<module:model/Meta>} meta
