@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import feign.*;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-11T16:39:34.346+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-11T17:17:53.564+03:00")
 public interface ItemsApi extends ApiClient.Api {
 
 
@@ -81,18 +81,18 @@ public interface ItemsApi extends ApiClient.Api {
     * @param search Search by free-text query (optional)
     * @param nearLat Prefer results near geo-point (optional)
     * @param nearLon Prefer results near geo-point (optional)
-    * @param sort  (optional)
     * @param includeExhausted Whether to include items without any items in stock. Defaults to false (optional)
+    * @param sort  (optional)
     * @param firstResult First result (optional)
     * @param maxResults Max results (optional)
    * @return List&lt;Item&gt;
    */
-  @RequestLine("GET /items?categoryIds={categoryIds}&locationIds={locationIds}&userIds={userIds}&search={search}&nearLat={nearLat}&nearLon={nearLon}&sort={sort}&includeExhausted={includeExhausted}&firstResult={firstResult}&maxResults={maxResults}")
+  @RequestLine("GET /items?categoryIds={categoryIds}&locationIds={locationIds}&userIds={userIds}&search={search}&nearLat={nearLat}&nearLon={nearLon}&includeExhausted={includeExhausted}&sort={sort}&firstResult={firstResult}&maxResults={maxResults}")
   @Headers({
     "Content-Type: application/json",
     "Accept: application/json",
   })
-  List<Item> listItems(@Param("categoryIds") String categoryIds, @Param("locationIds") String locationIds, @Param("userIds") String userIds, @Param("search") String search, @Param("nearLat") Double nearLat, @Param("nearLon") Double nearLon, @Param("sort") List<String> sort, @Param("includeExhausted") Boolean includeExhausted, @Param("firstResult") Long firstResult, @Param("maxResults") Long maxResults);
+  List<Item> listItems(@Param("categoryIds") String categoryIds, @Param("locationIds") String locationIds, @Param("userIds") String userIds, @Param("search") String search, @Param("nearLat") Double nearLat, @Param("nearLon") Double nearLon, @Param("includeExhausted") Boolean includeExhausted, @Param("sort") List<String> sort, @Param("firstResult") Long firstResult, @Param("maxResults") Long maxResults);
 
   /**
    * List items
@@ -111,14 +111,14 @@ public interface ItemsApi extends ApiClient.Api {
    *   <li>search - Search by free-text query (optional)</li>
    *   <li>nearLat - Prefer results near geo-point (optional)</li>
    *   <li>nearLon - Prefer results near geo-point (optional)</li>
-   *   <li>sort -  (optional)</li>
    *   <li>includeExhausted - Whether to include items without any items in stock. Defaults to false (optional)</li>
+   *   <li>sort -  (optional)</li>
    *   <li>firstResult - First result (optional)</li>
    *   <li>maxResults - Max results (optional)</li>
    *   </ul>
    * @return List&lt;Item&gt;
    */
-  @RequestLine("GET /items?categoryIds={categoryIds}&locationIds={locationIds}&userIds={userIds}&search={search}&nearLat={nearLat}&nearLon={nearLon}&sort={sort}&includeExhausted={includeExhausted}&firstResult={firstResult}&maxResults={maxResults}")
+  @RequestLine("GET /items?categoryIds={categoryIds}&locationIds={locationIds}&userIds={userIds}&search={search}&nearLat={nearLat}&nearLon={nearLon}&includeExhausted={includeExhausted}&sort={sort}&firstResult={firstResult}&maxResults={maxResults}")
   @Headers({
   "Content-Type: application/json",
   "Accept: application/json",
@@ -154,12 +154,12 @@ public interface ItemsApi extends ApiClient.Api {
       put("nearLon", EncodingUtils.encode(value));
       return this;
     }
-    public ListItemsQueryParams sort(final List<String> value) {
-      put("sort", EncodingUtils.encodeCollection(value, "csv"));
-      return this;
-    }
     public ListItemsQueryParams includeExhausted(final Boolean value) {
       put("includeExhausted", EncodingUtils.encode(value));
+      return this;
+    }
+    public ListItemsQueryParams sort(final List<String> value) {
+      put("sort", EncodingUtils.encodeCollection(value, "csv"));
       return this;
     }
     public ListItemsQueryParams firstResult(final Long value) {
