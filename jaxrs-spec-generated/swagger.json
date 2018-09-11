@@ -1303,6 +1303,17 @@
           "type" : "integer",
           "format" : "int64"
         },
+        "paymentMethods" : {
+          "type" : "object",
+          "properties" : {
+            "allowCreditCard" : {
+              "type" : "boolean"
+            },
+            "allowContactSeller" : {
+              "type" : "boolean"
+            }
+          }
+        },
         "meta" : {
           "type" : "array",
           "description" : "Item meta",

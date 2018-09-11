@@ -1,6 +1,7 @@
 package fi.metatavu.dcfb.server.rest.model;
 
 import fi.metatavu.dcfb.server.rest.model.Image;
+import fi.metatavu.dcfb.server.rest.model.ItemPaymentMethods;
 import fi.metatavu.dcfb.server.rest.model.LocalizedValue;
 import fi.metatavu.dcfb.server.rest.model.Meta;
 import fi.metatavu.dcfb.server.rest.model.Price;
@@ -36,6 +37,7 @@ public class Item   {
   private @Valid Long amount = null;
   private @Valid Long reservedAmount = null;
   private @Valid Long soldAmount = null;
+  private @Valid ItemPaymentMethods paymentMethods = null;
   private @Valid List<Meta> meta = new ArrayList<Meta>();
 
   /**
@@ -338,6 +340,22 @@ public class Item   {
   }
 
   /**
+   **/
+  public Item paymentMethods(ItemPaymentMethods paymentMethods) {
+    this.paymentMethods = paymentMethods;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public ItemPaymentMethods getPaymentMethods() {
+    return paymentMethods;
+  }
+  public void setPaymentMethods(ItemPaymentMethods paymentMethods) {
+    this.paymentMethods = paymentMethods;
+  }
+
+  /**
    * Item meta
    **/
   public Item meta(List<Meta> meta) {
@@ -382,12 +400,13 @@ public class Item   {
         Objects.equals(amount, item.amount) &&
         Objects.equals(reservedAmount, item.reservedAmount) &&
         Objects.equals(soldAmount, item.soldAmount) &&
+        Objects.equals(paymentMethods, item.paymentMethods) &&
         Objects.equals(meta, item.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, meta);
   }
 
   @Override
@@ -413,6 +432,7 @@ public class Item   {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    reservedAmount: ").append(toIndentedString(reservedAmount)).append("\n");
     sb.append("    soldAmount: ").append(toIndentedString(soldAmount)).append("\n");
+    sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
