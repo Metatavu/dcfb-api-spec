@@ -244,6 +244,7 @@ var opts = {
   'nearLat': 1.2, // Number | Prefer results near geo-point
   'nearLon': 1.2, // Number | Prefer results near geo-point
   'sort': ["sort_example"], // [String] | 
+  'includeExhausted': true, // Boolean | Whether to include items without any items in stock. Defaults to false
   'firstResult': 789, // Number | First result
   'maxResults': 789 // Number | Max results
 };
@@ -266,6 +267,7 @@ Name | Type | Description  | Notes
  **nearLat** | **Number**| Prefer results near geo-point | [optional] 
  **nearLon** | **Number**| Prefer results near geo-point | [optional] 
  **sort** | [**[String]**](String.md)|  | [optional] 
+ **includeExhausted** | **Boolean**| Whether to include items without any items in stock. Defaults to false | [optional] 
  **firstResult** | **Number**| First result | [optional] 
  **maxResults** | **Number**| Max results | [optional] 
 
