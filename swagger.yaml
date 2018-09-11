@@ -54,17 +54,17 @@ paths:
           required: false
           type: number
           format: double
+        - name: includeExhausted
+          in: query
+          type: boolean
+          required: false
+          description: Whether to include items without any items in stock. Defaults to false
         - name: sort
           in: query
           type: array
           collectionFormat: csv
           items:
             type: string
-        - name: includeExhausted
-          in: query
-          type: boolean
-          required: false
-          description: Whether to include items without any items in stock. Defaults to false
         - name: firstResult
           in: query
           description: First result
