@@ -99,9 +99,10 @@ public class ItemsApiTest {
         Double nearLat = null;
         Double nearLon = null;
         List<String> sort = null;
+        Boolean includeExhausted = null;
         Long firstResult = null;
         Long maxResults = null;
-        // List<Item> response = api.listItems(categoryIds, locationIds, userIds, search, nearLat, nearLon, sort, firstResult, maxResults);
+        // List<Item> response = api.listItems(categoryIds, locationIds, userIds, search, nearLat, nearLon, sort, includeExhausted, firstResult, maxResults);
 
         // TODO: test validations
     }
@@ -124,6 +125,7 @@ public class ItemsApiTest {
             .nearLat(null)
             .nearLon(null)
             .sort(null)
+            .includeExhausted(null)
             .firstResult(null)
             .maxResults(null);
         // List<Item> response = api.listItems(queryParams);
