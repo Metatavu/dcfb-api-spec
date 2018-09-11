@@ -933,6 +933,7 @@ definitions:
       - unit
       - unitPrice
       - categoryId
+      - paymentMethods
     properties:
       id:
         description: Item id
@@ -997,6 +998,9 @@ definitions:
         type: integer
         format: int64
       paymentMethods:
+        required:
+          - allowCreditCard
+          - allowContactSeller
         type: object
         properties:
           allowCreditCard: 
