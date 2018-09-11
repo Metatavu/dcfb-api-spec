@@ -21,50 +21,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * NotFound
+ * ItemPaymentMethods
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-11T14:47:11.573+03:00")
-public class NotFound {
-  @JsonProperty("code")
-  private Integer code = null;
+public class ItemPaymentMethods {
+  @JsonProperty("allowCreditCard")
+  private Boolean allowCreditCard = null;
 
-  @JsonProperty("message")
-  private String message = null;
+  @JsonProperty("allowContactSeller")
+  private Boolean allowContactSeller = null;
 
-  public NotFound code(Integer code) {
-    this.code = code;
+  public ItemPaymentMethods allowCreditCard(Boolean allowCreditCard) {
+    this.allowCreditCard = allowCreditCard;
     return this;
   }
 
    /**
-   * Get code
-   * @return code
+   * Get allowCreditCard
+   * @return allowCreditCard
   **/
   @ApiModelProperty(value = "")
-  public Integer getCode() {
-    return code;
+  public Boolean isAllowCreditCard() {
+    return allowCreditCard;
   }
 
-  public void setCode(Integer code) {
-    this.code = code;
+  public void setAllowCreditCard(Boolean allowCreditCard) {
+    this.allowCreditCard = allowCreditCard;
   }
 
-  public NotFound message(String message) {
-    this.message = message;
+  public ItemPaymentMethods allowContactSeller(Boolean allowContactSeller) {
+    this.allowContactSeller = allowContactSeller;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get allowContactSeller
+   * @return allowContactSeller
   **/
   @ApiModelProperty(value = "")
-  public String getMessage() {
-    return message;
+  public Boolean isAllowContactSeller() {
+    return allowContactSeller;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setAllowContactSeller(Boolean allowContactSeller) {
+    this.allowContactSeller = allowContactSeller;
   }
 
 
@@ -76,24 +76,24 @@ public class NotFound {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotFound notFound = (NotFound) o;
-    return Objects.equals(this.code, notFound.code) &&
-        Objects.equals(this.message, notFound.message);
+    ItemPaymentMethods itemPaymentMethods = (ItemPaymentMethods) o;
+    return Objects.equals(this.allowCreditCard, itemPaymentMethods.allowCreditCard) &&
+        Objects.equals(this.allowContactSeller, itemPaymentMethods.allowContactSeller);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message);
+    return Objects.hash(allowCreditCard, allowContactSeller);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NotFound {\n");
+    sb.append("class ItemPaymentMethods {\n");
     
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    allowCreditCard: ").append(toIndentedString(allowCreditCard)).append("\n");
+    sb.append("    allowContactSeller: ").append(toIndentedString(allowContactSeller)).append("\n");
     sb.append("}");
     return sb.toString();
   }

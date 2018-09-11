@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import fi.metatavu.dcfb.client.Image;
+import fi.metatavu.dcfb.client.ItemPaymentMethods;
 import fi.metatavu.dcfb.client.LocalizedValue;
 import fi.metatavu.dcfb.client.Meta;
 import fi.metatavu.dcfb.client.Price;
@@ -31,7 +32,7 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-23T16:44:54.323+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-11T14:47:11.573+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
@@ -86,6 +87,9 @@ public class Item {
 
   @JsonProperty("soldAmount")
   private Long soldAmount = null;
+
+  @JsonProperty("paymentMethods")
+  private ItemPaymentMethods paymentMethods = null;
 
   @JsonProperty("meta")
   private List<Meta> meta = null;
@@ -446,6 +450,24 @@ public class Item {
     this.soldAmount = soldAmount;
   }
 
+  public Item paymentMethods(ItemPaymentMethods paymentMethods) {
+    this.paymentMethods = paymentMethods;
+    return this;
+  }
+
+   /**
+   * Get paymentMethods
+   * @return paymentMethods
+  **/
+  @ApiModelProperty(value = "")
+  public ItemPaymentMethods getPaymentMethods() {
+    return paymentMethods;
+  }
+
+  public void setPaymentMethods(ItemPaymentMethods paymentMethods) {
+    this.paymentMethods = paymentMethods;
+  }
+
   public Item meta(List<Meta> meta) {
     this.meta = meta;
     return this;
@@ -500,12 +522,13 @@ public class Item {
         Objects.equals(this.amount, item.amount) &&
         Objects.equals(this.reservedAmount, item.reservedAmount) &&
         Objects.equals(this.soldAmount, item.soldAmount) &&
+        Objects.equals(this.paymentMethods, item.paymentMethods) &&
         Objects.equals(this.meta, item.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, meta);
   }
 
 
@@ -532,6 +555,7 @@ public class Item {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    reservedAmount: ").append(toIndentedString(reservedAmount)).append("\n");
     sb.append("    soldAmount: ").append(toIndentedString(soldAmount)).append("\n");
+    sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();

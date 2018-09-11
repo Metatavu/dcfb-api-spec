@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Key-value pair that can be used to add meta data to objects (items, categories, etc)
  */
 @ApiModel(description = "Key-value pair that can be used to add meta data to objects (items, categories, etc)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-23T16:44:54.323+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-11T14:47:11.573+03:00")
 public class Meta {
   @JsonProperty("key")
   private String key = null;
