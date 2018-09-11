@@ -33,7 +33,7 @@
   /**
    * Items service.
    * @module api/ItemsApi
-   * @version 0.0.35
+   * @version 0.0.36
    */
 
   /**
@@ -276,8 +276,8 @@
      * @param {String} opts.search Search by free-text query
      * @param {Number} opts.nearLat Prefer results near geo-point
      * @param {Number} opts.nearLon Prefer results near geo-point
-     * @param {Array.<String>} opts.sort 
      * @param {Boolean} opts.includeExhausted Whether to include items without any items in stock. Defaults to false
+     * @param {Array.<String>} opts.sort 
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Item>} and HTTP response
@@ -333,8 +333,8 @@
      * @param {String} opts.search Search by free-text query
      * @param {Number} opts.nearLat Prefer results near geo-point
      * @param {Number} opts.nearLon Prefer results near geo-point
-     * @param {Array.<String>} opts.sort 
      * @param {Boolean} opts.includeExhausted Whether to include items without any items in stock. Defaults to false
+     * @param {Array.<String>} opts.sort 
      * @param {Number} opts.firstResult First result
      * @param {Number} opts.maxResults Max results
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Item>}
