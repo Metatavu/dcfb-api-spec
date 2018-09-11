@@ -1217,7 +1217,7 @@
     },
     "Item" : {
       "type" : "object",
-      "required" : [ "amount", "categoryId", "unit", "unitPrice" ],
+      "required" : [ "amount", "categoryId", "paymentMethods", "unit", "unitPrice" ],
       "properties" : {
         "id" : {
           "type" : "string",
@@ -1312,7 +1312,8 @@
             "allowContactSeller" : {
               "type" : "boolean"
             }
-          }
+          },
+          "required" : [ "allowContactSeller", "allowCreditCard" ]
         },
         "meta" : {
           "type" : "array",

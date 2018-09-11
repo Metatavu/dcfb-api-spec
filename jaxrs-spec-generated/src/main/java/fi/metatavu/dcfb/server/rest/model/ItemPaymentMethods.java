@@ -21,7 +21,8 @@ public class ItemPaymentMethods   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
   public Boolean isAllowCreditCard() {
     return allowCreditCard;
   }
@@ -37,7 +38,8 @@ public class ItemPaymentMethods   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
   public Boolean isAllowContactSeller() {
     return allowContactSeller;
   }
