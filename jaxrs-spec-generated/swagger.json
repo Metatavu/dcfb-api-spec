@@ -58,6 +58,12 @@
           "type" : "number",
           "format" : "double"
         }, {
+          "name" : "includeExhausted",
+          "in" : "query",
+          "description" : "Whether to include items without any items in stock. Defaults to false",
+          "required" : false,
+          "type" : "boolean"
+        }, {
           "name" : "sort",
           "in" : "query",
           "required" : false,
@@ -66,12 +72,6 @@
             "type" : "string"
           },
           "collectionFormat" : "csv"
-        }, {
-          "name" : "includeExhausted",
-          "in" : "query",
-          "description" : "Whether to include items without any items in stock. Defaults to false",
-          "required" : false,
-          "type" : "boolean"
         }, {
           "name" : "firstResult",
           "in" : "query",
