@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import feign.*;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T15:03:11.037+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T17:10:23.464+03:00")
 public interface LocationsApi extends ApiClient.Api {
 
 
