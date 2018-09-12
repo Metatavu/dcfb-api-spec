@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import feign.*;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T14:53:54.217+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T15:03:11.037+03:00")
 public interface ItemsApi extends ApiClient.Api {
 
 
@@ -34,8 +34,8 @@ public interface ItemsApi extends ApiClient.Api {
   Item createItem(Item payload);
 
   /**
-   * Create item
-   * Create item
+   * Create item reservation
+   * Create item reservation
     * @param itemId Item id (required)
     * @param payload Payload (required)
    * @return ItemReservation
@@ -46,20 +46,6 @@ public interface ItemsApi extends ApiClient.Api {
     "Accept: application/json",
   })
   ItemReservation createItemReservation(@Param("itemId") UUID itemId, ItemReservation payload);
-
-  /**
-   * Create item
-   * Create item
-    * @param itemId Item id (required)
-    * @param itemReservationId Item id (required)
-   * @return ItemReservation
-   */
-  @RequestLine("GET /items/{itemId}/reservations/{itemReservationId}")
-  @Headers({
-    "Content-Type: application/json",
-    "Accept: application/json",
-  })
-  ItemReservation createItemReservation_1(@Param("itemId") UUID itemId, @Param("itemReservationId") UUID itemReservationId);
 
   /**
    * deletes an item
@@ -85,6 +71,20 @@ public interface ItemsApi extends ApiClient.Api {
     "Accept: application/json",
   })
   Item findItem(@Param("itemId") UUID itemId);
+
+  /**
+   * Find item reservation
+   * Find item reservation
+    * @param itemId Item id (required)
+    * @param itemReservationId Item id (required)
+   * @return ItemReservation
+   */
+  @RequestLine("GET /items/{itemId}/reservations/{itemReservationId}")
+  @Headers({
+    "Content-Type: application/json",
+    "Accept: application/json",
+  })
+  ItemReservation findItemReservation(@Param("itemId") UUID itemId, @Param("itemReservationId") UUID itemReservationId);
 
   /**
    * List items

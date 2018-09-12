@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * ItemPaymentMethods
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T14:53:54.217+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T15:03:11.037+03:00")
 public class ItemPaymentMethods {
   @JsonProperty("allowCreditCard")
   private Boolean allowCreditCard = null;

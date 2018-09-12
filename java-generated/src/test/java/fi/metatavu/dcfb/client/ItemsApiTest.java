@@ -43,30 +43,15 @@ public class ItemsApiTest {
 
     
     /**
-     * Create item
+     * Create item reservation
      *
-     * Create item
+     * Create item reservation
      */
     @Test
     public void createItemReservationTest() {
         UUID itemId = null;
         ItemReservation payload = null;
         // ItemReservation response = api.createItemReservation(itemId, payload);
-
-        // TODO: test validations
-    }
-
-    
-    /**
-     * Create item
-     *
-     * Create item
-     */
-    @Test
-    public void createItemReservation_0Test() {
-        UUID itemId = null;
-        UUID itemReservationId = null;
-        // ItemReservation response = api.createItemReservation_0(itemId, itemReservationId);
 
         // TODO: test validations
     }
@@ -95,6 +80,21 @@ public class ItemsApiTest {
     public void findItemTest() {
         UUID itemId = null;
         // Item response = api.findItem(itemId);
+
+        // TODO: test validations
+    }
+
+    
+    /**
+     * Find item reservation
+     *
+     * Find item reservation
+     */
+    @Test
+    public void findItemReservationTest() {
+        UUID itemId = null;
+        UUID itemReservationId = null;
+        // ItemReservation response = api.findItemReservation(itemId, itemReservationId);
 
         // TODO: test validations
     }
