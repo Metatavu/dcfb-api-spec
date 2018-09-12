@@ -23,7 +23,7 @@ import java.lang.Exception;
 @Api(description = "the items API")
 @Consumes({ "application/json;charset=utf-8" })
 @Produces({ "application/json;charset=utf-8" })
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-09-11T17:13:10.058+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2018-09-12T14:49:29.387+03:00")
 
 
 public interface ItemsApi  {
@@ -55,6 +55,20 @@ public interface ItemsApi  {
         @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
         @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
     public Response createItemReservation(@PathParam("itemId") @ApiParam("Item id") UUID itemId,@Valid ItemReservation payload) throws Exception;
+
+    @GET
+    @Path("/{itemId}/reservations/{itemReservationId}")
+    @Consumes({ "application/json;charset&#x3D;utf-8" })
+    @Produces({ "application/json;charset&#x3D;utf-8" })
+    @ApiOperation(value = "Create item", notes = "Create item", response = ItemReservation.class, authorizations = {
+        @Authorization(value = "bearer")
+    }, tags={ "Items",  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "find item reservation", response = ItemReservation.class),
+        @ApiResponse(code = 400, message = "Invalid request was sent to the server", response = BadRequest.class),
+        @ApiResponse(code = 403, message = "Attempted to make a call with unauthorized client", response = Forbidden.class),
+        @ApiResponse(code = 500, message = "Internal server error", response = InternalServerError.class) })
+    public Response createItemReservation_1(@PathParam("itemId") @ApiParam("Item id") UUID itemId,@PathParam("itemReservationId") @ApiParam("Item id") UUID itemReservationId) throws Exception;
 
     @DELETE
     @Path("/{itemId}")
