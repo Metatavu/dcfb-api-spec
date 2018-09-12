@@ -289,8 +289,8 @@
     "/items/{itemId}/reservations" : {
       "post" : {
         "tags" : [ "Items" ],
-        "summary" : "Create item",
-        "description" : "Create item",
+        "summary" : "Create item reservation",
+        "description" : "Create item reservation",
         "operationId" : "createItemReservation",
         "parameters" : [ {
           "name" : "itemId",
@@ -339,9 +339,9 @@
     "/items/{itemId}/reservations/{itemReservationId}" : {
       "get" : {
         "tags" : [ "Items" ],
-        "summary" : "Create item",
-        "description" : "Create item",
-        "operationId" : "createItemReservation",
+        "summary" : "Find item reservation",
+        "description" : "Find item reservation",
+        "operationId" : "findItemReservation",
         "parameters" : [ {
           "name" : "itemId",
           "in" : "path",
@@ -359,7 +359,7 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "find item reservation",
+            "description" : "Found item reservation",
             "schema" : {
               "$ref" : "#/definitions/ItemReservation"
             }
