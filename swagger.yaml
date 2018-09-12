@@ -227,8 +227,8 @@ paths:
   '/items/{itemId}/reservations':
     post:
       operationId: createItemReservation
-      summary: Create item
-      description: Create item
+      summary: Create item reservation
+      description: Create item reservation
       parameters:
         - name: itemId
           required: true
@@ -263,9 +263,9 @@ paths:
             $ref: '#/definitions/InternalServerError'
   '/items/{itemId}/reservations/{itemReservationId}':
     get:
-      operationId: createItemReservation
-      summary: Create item
-      description: Create item
+      operationId: findItemReservation
+      summary: Find item reservation
+      description: Find item reservation
       parameters:
         - name: itemId
           required: true
@@ -283,7 +283,7 @@ paths:
         - Items
       responses:
         200:
-          description: find item reservation
+          description: Found item reservation
           schema:
             $ref: '#/definitions/ItemReservation'
         400:
