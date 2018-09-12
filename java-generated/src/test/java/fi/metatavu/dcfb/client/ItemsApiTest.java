@@ -58,6 +58,21 @@ public class ItemsApiTest {
 
     
     /**
+     * Create item
+     *
+     * Create item
+     */
+    @Test
+    public void createItemReservation_0Test() {
+        UUID itemId = null;
+        UUID itemReservationId = null;
+        // ItemReservation response = api.createItemReservation_0(itemId, itemReservationId);
+
+        // TODO: test validations
+    }
+
+    
+    /**
      * deletes an item
      *
      * Delete item
