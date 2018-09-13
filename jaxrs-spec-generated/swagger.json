@@ -1303,6 +1303,11 @@
           "format" : "uuid",
           "description" : "Location id."
         },
+        "resourceId" : {
+          "type" : "string",
+          "format" : "uuid",
+          "description" : "Resource id."
+        },
         "slug" : {
           "type" : "string",
           "description" : "Item slug"
