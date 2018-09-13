@@ -33,7 +33,7 @@
   /**
    * Items service.
    * @module api/ItemsApi
-   * @version 0.0.36
+   * @version 0.0.37
    */
 
   /**
@@ -101,8 +101,8 @@
 
 
     /**
-     * Create item
-     * Create item
+     * Create item reservation
+     * Create item reservation
      * @param {String} itemId Item id
      * @param {module:model/ItemReservation} payload Payload
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ItemReservation} and HTTP response
@@ -146,8 +146,8 @@
     }
 
     /**
-     * Create item
-     * Create item
+     * Create item reservation
+     * Create item reservation
      * @param {String} itemId Item id
      * @param {module:model/ItemReservation} payload Payload
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ItemReservation}
@@ -260,6 +260,67 @@
      */
     this.findItem = function(itemId) {
       return this.findItemWithHttpInfo(itemId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Find item reservation
+     * Find item reservation
+     * @param {String} itemId Item id
+     * @param {String} itemReservationId Item id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ItemReservation} and HTTP response
+     */
+    this.findItemReservationWithHttpInfo = function(itemId, itemReservationId) {
+      var postBody = null;
+
+      // verify the required parameter 'itemId' is set
+      if (itemId === undefined || itemId === null) {
+        throw new Error("Missing the required parameter 'itemId' when calling findItemReservation");
+      }
+
+      // verify the required parameter 'itemReservationId' is set
+      if (itemReservationId === undefined || itemReservationId === null) {
+        throw new Error("Missing the required parameter 'itemReservationId' when calling findItemReservation");
+      }
+
+
+      var pathParams = {
+        'itemId': itemId,
+        'itemReservationId': itemReservationId
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['bearer'];
+      var contentTypes = ['application/json;charset=utf-8'];
+      var accepts = ['application/json;charset=utf-8'];
+      var returnType = ItemReservation;
+
+      return this.apiClient.callApi(
+        '/items/{itemId}/reservations/{itemReservationId}', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Find item reservation
+     * Find item reservation
+     * @param {String} itemId Item id
+     * @param {String} itemReservationId Item id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ItemReservation}
+     */
+    this.findItemReservation = function(itemId, itemReservationId) {
+      return this.findItemReservationWithHttpInfo(itemId, itemReservationId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

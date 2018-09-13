@@ -36,7 +36,7 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.36
+   * @version 0.0.37
    */
 
   /**
@@ -55,6 +55,7 @@
 
 
     _this['categoryId'] = categoryId;
+
 
 
 
@@ -98,6 +99,9 @@
       }
       if (data.hasOwnProperty('locationId')) {
         obj['locationId'] = ApiClient.convertToType(data['locationId'], 'String');
+      }
+      if (data.hasOwnProperty('resourceId')) {
+        obj['resourceId'] = ApiClient.convertToType(data['resourceId'], 'String');
       }
       if (data.hasOwnProperty('slug')) {
         obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
@@ -173,6 +177,11 @@
    * @member {String} locationId
    */
   exports.prototype['locationId'] = undefined;
+  /**
+   * Resource id.
+   * @member {String} resourceId
+   */
+  exports.prototype['resourceId'] = undefined;
   /**
    * Item slug
    * @member {String} slug

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **description** | [**[LocalizedValue]**](LocalizedValue.md) | Description of the item, multilingual | [optional] 
 **categoryId** | **String** | Category id. | 
 **locationId** | **String** | Location id. | [optional] 
+**resourceId** | **String** | Resource id. | [optional] 
 **slug** | **String** | Item slug | [optional] 
 **sellerId** | **String** | Sellers user id | [optional] 
 **createdAt** | **Date** |  | [optional] 
