@@ -996,6 +996,10 @@ definitions:
         description: Location id.
         type: string
         format: uuid
+      resourceId:
+        description: Resource id.
+        type: string
+        format: uuid
       slug:
         description: Item slug
         type: string
