@@ -32,7 +32,7 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T17:10:23.464+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-13T23:02:20.911+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
@@ -48,6 +48,9 @@ public class Item {
 
   @JsonProperty("locationId")
   private UUID locationId = null;
+
+  @JsonProperty("resourceId")
+  private UUID resourceId = null;
 
   @JsonProperty("slug")
   private String slug = null;
@@ -198,6 +201,24 @@ public class Item {
 
   public void setLocationId(UUID locationId) {
     this.locationId = locationId;
+  }
+
+  public Item resourceId(UUID resourceId) {
+    this.resourceId = resourceId;
+    return this;
+  }
+
+   /**
+   * Resource id.
+   * @return resourceId
+  **/
+  @ApiModelProperty(value = "Resource id.")
+  public UUID getResourceId() {
+    return resourceId;
+  }
+
+  public void setResourceId(UUID resourceId) {
+    this.resourceId = resourceId;
   }
 
   public Item slug(String slug) {
@@ -509,6 +530,7 @@ public class Item {
         Objects.equals(this.description, item.description) &&
         Objects.equals(this.categoryId, item.categoryId) &&
         Objects.equals(this.locationId, item.locationId) &&
+        Objects.equals(this.resourceId, item.resourceId) &&
         Objects.equals(this.slug, item.slug) &&
         Objects.equals(this.sellerId, item.sellerId) &&
         Objects.equals(this.createdAt, item.createdAt) &&
@@ -528,7 +550,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, meta);
   }
 
 
@@ -542,6 +564,7 @@ public class Item {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
+    sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    sellerId: ").append(toIndentedString(sellerId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");

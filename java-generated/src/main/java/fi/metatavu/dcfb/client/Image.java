@@ -24,7 +24,7 @@ import java.util.UUID;
 /**
  * Image
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T17:10:23.464+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-13T23:02:20.911+03:00")
 public class Image {
   @JsonProperty("id")
   private UUID id = null;
