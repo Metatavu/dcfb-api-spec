@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import fi.metatavu.dcfb.client.DeliveryMethod;
 import fi.metatavu.dcfb.client.Image;
 import fi.metatavu.dcfb.client.ItemPaymentMethods;
 import fi.metatavu.dcfb.client.LocalizedValue;
@@ -32,7 +33,7 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-13T23:05:45.208+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-14T11:23:51.934+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
@@ -93,6 +94,21 @@ public class Item {
 
   @JsonProperty("paymentMethods")
   private ItemPaymentMethods paymentMethods = null;
+
+  @JsonProperty("deliveryMethods")
+  private List<DeliveryMethod> deliveryMethods = null;
+
+  @JsonProperty("termsOfDelivery")
+  private String termsOfDelivery = null;
+
+  @JsonProperty("deliveryTime")
+  private Integer deliveryTime = null;
+
+  @JsonProperty("contactEmail")
+  private String contactEmail = null;
+
+  @JsonProperty("contactPhone")
+  private String contactPhone = null;
 
   @JsonProperty("meta")
   private List<Meta> meta = null;
@@ -489,6 +505,104 @@ public class Item {
     this.paymentMethods = paymentMethods;
   }
 
+  public Item deliveryMethods(List<DeliveryMethod> deliveryMethods) {
+    this.deliveryMethods = deliveryMethods;
+    return this;
+  }
+
+  public Item addDeliveryMethodsItem(DeliveryMethod deliveryMethodsItem) {
+    if (this.deliveryMethods == null) {
+      this.deliveryMethods = new ArrayList<DeliveryMethod>();
+    }
+    this.deliveryMethods.add(deliveryMethodsItem);
+    return this;
+  }
+
+   /**
+   * Delivery methods
+   * @return deliveryMethods
+  **/
+  @ApiModelProperty(value = "Delivery methods")
+  public List<DeliveryMethod> getDeliveryMethods() {
+    return deliveryMethods;
+  }
+
+  public void setDeliveryMethods(List<DeliveryMethod> deliveryMethods) {
+    this.deliveryMethods = deliveryMethods;
+  }
+
+  public Item termsOfDelivery(String termsOfDelivery) {
+    this.termsOfDelivery = termsOfDelivery;
+    return this;
+  }
+
+   /**
+   * Get termsOfDelivery
+   * @return termsOfDelivery
+  **/
+  @ApiModelProperty(value = "")
+  public String getTermsOfDelivery() {
+    return termsOfDelivery;
+  }
+
+  public void setTermsOfDelivery(String termsOfDelivery) {
+    this.termsOfDelivery = termsOfDelivery;
+  }
+
+  public Item deliveryTime(Integer deliveryTime) {
+    this.deliveryTime = deliveryTime;
+    return this;
+  }
+
+   /**
+   * Get deliveryTime
+   * @return deliveryTime
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getDeliveryTime() {
+    return deliveryTime;
+  }
+
+  public void setDeliveryTime(Integer deliveryTime) {
+    this.deliveryTime = deliveryTime;
+  }
+
+  public Item contactEmail(String contactEmail) {
+    this.contactEmail = contactEmail;
+    return this;
+  }
+
+   /**
+   * Get contactEmail
+   * @return contactEmail
+  **/
+  @ApiModelProperty(value = "")
+  public String getContactEmail() {
+    return contactEmail;
+  }
+
+  public void setContactEmail(String contactEmail) {
+    this.contactEmail = contactEmail;
+  }
+
+  public Item contactPhone(String contactPhone) {
+    this.contactPhone = contactPhone;
+    return this;
+  }
+
+   /**
+   * Get contactPhone
+   * @return contactPhone
+  **/
+  @ApiModelProperty(value = "")
+  public String getContactPhone() {
+    return contactPhone;
+  }
+
+  public void setContactPhone(String contactPhone) {
+    this.contactPhone = contactPhone;
+  }
+
   public Item meta(List<Meta> meta) {
     this.meta = meta;
     return this;
@@ -545,12 +659,17 @@ public class Item {
         Objects.equals(this.reservedAmount, item.reservedAmount) &&
         Objects.equals(this.soldAmount, item.soldAmount) &&
         Objects.equals(this.paymentMethods, item.paymentMethods) &&
+        Objects.equals(this.deliveryMethods, item.deliveryMethods) &&
+        Objects.equals(this.termsOfDelivery, item.termsOfDelivery) &&
+        Objects.equals(this.deliveryTime, item.deliveryTime) &&
+        Objects.equals(this.contactEmail, item.contactEmail) &&
+        Objects.equals(this.contactPhone, item.contactPhone) &&
         Objects.equals(this.meta, item.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryMethods, termsOfDelivery, deliveryTime, contactEmail, contactPhone, meta);
   }
 
 
@@ -579,6 +698,11 @@ public class Item {
     sb.append("    reservedAmount: ").append(toIndentedString(reservedAmount)).append("\n");
     sb.append("    soldAmount: ").append(toIndentedString(soldAmount)).append("\n");
     sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append("\n");
+    sb.append("    deliveryMethods: ").append(toIndentedString(deliveryMethods)).append("\n");
+    sb.append("    termsOfDelivery: ").append(toIndentedString(termsOfDelivery)).append("\n");
+    sb.append("    deliveryTime: ").append(toIndentedString(deliveryTime)).append("\n");
+    sb.append("    contactEmail: ").append(toIndentedString(contactEmail)).append("\n");
+    sb.append("    contactPhone: ").append(toIndentedString(contactPhone)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();

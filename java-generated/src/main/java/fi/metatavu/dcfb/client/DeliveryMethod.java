@@ -17,31 +17,38 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import fi.metatavu.dcfb.client.LocalizedValue;
+import fi.metatavu.dcfb.client.Price;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
- * ItemReservation
+ * DeliveryMethod
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-14T11:23:51.934+03:00")
-public class ItemReservation {
+public class DeliveryMethod {
   @JsonProperty("id")
   private UUID id = null;
 
-  @JsonProperty("amount")
-  private Long amount = null;
+  @JsonProperty("title")
+  private List<LocalizedValue> title = null;
 
-  public ItemReservation id(UUID id) {
+  @JsonProperty("price")
+  private Price price = null;
+
+  public DeliveryMethod id(UUID id) {
     this.id = id;
     return this;
   }
 
    /**
-   * Item id
+   * Delivery method id
    * @return id
   **/
-  @ApiModelProperty(value = "Item id")
+  @ApiModelProperty(value = "Delivery method id")
   public UUID getId() {
     return id;
   }
@@ -50,22 +57,48 @@ public class ItemReservation {
     this.id = id;
   }
 
-  public ItemReservation amount(Long amount) {
-    this.amount = amount;
+  public DeliveryMethod title(List<LocalizedValue> title) {
+    this.title = title;
+    return this;
+  }
+
+  public DeliveryMethod addTitleItem(LocalizedValue titleItem) {
+    if (this.title == null) {
+      this.title = new ArrayList<LocalizedValue>();
+    }
+    this.title.add(titleItem);
     return this;
   }
 
    /**
-   * Get amount
-   * @return amount
+   * Title of the item, multilingual
+   * @return title
   **/
-  @ApiModelProperty(value = "")
-  public Long getAmount() {
-    return amount;
+  @ApiModelProperty(value = "Title of the item, multilingual")
+  public List<LocalizedValue> getTitle() {
+    return title;
   }
 
-  public void setAmount(Long amount) {
-    this.amount = amount;
+  public void setTitle(List<LocalizedValue> title) {
+    this.title = title;
+  }
+
+  public DeliveryMethod price(Price price) {
+    this.price = price;
+    return this;
+  }
+
+   /**
+   * Get price
+   * @return price
+  **/
+  @ApiModelProperty(value = "")
+  public Price getPrice() {
+    return price;
+  }
+
+  public void setPrice(Price price) {
+    this.price = price;
   }
 
 
@@ -77,24 +110,26 @@ public class ItemReservation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ItemReservation itemReservation = (ItemReservation) o;
-    return Objects.equals(this.id, itemReservation.id) &&
-        Objects.equals(this.amount, itemReservation.amount);
+    DeliveryMethod deliveryMethod = (DeliveryMethod) o;
+    return Objects.equals(this.id, deliveryMethod.id) &&
+        Objects.equals(this.title, deliveryMethod.title) &&
+        Objects.equals(this.price, deliveryMethod.price);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, amount);
+    return Objects.hash(id, title, price);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ItemReservation {\n");
+    sb.append("class DeliveryMethod {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("}");
     return sb.toString();
   }
