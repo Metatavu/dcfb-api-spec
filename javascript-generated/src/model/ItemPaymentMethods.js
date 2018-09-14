@@ -36,7 +36,7 @@
   /**
    * The ItemPaymentMethods model module.
    * @module model/ItemPaymentMethods
-   * @version 0.0.38
+   * @version 0.0.39
    */
 
   /**
