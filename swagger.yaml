@@ -1050,11 +1050,12 @@ definitions:
             type: boolean
           allowContactSeller:
             type: boolean
-      deliveryMethods: 
-        type: array
-        description: Delivery methods
-        items:
-          $ref: '#/definitions/DeliveryMethod'
+      deliveryPrice:
+        $ref: '#/definitions/Price'
+      allowDelivery:
+        type: boolean
+      allowPickup:
+        type: boolean
       termsOfDelivery:
         type: string
       deliveryTime:
@@ -1080,22 +1081,7 @@ definitions:
       amount:
         type: integer
         format: int64
-  
-  DeliveryMethod:
-    type: object
-    properties:
-      id:
-        description: Delivery method id
-        type: string
-        format: uuid
-      title:
-        type: array
-        description: Title of the item, multilingual
-        items:
-          $ref: '#/definitions/LocalizedValue'
-      price:
-        $ref: '#/definitions/Price'
-      
+
   PurchaseRequest:
     type: object
     properties:
