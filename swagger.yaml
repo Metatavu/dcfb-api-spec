@@ -1050,6 +1050,20 @@ definitions:
             type: boolean
           allowContactSeller:
             type: boolean
+      deliveryMethods: 
+        type: array
+        description: Delivery methods
+        items:
+          $ref: '#/definitions/DeliveryMethod'
+      termsOfDelivery:
+        type: string
+      deliveryTime:
+        type: integer
+      contactEmail:
+        type: string
+        format: email
+      contactPhone:
+        type: string
       meta:
         type: array
         description: Item meta
@@ -1066,7 +1080,22 @@ definitions:
       amount:
         type: integer
         format: int64
-
+  
+  DeliveryMethod:
+    type: object
+    properties:
+      id:
+        description: Delivery method id
+        type: string
+        format: uuid
+      title:
+        type: array
+        description: Title of the item, multilingual
+        items:
+          $ref: '#/definitions/LocalizedValue'
+      price:
+        $ref: '#/definitions/Price'
+      
   PurchaseRequest:
     type: object
     properties:
