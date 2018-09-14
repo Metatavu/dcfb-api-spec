@@ -17,7 +17,6 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import fi.metatavu.dcfb.client.DeliveryMethod;
 import fi.metatavu.dcfb.client.Image;
 import fi.metatavu.dcfb.client.ItemPaymentMethods;
 import fi.metatavu.dcfb.client.LocalizedValue;
@@ -33,7 +32,7 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-14T11:23:51.934+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-14T16:35:48.136+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
@@ -95,8 +94,14 @@ public class Item {
   @JsonProperty("paymentMethods")
   private ItemPaymentMethods paymentMethods = null;
 
-  @JsonProperty("deliveryMethods")
-  private List<DeliveryMethod> deliveryMethods = null;
+  @JsonProperty("deliveryPrice")
+  private Price deliveryPrice = null;
+
+  @JsonProperty("allowDelivery")
+  private Boolean allowDelivery = null;
+
+  @JsonProperty("allowPickup")
+  private Boolean allowPickup = null;
 
   @JsonProperty("termsOfDelivery")
   private String termsOfDelivery = null;
@@ -505,30 +510,58 @@ public class Item {
     this.paymentMethods = paymentMethods;
   }
 
-  public Item deliveryMethods(List<DeliveryMethod> deliveryMethods) {
-    this.deliveryMethods = deliveryMethods;
-    return this;
-  }
-
-  public Item addDeliveryMethodsItem(DeliveryMethod deliveryMethodsItem) {
-    if (this.deliveryMethods == null) {
-      this.deliveryMethods = new ArrayList<DeliveryMethod>();
-    }
-    this.deliveryMethods.add(deliveryMethodsItem);
+  public Item deliveryPrice(Price deliveryPrice) {
+    this.deliveryPrice = deliveryPrice;
     return this;
   }
 
    /**
-   * Delivery methods
-   * @return deliveryMethods
+   * Get deliveryPrice
+   * @return deliveryPrice
   **/
-  @ApiModelProperty(value = "Delivery methods")
-  public List<DeliveryMethod> getDeliveryMethods() {
-    return deliveryMethods;
+  @ApiModelProperty(value = "")
+  public Price getDeliveryPrice() {
+    return deliveryPrice;
   }
 
-  public void setDeliveryMethods(List<DeliveryMethod> deliveryMethods) {
-    this.deliveryMethods = deliveryMethods;
+  public void setDeliveryPrice(Price deliveryPrice) {
+    this.deliveryPrice = deliveryPrice;
+  }
+
+  public Item allowDelivery(Boolean allowDelivery) {
+    this.allowDelivery = allowDelivery;
+    return this;
+  }
+
+   /**
+   * Get allowDelivery
+   * @return allowDelivery
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isAllowDelivery() {
+    return allowDelivery;
+  }
+
+  public void setAllowDelivery(Boolean allowDelivery) {
+    this.allowDelivery = allowDelivery;
+  }
+
+  public Item allowPickup(Boolean allowPickup) {
+    this.allowPickup = allowPickup;
+    return this;
+  }
+
+   /**
+   * Get allowPickup
+   * @return allowPickup
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isAllowPickup() {
+    return allowPickup;
+  }
+
+  public void setAllowPickup(Boolean allowPickup) {
+    this.allowPickup = allowPickup;
   }
 
   public Item termsOfDelivery(String termsOfDelivery) {
@@ -659,7 +692,9 @@ public class Item {
         Objects.equals(this.reservedAmount, item.reservedAmount) &&
         Objects.equals(this.soldAmount, item.soldAmount) &&
         Objects.equals(this.paymentMethods, item.paymentMethods) &&
-        Objects.equals(this.deliveryMethods, item.deliveryMethods) &&
+        Objects.equals(this.deliveryPrice, item.deliveryPrice) &&
+        Objects.equals(this.allowDelivery, item.allowDelivery) &&
+        Objects.equals(this.allowPickup, item.allowPickup) &&
         Objects.equals(this.termsOfDelivery, item.termsOfDelivery) &&
         Objects.equals(this.deliveryTime, item.deliveryTime) &&
         Objects.equals(this.contactEmail, item.contactEmail) &&
@@ -669,7 +704,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryMethods, termsOfDelivery, deliveryTime, contactEmail, contactPhone, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryPrice, allowDelivery, allowPickup, termsOfDelivery, deliveryTime, contactEmail, contactPhone, meta);
   }
 
 
@@ -698,7 +733,9 @@ public class Item {
     sb.append("    reservedAmount: ").append(toIndentedString(reservedAmount)).append("\n");
     sb.append("    soldAmount: ").append(toIndentedString(soldAmount)).append("\n");
     sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append("\n");
-    sb.append("    deliveryMethods: ").append(toIndentedString(deliveryMethods)).append("\n");
+    sb.append("    deliveryPrice: ").append(toIndentedString(deliveryPrice)).append("\n");
+    sb.append("    allowDelivery: ").append(toIndentedString(allowDelivery)).append("\n");
+    sb.append("    allowPickup: ").append(toIndentedString(allowPickup)).append("\n");
     sb.append("    termsOfDelivery: ").append(toIndentedString(termsOfDelivery)).append("\n");
     sb.append("    deliveryTime: ").append(toIndentedString(deliveryTime)).append("\n");
     sb.append("    contactEmail: ").append(toIndentedString(contactEmail)).append("\n");
