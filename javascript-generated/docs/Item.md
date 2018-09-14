@@ -23,6 +23,11 @@ Name | Type | Description | Notes
 **reservedAmount** | **Number** |  | [optional] 
 **soldAmount** | **Number** |  | [optional] 
 **paymentMethods** | [**ItemPaymentMethods**](ItemPaymentMethods.md) |  | [optional] 
+**deliveryMethods** | [**[DeliveryMethod]**](DeliveryMethod.md) | Delivery methods | [optional] 
+**termsOfDelivery** | **String** |  | [optional] 
+**deliveryTime** | **Number** |  | [optional] 
+**contactEmail** | **String** |  | [optional] 
+**contactPhone** | **String** |  | [optional] 
 **meta** | [**[Meta]**](Meta.md) | Item meta | [optional] 
 
 

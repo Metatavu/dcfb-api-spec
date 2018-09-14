@@ -16,50 +16,48 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/LocalizedValue', 'model/Price'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./LocalizedValue'), require('./Price'));
   } else {
     // Browser globals (root is window)
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.Image = factory(root.DcfbApiClient.ApiClient);
+    root.DcfbApiClient.DeliveryMethod = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.LocalizedValue, root.DcfbApiClient.Price);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, LocalizedValue, Price) {
   'use strict';
 
 
 
 
   /**
-   * The Image model module.
-   * @module model/Image
+   * The DeliveryMethod model module.
+   * @module model/DeliveryMethod
    * @version 0.0.38
    */
 
   /**
-   * Constructs a new <code>Image</code>.
-   * @alias module:model/Image
+   * Constructs a new <code>DeliveryMethod</code>.
+   * @alias module:model/DeliveryMethod
    * @class
-   * @param url {String} Image URL
-   * @param type {String} Image type
    */
-  var exports = function(url, type) {
+  var exports = function() {
     var _this = this;
 
 
-    _this['url'] = url;
-    _this['type'] = type;
+
+
   };
 
   /**
-   * Constructs a <code>Image</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>DeliveryMethod</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Image} obj Optional instance to populate.
-   * @return {module:model/Image} The populated <code>Image</code> instance.
+   * @param {module:model/DeliveryMethod} obj Optional instance to populate.
+   * @return {module:model/DeliveryMethod} The populated <code>DeliveryMethod</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -68,31 +66,30 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('url')) {
-        obj['url'] = ApiClient.convertToType(data['url'], 'String');
+      if (data.hasOwnProperty('title')) {
+        obj['title'] = ApiClient.convertToType(data['title'], [LocalizedValue]);
       }
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      if (data.hasOwnProperty('price')) {
+        obj['price'] = Price.constructFromObject(data['price']);
       }
     }
     return obj;
   }
 
   /**
-   * Image id
+   * Delivery method id
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * Image URL
-   * @member {String} url
+   * Title of the item, multilingual
+   * @member {Array.<module:model/LocalizedValue>} title
    */
-  exports.prototype['url'] = undefined;
+  exports.prototype['title'] = undefined;
   /**
-   * Image type
-   * @member {String} type
+   * @member {module:model/Price} price
    */
-  exports.prototype['type'] = undefined;
+  exports.prototype['price'] = undefined;
 
 
 

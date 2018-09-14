@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Image', 'model/ItemPaymentMethods', 'model/LocalizedValue', 'model/Meta', 'model/Price'], factory);
+    define(['ApiClient', 'model/DeliveryMethod', 'model/Image', 'model/ItemPaymentMethods', 'model/LocalizedValue', 'model/Meta', 'model/Price'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Image'), require('./ItemPaymentMethods'), require('./LocalizedValue'), require('./Meta'), require('./Price'));
+    module.exports = factory(require('../ApiClient'), require('./DeliveryMethod'), require('./Image'), require('./ItemPaymentMethods'), require('./LocalizedValue'), require('./Meta'), require('./Price'));
   } else {
     // Browser globals (root is window)
     if (!root.DcfbApiClient) {
       root.DcfbApiClient = {};
     }
-    root.DcfbApiClient.Item = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.Image, root.DcfbApiClient.ItemPaymentMethods, root.DcfbApiClient.LocalizedValue, root.DcfbApiClient.Meta, root.DcfbApiClient.Price);
+    root.DcfbApiClient.Item = factory(root.DcfbApiClient.ApiClient, root.DcfbApiClient.DeliveryMethod, root.DcfbApiClient.Image, root.DcfbApiClient.ItemPaymentMethods, root.DcfbApiClient.LocalizedValue, root.DcfbApiClient.Meta, root.DcfbApiClient.Price);
   }
-}(this, function(ApiClient, Image, ItemPaymentMethods, LocalizedValue, Meta, Price) {
+}(this, function(ApiClient, DeliveryMethod, Image, ItemPaymentMethods, LocalizedValue, Meta, Price) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.37
+   * @version 0.0.38
    */
 
   /**
@@ -68,6 +68,11 @@
     _this['unitPrice'] = unitPrice;
     _this['unit'] = unit;
     _this['amount'] = amount;
+
+
+
+
+
 
 
 
@@ -144,6 +149,21 @@
       }
       if (data.hasOwnProperty('paymentMethods')) {
         obj['paymentMethods'] = ItemPaymentMethods.constructFromObject(data['paymentMethods']);
+      }
+      if (data.hasOwnProperty('deliveryMethods')) {
+        obj['deliveryMethods'] = ApiClient.convertToType(data['deliveryMethods'], [DeliveryMethod]);
+      }
+      if (data.hasOwnProperty('termsOfDelivery')) {
+        obj['termsOfDelivery'] = ApiClient.convertToType(data['termsOfDelivery'], 'String');
+      }
+      if (data.hasOwnProperty('deliveryTime')) {
+        obj['deliveryTime'] = ApiClient.convertToType(data['deliveryTime'], 'Number');
+      }
+      if (data.hasOwnProperty('contactEmail')) {
+        obj['contactEmail'] = ApiClient.convertToType(data['contactEmail'], 'String');
+      }
+      if (data.hasOwnProperty('contactPhone')) {
+        obj['contactPhone'] = ApiClient.convertToType(data['contactPhone'], 'String');
       }
       if (data.hasOwnProperty('meta')) {
         obj['meta'] = ApiClient.convertToType(data['meta'], [Meta]);
@@ -240,6 +260,27 @@
    * @member {module:model/ItemPaymentMethods} paymentMethods
    */
   exports.prototype['paymentMethods'] = undefined;
+  /**
+   * Delivery methods
+   * @member {Array.<module:model/DeliveryMethod>} deliveryMethods
+   */
+  exports.prototype['deliveryMethods'] = undefined;
+  /**
+   * @member {String} termsOfDelivery
+   */
+  exports.prototype['termsOfDelivery'] = undefined;
+  /**
+   * @member {Number} deliveryTime
+   */
+  exports.prototype['deliveryTime'] = undefined;
+  /**
+   * @member {String} contactEmail
+   */
+  exports.prototype['contactEmail'] = undefined;
+  /**
+   * @member {String} contactPhone
+   */
+  exports.prototype['contactPhone'] = undefined;
   /**
    * Item meta
    * @member {Array.<module:model/Meta>} meta
