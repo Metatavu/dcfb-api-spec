@@ -1,6 +1,5 @@
 package fi.metatavu.dcfb.server.rest.model;
 
-import fi.metatavu.dcfb.server.rest.model.DeliveryMethod;
 import fi.metatavu.dcfb.server.rest.model.Image;
 import fi.metatavu.dcfb.server.rest.model.ItemPaymentMethods;
 import fi.metatavu.dcfb.server.rest.model.LocalizedValue;
@@ -40,7 +39,9 @@ public class Item   {
   private @Valid Long reservedAmount = null;
   private @Valid Long soldAmount = null;
   private @Valid ItemPaymentMethods paymentMethods = null;
-  private @Valid List<DeliveryMethod> deliveryMethods = new ArrayList<DeliveryMethod>();
+  private @Valid Price deliveryPrice = null;
+  private @Valid Boolean allowDelivery = null;
+  private @Valid Boolean allowPickup = null;
   private @Valid String termsOfDelivery = null;
   private @Valid Integer deliveryTime = null;
   private @Valid String contactEmail = null;
@@ -380,20 +381,51 @@ public class Item   {
   }
 
   /**
-   * Delivery methods
    **/
-  public Item deliveryMethods(List<DeliveryMethod> deliveryMethods) {
-    this.deliveryMethods = deliveryMethods;
+  public Item deliveryPrice(Price deliveryPrice) {
+    this.deliveryPrice = deliveryPrice;
     return this;
   }
 
   
-  @ApiModelProperty(value = "Delivery methods")
-  public List<DeliveryMethod> getDeliveryMethods() {
-    return deliveryMethods;
+  @ApiModelProperty(value = "")
+  public Price getDeliveryPrice() {
+    return deliveryPrice;
   }
-  public void setDeliveryMethods(List<DeliveryMethod> deliveryMethods) {
-    this.deliveryMethods = deliveryMethods;
+  public void setDeliveryPrice(Price deliveryPrice) {
+    this.deliveryPrice = deliveryPrice;
+  }
+
+  /**
+   **/
+  public Item allowDelivery(Boolean allowDelivery) {
+    this.allowDelivery = allowDelivery;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public Boolean isAllowDelivery() {
+    return allowDelivery;
+  }
+  public void setAllowDelivery(Boolean allowDelivery) {
+    this.allowDelivery = allowDelivery;
+  }
+
+  /**
+   **/
+  public Item allowPickup(Boolean allowPickup) {
+    this.allowPickup = allowPickup;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public Boolean isAllowPickup() {
+    return allowPickup;
+  }
+  public void setAllowPickup(Boolean allowPickup) {
+    this.allowPickup = allowPickup;
   }
 
   /**
@@ -507,7 +539,9 @@ public class Item   {
         Objects.equals(reservedAmount, item.reservedAmount) &&
         Objects.equals(soldAmount, item.soldAmount) &&
         Objects.equals(paymentMethods, item.paymentMethods) &&
-        Objects.equals(deliveryMethods, item.deliveryMethods) &&
+        Objects.equals(deliveryPrice, item.deliveryPrice) &&
+        Objects.equals(allowDelivery, item.allowDelivery) &&
+        Objects.equals(allowPickup, item.allowPickup) &&
         Objects.equals(termsOfDelivery, item.termsOfDelivery) &&
         Objects.equals(deliveryTime, item.deliveryTime) &&
         Objects.equals(contactEmail, item.contactEmail) &&
@@ -517,7 +551,7 @@ public class Item   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryMethods, termsOfDelivery, deliveryTime, contactEmail, contactPhone, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryPrice, allowDelivery, allowPickup, termsOfDelivery, deliveryTime, contactEmail, contactPhone, meta);
   }
 
   @Override
@@ -545,7 +579,9 @@ public class Item   {
     sb.append("    reservedAmount: ").append(toIndentedString(reservedAmount)).append("\n");
     sb.append("    soldAmount: ").append(toIndentedString(soldAmount)).append("\n");
     sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append("\n");
-    sb.append("    deliveryMethods: ").append(toIndentedString(deliveryMethods)).append("\n");
+    sb.append("    deliveryPrice: ").append(toIndentedString(deliveryPrice)).append("\n");
+    sb.append("    allowDelivery: ").append(toIndentedString(allowDelivery)).append("\n");
+    sb.append("    allowPickup: ").append(toIndentedString(allowPickup)).append("\n");
     sb.append("    termsOfDelivery: ").append(toIndentedString(termsOfDelivery)).append("\n");
     sb.append("    deliveryTime: ").append(toIndentedString(deliveryTime)).append("\n");
     sb.append("    contactEmail: ").append(toIndentedString(contactEmail)).append("\n");

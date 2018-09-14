@@ -1375,12 +1375,14 @@
           },
           "required" : [ "allowContactSeller", "allowCreditCard" ]
         },
-        "deliveryMethods" : {
-          "type" : "array",
-          "description" : "Delivery methods",
-          "items" : {
-            "$ref" : "#/definitions/DeliveryMethod"
-          }
+        "deliveryPrice" : {
+          "$ref" : "#/definitions/Price"
+        },
+        "allowDelivery" : {
+          "type" : "boolean"
+        },
+        "allowPickup" : {
+          "type" : "boolean"
         },
         "termsOfDelivery" : {
           "type" : "string"
@@ -1415,26 +1417,6 @@
         "amount" : {
           "type" : "integer",
           "format" : "int64"
-        }
-      }
-    },
-    "DeliveryMethod" : {
-      "type" : "object",
-      "properties" : {
-        "id" : {
-          "type" : "string",
-          "format" : "uuid",
-          "description" : "Delivery method id"
-        },
-        "title" : {
-          "type" : "array",
-          "description" : "Title of the item, multilingual",
-          "items" : {
-            "$ref" : "#/definitions/LocalizedValue"
-          }
-        },
-        "price" : {
-          "$ref" : "#/definitions/Price"
         }
       }
     },
