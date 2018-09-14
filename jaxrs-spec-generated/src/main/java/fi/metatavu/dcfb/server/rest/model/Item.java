@@ -1,5 +1,6 @@
 package fi.metatavu.dcfb.server.rest.model;
 
+import fi.metatavu.dcfb.server.rest.model.DeliveryMethod;
 import fi.metatavu.dcfb.server.rest.model.Image;
 import fi.metatavu.dcfb.server.rest.model.ItemPaymentMethods;
 import fi.metatavu.dcfb.server.rest.model.LocalizedValue;
@@ -39,6 +40,11 @@ public class Item   {
   private @Valid Long reservedAmount = null;
   private @Valid Long soldAmount = null;
   private @Valid ItemPaymentMethods paymentMethods = null;
+  private @Valid List<DeliveryMethod> deliveryMethods = new ArrayList<DeliveryMethod>();
+  private @Valid String termsOfDelivery = null;
+  private @Valid Integer deliveryTime = null;
+  private @Valid String contactEmail = null;
+  private @Valid String contactPhone = null;
   private @Valid List<Meta> meta = new ArrayList<Meta>();
 
   /**
@@ -374,6 +380,87 @@ public class Item   {
   }
 
   /**
+   * Delivery methods
+   **/
+  public Item deliveryMethods(List<DeliveryMethod> deliveryMethods) {
+    this.deliveryMethods = deliveryMethods;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "Delivery methods")
+  public List<DeliveryMethod> getDeliveryMethods() {
+    return deliveryMethods;
+  }
+  public void setDeliveryMethods(List<DeliveryMethod> deliveryMethods) {
+    this.deliveryMethods = deliveryMethods;
+  }
+
+  /**
+   **/
+  public Item termsOfDelivery(String termsOfDelivery) {
+    this.termsOfDelivery = termsOfDelivery;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public String getTermsOfDelivery() {
+    return termsOfDelivery;
+  }
+  public void setTermsOfDelivery(String termsOfDelivery) {
+    this.termsOfDelivery = termsOfDelivery;
+  }
+
+  /**
+   **/
+  public Item deliveryTime(Integer deliveryTime) {
+    this.deliveryTime = deliveryTime;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public Integer getDeliveryTime() {
+    return deliveryTime;
+  }
+  public void setDeliveryTime(Integer deliveryTime) {
+    this.deliveryTime = deliveryTime;
+  }
+
+  /**
+   **/
+  public Item contactEmail(String contactEmail) {
+    this.contactEmail = contactEmail;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public String getContactEmail() {
+    return contactEmail;
+  }
+  public void setContactEmail(String contactEmail) {
+    this.contactEmail = contactEmail;
+  }
+
+  /**
+   **/
+  public Item contactPhone(String contactPhone) {
+    this.contactPhone = contactPhone;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public String getContactPhone() {
+    return contactPhone;
+  }
+  public void setContactPhone(String contactPhone) {
+    this.contactPhone = contactPhone;
+  }
+
+  /**
    * Item meta
    **/
   public Item meta(List<Meta> meta) {
@@ -420,12 +507,17 @@ public class Item   {
         Objects.equals(reservedAmount, item.reservedAmount) &&
         Objects.equals(soldAmount, item.soldAmount) &&
         Objects.equals(paymentMethods, item.paymentMethods) &&
+        Objects.equals(deliveryMethods, item.deliveryMethods) &&
+        Objects.equals(termsOfDelivery, item.termsOfDelivery) &&
+        Objects.equals(deliveryTime, item.deliveryTime) &&
+        Objects.equals(contactEmail, item.contactEmail) &&
+        Objects.equals(contactPhone, item.contactPhone) &&
         Objects.equals(meta, item.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryMethods, termsOfDelivery, deliveryTime, contactEmail, contactPhone, meta);
   }
 
   @Override
@@ -453,6 +545,11 @@ public class Item   {
     sb.append("    reservedAmount: ").append(toIndentedString(reservedAmount)).append("\n");
     sb.append("    soldAmount: ").append(toIndentedString(soldAmount)).append("\n");
     sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append("\n");
+    sb.append("    deliveryMethods: ").append(toIndentedString(deliveryMethods)).append("\n");
+    sb.append("    termsOfDelivery: ").append(toIndentedString(termsOfDelivery)).append("\n");
+    sb.append("    deliveryTime: ").append(toIndentedString(deliveryTime)).append("\n");
+    sb.append("    contactEmail: ").append(toIndentedString(contactEmail)).append("\n");
+    sb.append("    contactPhone: ").append(toIndentedString(contactPhone)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
