@@ -36,7 +36,7 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.39
+   * @version 0.0.40
    */
 
   /**
@@ -68,6 +68,8 @@
     _this['unitPrice'] = unitPrice;
     _this['unit'] = unit;
     _this['amount'] = amount;
+
+
 
 
 
@@ -172,6 +174,12 @@
       }
       if (data.hasOwnProperty('contactPhone')) {
         obj['contactPhone'] = ApiClient.convertToType(data['contactPhone'], 'String');
+      }
+      if (data.hasOwnProperty('businessName')) {
+        obj['businessName'] = ApiClient.convertToType(data['businessName'], 'String');
+      }
+      if (data.hasOwnProperty('businessCode')) {
+        obj['businessCode'] = ApiClient.convertToType(data['businessCode'], 'String');
       }
       if (data.hasOwnProperty('meta')) {
         obj['meta'] = ApiClient.convertToType(data['meta'], [Meta]);
@@ -296,6 +304,14 @@
    * @member {String} contactPhone
    */
   exports.prototype['contactPhone'] = undefined;
+  /**
+   * @member {String} businessName
+   */
+  exports.prototype['businessName'] = undefined;
+  /**
+   * @member {String} businessCode
+   */
+  exports.prototype['businessCode'] = undefined;
   /**
    * Item meta
    * @member {Array.<module:model/Meta>} meta

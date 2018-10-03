@@ -30,6 +30,8 @@ Name | Type | Description | Notes
 **deliveryTime** | **Number** |  | [optional] 
 **contactEmail** | **String** |  | [optional] 
 **contactPhone** | **String** |  | [optional] 
+**businessName** | **String** |  | [optional] 
+**businessCode** | **String** |  | [optional] 
 **meta** | [**[Meta]**](Meta.md) | Item meta | [optional] 
 
 
