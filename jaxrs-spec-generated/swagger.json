@@ -1397,6 +1397,12 @@
         "contactPhone" : {
           "type" : "string"
         },
+        "businessName" : {
+          "type" : "string"
+        },
+        "businessCode" : {
+          "type" : "string"
+        },
         "meta" : {
           "type" : "array",
           "description" : "Item meta",

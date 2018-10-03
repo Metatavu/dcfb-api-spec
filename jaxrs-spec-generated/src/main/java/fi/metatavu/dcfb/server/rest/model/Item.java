@@ -46,6 +46,8 @@ public class Item   {
   private @Valid Integer deliveryTime = null;
   private @Valid String contactEmail = null;
   private @Valid String contactPhone = null;
+  private @Valid String businessName = null;
+  private @Valid String businessCode = null;
   private @Valid List<Meta> meta = new ArrayList<Meta>();
 
   /**
@@ -493,6 +495,38 @@ public class Item   {
   }
 
   /**
+   **/
+  public Item businessName(String businessName) {
+    this.businessName = businessName;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public String getBusinessName() {
+    return businessName;
+  }
+  public void setBusinessName(String businessName) {
+    this.businessName = businessName;
+  }
+
+  /**
+   **/
+  public Item businessCode(String businessCode) {
+    this.businessCode = businessCode;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  public String getBusinessCode() {
+    return businessCode;
+  }
+  public void setBusinessCode(String businessCode) {
+    this.businessCode = businessCode;
+  }
+
+  /**
    * Item meta
    **/
   public Item meta(List<Meta> meta) {
@@ -546,12 +580,14 @@ public class Item   {
         Objects.equals(deliveryTime, item.deliveryTime) &&
         Objects.equals(contactEmail, item.contactEmail) &&
         Objects.equals(contactPhone, item.contactPhone) &&
+        Objects.equals(businessName, item.businessName) &&
+        Objects.equals(businessCode, item.businessCode) &&
         Objects.equals(meta, item.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryPrice, allowDelivery, allowPickup, termsOfDelivery, deliveryTime, contactEmail, contactPhone, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryPrice, allowDelivery, allowPickup, termsOfDelivery, deliveryTime, contactEmail, contactPhone, businessName, businessCode, meta);
   }
 
   @Override
@@ -586,6 +622,8 @@ public class Item   {
     sb.append("    deliveryTime: ").append(toIndentedString(deliveryTime)).append("\n");
     sb.append("    contactEmail: ").append(toIndentedString(contactEmail)).append("\n");
     sb.append("    contactPhone: ").append(toIndentedString(contactPhone)).append("\n");
+    sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
+    sb.append("    businessCode: ").append(toIndentedString(businessCode)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
