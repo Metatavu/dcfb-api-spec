@@ -30,7 +30,7 @@ import java.util.UUID;
 /**
  * PurchaseRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-14T16:35:48.136+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-03T17:26:11.466+03:00")
 public class PurchaseRequest {
   @JsonProperty("id")
   private UUID id = null;

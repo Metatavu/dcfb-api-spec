@@ -32,7 +32,7 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-14T16:35:48.136+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-03T17:26:11.466+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
@@ -114,6 +114,12 @@ public class Item {
 
   @JsonProperty("contactPhone")
   private String contactPhone = null;
+
+  @JsonProperty("businessName")
+  private String businessName = null;
+
+  @JsonProperty("businessCode")
+  private String businessCode = null;
 
   @JsonProperty("meta")
   private List<Meta> meta = null;
@@ -636,6 +642,42 @@ public class Item {
     this.contactPhone = contactPhone;
   }
 
+  public Item businessName(String businessName) {
+    this.businessName = businessName;
+    return this;
+  }
+
+   /**
+   * Get businessName
+   * @return businessName
+  **/
+  @ApiModelProperty(value = "")
+  public String getBusinessName() {
+    return businessName;
+  }
+
+  public void setBusinessName(String businessName) {
+    this.businessName = businessName;
+  }
+
+  public Item businessCode(String businessCode) {
+    this.businessCode = businessCode;
+    return this;
+  }
+
+   /**
+   * Get businessCode
+   * @return businessCode
+  **/
+  @ApiModelProperty(value = "")
+  public String getBusinessCode() {
+    return businessCode;
+  }
+
+  public void setBusinessCode(String businessCode) {
+    this.businessCode = businessCode;
+  }
+
   public Item meta(List<Meta> meta) {
     this.meta = meta;
     return this;
@@ -699,12 +741,14 @@ public class Item {
         Objects.equals(this.deliveryTime, item.deliveryTime) &&
         Objects.equals(this.contactEmail, item.contactEmail) &&
         Objects.equals(this.contactPhone, item.contactPhone) &&
+        Objects.equals(this.businessName, item.businessName) &&
+        Objects.equals(this.businessCode, item.businessCode) &&
         Objects.equals(this.meta, item.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryPrice, allowDelivery, allowPickup, termsOfDelivery, deliveryTime, contactEmail, contactPhone, meta);
+    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryPrice, allowDelivery, allowPickup, termsOfDelivery, deliveryTime, contactEmail, contactPhone, businessName, businessCode, meta);
   }
 
 
@@ -740,6 +784,8 @@ public class Item {
     sb.append("    deliveryTime: ").append(toIndentedString(deliveryTime)).append("\n");
     sb.append("    contactEmail: ").append(toIndentedString(contactEmail)).append("\n");
     sb.append("    contactPhone: ").append(toIndentedString(contactPhone)).append("\n");
+    sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
+    sb.append("    businessCode: ").append(toIndentedString(businessCode)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
