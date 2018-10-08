@@ -36,22 +36,22 @@
   /**
    * The Item model module.
    * @module model/Item
-   * @version 0.0.40
+   * @version 0.0.41
    */
 
   /**
    * Constructs a new <code>Item</code>.
    * @alias module:model/Item
    * @class
+   * @param typeOfBusiness {module:model/Item.TypeOfBusinessEnum} 
    * @param categoryId {String} Category id.
-   * @param unitPrice {module:model/Price} 
-   * @param unit {String} 
    * @param amount {Number} 
    */
-  var exports = function(categoryId, unitPrice, unit, amount) {
+  var exports = function(typeOfBusiness, categoryId, amount) {
     var _this = this;
 
 
+    _this['typeOfBusiness'] = typeOfBusiness;
 
 
     _this['categoryId'] = categoryId;
@@ -65,8 +65,8 @@
 
 
 
-    _this['unitPrice'] = unitPrice;
-    _this['unit'] = unit;
+
+
     _this['amount'] = amount;
 
 
@@ -96,6 +96,9 @@
 
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
+      if (data.hasOwnProperty('typeOfBusiness')) {
+        obj['typeOfBusiness'] = ApiClient.convertToType(data['typeOfBusiness'], 'String');
       }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], [LocalizedValue]);
@@ -193,6 +196,10 @@
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
+  /**
+   * @member {module:model/Item.TypeOfBusinessEnum} typeOfBusiness
+   */
+  exports.prototype['typeOfBusiness'] = undefined;
   /**
    * Title of the item, multilingual
    * @member {Array.<module:model/LocalizedValue>} title
@@ -318,6 +325,23 @@
    */
   exports.prototype['meta'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>typeOfBusiness</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.TypeOfBusinessEnum = {
+    /**
+     * value: "SALE"
+     * @const
+     */
+    "SALE": "SALE",
+    /**
+     * value: "PURCHASE"
+     * @const
+     */
+    "PURCHASE": "PURCHASE"  };
 
 
   return exports;
