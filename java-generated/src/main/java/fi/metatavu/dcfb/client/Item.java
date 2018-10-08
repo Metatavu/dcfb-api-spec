@@ -32,10 +32,48 @@ import java.util.UUID;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-03T17:26:11.466+03:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-08T15:33:21.752+03:00")
 public class Item {
   @JsonProperty("id")
   private UUID id = null;
+
+  /**
+   * Gets or Sets typeOfBusiness
+   */
+  public enum TypeOfBusinessEnum {
+    SALE("SALE"),
+    
+    PURCHASE("PURCHASE");
+
+    private String value;
+
+    TypeOfBusinessEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TypeOfBusinessEnum fromValue(String text) {
+      for (TypeOfBusinessEnum b : TypeOfBusinessEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("typeOfBusiness")
+  private TypeOfBusinessEnum typeOfBusiness = null;
 
   @JsonProperty("title")
   private List<LocalizedValue> title = null;
@@ -140,6 +178,24 @@ public class Item {
 
   public void setId(UUID id) {
     this.id = id;
+  }
+
+  public Item typeOfBusiness(TypeOfBusinessEnum typeOfBusiness) {
+    this.typeOfBusiness = typeOfBusiness;
+    return this;
+  }
+
+   /**
+   * Get typeOfBusiness
+   * @return typeOfBusiness
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public TypeOfBusinessEnum getTypeOfBusiness() {
+    return typeOfBusiness;
+  }
+
+  public void setTypeOfBusiness(TypeOfBusinessEnum typeOfBusiness) {
+    this.typeOfBusiness = typeOfBusiness;
   }
 
   public Item title(List<LocalizedValue> title) {
@@ -417,7 +473,7 @@ public class Item {
    * Get unitPrice
    * @return unitPrice
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Price getUnitPrice() {
     return unitPrice;
   }
@@ -435,7 +491,7 @@ public class Item {
    * Get unit
    * @return unit
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getUnit() {
     return unit;
   }
@@ -715,6 +771,7 @@ public class Item {
     }
     Item item = (Item) o;
     return Objects.equals(this.id, item.id) &&
+        Objects.equals(this.typeOfBusiness, item.typeOfBusiness) &&
         Objects.equals(this.title, item.title) &&
         Objects.equals(this.description, item.description) &&
         Objects.equals(this.categoryId, item.categoryId) &&
@@ -748,7 +805,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryPrice, allowDelivery, allowPickup, termsOfDelivery, deliveryTime, contactEmail, contactPhone, businessName, businessCode, meta);
+    return Objects.hash(id, typeOfBusiness, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryPrice, allowDelivery, allowPickup, termsOfDelivery, deliveryTime, contactEmail, contactPhone, businessName, businessCode, meta);
   }
 
 
@@ -758,6 +815,7 @@ public class Item {
     sb.append("class Item {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    typeOfBusiness: ").append(toIndentedString(typeOfBusiness)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
