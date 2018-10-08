@@ -20,6 +20,38 @@ import java.util.Objects;
 public class Item   {
   
   private @Valid UUID id = null;
+
+public enum TypeOfBusinessEnum {
+
+    SALE(String.valueOf("SALE")), PURCHASE(String.valueOf("PURCHASE"));
+
+
+    private String value;
+
+    TypeOfBusinessEnum (String v) {
+        value = v;
+    }
+
+    public String value() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    public static TypeOfBusinessEnum fromValue(String v) {
+        for (TypeOfBusinessEnum b : TypeOfBusinessEnum.values()) {
+            if (String.valueOf(b.value).equals(v)) {
+                return b;
+            }
+        }
+        return null;
+    }
+}
+
+  private @Valid TypeOfBusinessEnum typeOfBusiness = null;
   private @Valid List<LocalizedValue> title = new ArrayList<LocalizedValue>();
   private @Valid List<LocalizedValue> description = new ArrayList<LocalizedValue>();
   private @Valid UUID categoryId = null;
@@ -65,6 +97,23 @@ public class Item   {
   }
   public void setId(UUID id) {
     this.id = id;
+  }
+
+  /**
+   **/
+  public Item typeOfBusiness(TypeOfBusinessEnum typeOfBusiness) {
+    this.typeOfBusiness = typeOfBusiness;
+    return this;
+  }
+
+  
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+  public TypeOfBusinessEnum getTypeOfBusiness() {
+    return typeOfBusiness;
+  }
+  public void setTypeOfBusiness(TypeOfBusinessEnum typeOfBusiness) {
+    this.typeOfBusiness = typeOfBusiness;
   }
 
   /**
@@ -291,8 +340,7 @@ public class Item   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
   public Price getUnitPrice() {
     return unitPrice;
   }
@@ -308,8 +356,7 @@ public class Item   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
   public String getUnit() {
     return unit;
   }
@@ -554,6 +601,7 @@ public class Item   {
     }
     Item item = (Item) o;
     return Objects.equals(id, item.id) &&
+        Objects.equals(typeOfBusiness, item.typeOfBusiness) &&
         Objects.equals(title, item.title) &&
         Objects.equals(description, item.description) &&
         Objects.equals(categoryId, item.categoryId) &&
@@ -587,7 +635,7 @@ public class Item   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryPrice, allowDelivery, allowPickup, termsOfDelivery, deliveryTime, contactEmail, contactPhone, businessName, businessCode, meta);
+    return Objects.hash(id, typeOfBusiness, title, description, categoryId, locationId, resourceId, slug, sellerId, createdAt, modifiedAt, expiresAt, images, visibleToUsers, visibilityLimited, unitPrice, unit, amount, reservedAmount, soldAmount, paymentMethods, deliveryPrice, allowDelivery, allowPickup, termsOfDelivery, deliveryTime, contactEmail, contactPhone, businessName, businessCode, meta);
   }
 
   @Override
@@ -596,6 +644,7 @@ public class Item   {
     sb.append("class Item {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    typeOfBusiness: ").append(toIndentedString(typeOfBusiness)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    categoryId: ").append(toIndentedString(categoryId)).append("\n");
